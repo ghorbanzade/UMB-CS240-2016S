@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS114: Introduction to Programming in Java
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS114-2015F/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\course}[2]{
+	\def \argId {id}
+	\def \argName {name}
+	\def \argVenue {venue}
+	\def \argSemester {semester}
+	\def \argDepartment {department}
+	\def \argUniversity {university}
+	\def \argGiven {#1}
+	\ifx\argGiven\argId
+		\def \courseId {#2}
+	\fi
+	\ifx\argGiven\argName
+		\def \courseName {#2}
+	\fi
+	\ifx\argGiven\argVenue
+		\def \courseVenue {#2}
+	\fi
+	\ifx\argGiven\argSemester
+		\def \courseSemester {#2}
+	\fi
+	\ifx\argGiven\argDepartment
+		\def \courseDepartment {#2}
+	\fi
+	\ifx\argGiven\argUniversity
+		\def \courseUniversity {#2}
+	\fi
+}
+
+\newcommand{\instructor}[2]{
+	\def \argName {name}
+	\def \argPosition {position}
+	\def \argEmail {email}
+	\def \argPhone {phone}
+	\def \argOffice {office}
+	\def \argOfficeHours {office-hours}
+	\def \argAddress {address}
+	\def \argGiven {#1}
+	\ifx\argGiven\argName
+		\def \instructorName {#2}
+	\fi
+	\ifx\argGiven\argPosition
+		\def \instructorPosition {#2}
+	\fi
+	\ifx\argGiven\argEmail
+		\def \instructorEmail {#2}
+	\fi
+	\ifx\argGiven\argPhone
+		\def \instructorPhone {#2}
+	\fi
+	\ifx\argGiven\argOffice
+		\def \instructorOffice {#2}
+	\fi
+	\ifx\argGiven\argOfficeHours
+		\def \instructorOfficeHours {#2}
+	\fi
+	\ifx\argGiven\argAddress
+		\def \instructorAddress {#2}
+	\fi
+}
+
+\newcommand{\doc}[2]{
+	\def \argTitle {title}
+	\def \argDatePub {date-pub}
+	\def \argDateDue {date-due}
+	\def \argPoints {points}
+	\def \argNumber {number}
+	\def \argGiven {#1}
+	\ifx\argGiven\argTitle
+		\def \docTitle {#2}
+	\fi
+	\ifx\argGiven\argDatePub
+		\def \docDatePub {#2}
+	\fi
+	\ifx\argGiven\argDateDue
+		\def \docDateDue {#2}
+	\fi
+	\ifx\argGiven\argPoints
+		\def \docPoints {#2}
+	\fi
+	\ifx\argGiven\argNumber
+		\def \docNumber {#2}
+	\fi
+}
