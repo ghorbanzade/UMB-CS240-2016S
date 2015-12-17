@@ -33,6 +33,15 @@ Office Hours: Mondays, Wednesdays 16:00 to 17:30
 ## Teaching Assistants
 To be determined
 
+## Course Website
+Course website is available at [http://ghorbanzade.com/teaching/CS240-2016S](http://ghorbanzade.com/teaching/CS240-2016S).
+
+**Students are expected to check the website on a regular basis.**
+
+All information such as important announcements, course schedule, useful links as well as assignments and their solution will be available at the course website.
+In addition, students can communicate with each other in the forum section, submit their assignments and keep track of their performance using the course website.
+In the unlikely case that the course website is not accessible, some materials can be found at the [course reposiory] on Github.
+
 ## Grading
 Homeworks: 40 points  
 Midterm Exam: 20 points  
@@ -47,7 +56,6 @@ Final Exam: To be determined
 ### Attendance Policy
 Class attendance is mandatory, and students are expected to participate actively in class by asking and answering questions.
 Students are responsible for material covered in any class that they do not attend.
-Students are also expected to check course website regularly for latest announcements, upcoming events and released homeworks.
 
 ### Late Submission Policy
 Homeworks may be submitted late by up to two days; the penalty for late submission increasing linearly from 20% to 100% of the homework score.
@@ -63,3 +71,4 @@ Students are required to adhere to the University Policy on Academic Standards a
 
 [Ross Center for Disability Services]: http://www.umb.edu/academics/vpass/disability
 [Code of Student Conduct]: http://www.umb.edu/life_on_campus/policies/community/code
+[course repository]: https://github.com/ghorbanzade/UMB-CS240-2016S
