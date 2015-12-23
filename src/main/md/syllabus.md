@@ -34,41 +34,40 @@ Office Hours: Mondays, Wednesdays 16:00 to 17:30
 To be determined
 
 ## Course Website
-Course website is available at [http://ghorbanzade.com/teaching/CS240-2016S](http://ghorbanzade.com/teaching/CS240-2016S).
 
-**Students are expected to check the website on a regular basis.**
+Students are expected to check the [course website] on a regular basis.
 
 All information such as important announcements, course schedule, useful links as well as assignments and their solution will be available at the course website.
-In addition, students can communicate with each other in the forum section, submit their assignments and keep track of their performance using the course website.
-In the unlikely case that the course website is not accessible, some materials can be found at the [course reposiory] on Github.
+In the unlikely case that the course website is not accessible, __some__ materials can be found at the [course repository].
 
 ## Grading
 Homeworks: 40 points  
 Midterm Exam: 20 points  
 Final Exam: 40 points
 
-### Important Dates
+## Important Dates
 First Lecture: January 25, 2016  
 Midterm Exam: March 9, 2016  
 Last Lecture: May 11, 2016  
 Final Exam: To be determined
 
-### Attendance Policy
+## Attendance Policy
 Class attendance is mandatory, and students are expected to participate actively in class by asking and answering questions.
 Students are responsible for material covered in any class that they do not attend.
 
-### Late Submission Policy
+## Late Submission Policy
 Homeworks may be submitted late by up to two days; the penalty for late submission increasing linearly from 20% to 100% of the homework score.
 
-### Makeup Policy
+## Makeup Policy
 Unless a good reason and its supporting evidence are given - e.g. due to illness or emergency events - no makeup is acceptable for students missing an assignment or an exam.
 
-### Accomodations
+## Accomodations
 Section 504 of the Americans with Disabilities Act of 1990 offers guidelines for curriculum modifications and adaptations for students with documented disabilities. If applicable, students may obtain adaptation recommendations from the [Ross Center for Disability Services], M-1-401, (617-287-7430). The student must present these recommendations and discuss them with each professor within a reasonable period, preferably by the end of Drop/Add period.
 
-### Student Conduct
+## Student Conduct
 Students are required to adhere to the University Policy on Academic Standards and Cheating, to the University Statement on Plagiarism and the Documentation of Written Work, and to the [Code of Student Conduct] as delineated in the catalog of Undergraduate Programs, pp. 44-45, and 48-52.
 
 [Ross Center for Disability Services]: http://www.umb.edu/academics/vpass/disability
 [Code of Student Conduct]: http://www.umb.edu/life_on_campus/policies/community/code
+[course website]: http://ghorbanzade.com/teaching/CS240-2016S
 [course repository]: https://github.com/ghorbanzade/UMB-CS240-2016S
