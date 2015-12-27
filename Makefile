@@ -9,7 +9,7 @@ EXAMS_DIR = $(TEX_DIR)/exams
 SLIDES_DIR = $(TEX_DIR)/slides
 
 SYLLABUS = syllabus
-ASSIGNMENTS = 
+ASSIGNMENTS = hw01
 EXAMS = 
 SLIDES = 
 
