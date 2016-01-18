@@ -11,7 +11,7 @@ SLIDES_DIR = $(TEX_DIR)/slides
 SYLLABUS = syllabus
 ASSIGNMENTS = hw01
 EXAMS = 
-SLIDES = 
+SLIDES = ls01
 
 ALL_DOC = $(SYLLABUS) $(ASSIGNMENTS) $(EXAMS) $(SLIDES)
 ALL_PDF = $(foreach NUM, $(ALL_DOC), $(DOC_DIR)/$(NUM).pdf)
@@ -25,9 +25,14 @@ EXAMS_PDF = $(foreach NUM, $(EXAMS), $(DOC_DIR)/$(NUM).pdf)
 SLIDES_TEX = $(foreach NUM, $(SLIDES), $(SLIDES_DIR)/$(NUM).tex)
 SLIDES_PDF = $(foreach NUM, $(SLIDES), $(DOC_DIR)/$(NUM).pdf)
 
-.PHONY: clean code docs syllabus assignments exams slides bind tidy all
+.PHONY: clean code docs publish syllabus assignments exams slides bind tidy all
 
 all: code
+
+publish: docs
+	@echo -n "  Uploading to Remote... " && \
+	./upload-files.sh
+	@echo "Done."
 
 docs: directories code build
 
@@ -64,15 +69,14 @@ $(EXAMS_PDF): $(EXAMS_TEX)
 slides: directories $(SLIDES_PDF)
 
 $(SLIDES_PDF): $(SLIDES_TEX)
-	@echo -n "  $(@F)... "
-	@cd $(DOC_DIR) && \
-	xelatex -halt-on-error -shell-escape ../../$(SLIDES_DIR)/$(@F:.pdf=.tex) > /dev/null && \
-	xelatex -halt-on-error -shell-escape ../../$(SLIDES_DIR)/$(@F:.pdf=.tex) > /dev/null
+	@echo -n "  $(@F)... " && \
+	pdflatex -halt-on-error -output-directory $(DOC_DIR) $(SLIDES_DIR)/$(@F:.pdf=.tex) > /dev/null && \
+	pdflatex -halt-on-error -output-directory $(DOC_DIR) $(SLIDES_DIR)/$(@F:.pdf=.tex) > /dev/null
 	@echo "Done."
 
 binder:
 	@echo -n "  Binding documents... "
-	@gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=$(BIN_DIR)/course-material.pdf $(ALL_PDF)
+	@gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=$(BIN_DIR)/cs240.pdf $(ALL_PDF)
 	@echo "Done."
 
 code:
@@ -85,7 +89,6 @@ tidy:
 	@find $(BIN_DIR) -name '*.snm' -delete
 	@find $(BIN_DIR) -name '*.toc' -delete
 	@find $(BIN_DIR) -name '*.nav' -delete
-	@find $(BIN_DIR) -name '*.pyg' -delete
 
 clean:
-	@rm -rf $(BIN_DIR)
+	rm -rf $(BIN_DIR)

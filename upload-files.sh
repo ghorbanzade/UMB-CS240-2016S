@@ -1,8 +1,6 @@
 #!/bin/bash
 
 upload_to_remote () {
-	echo -n Uploading to Remote...' '
-
 	remote="ghorbanzade.com"
 	puts=$(print_put_statements_from_file $1)
 	
@@ -12,8 +10,6 @@ upload_to_remote () {
 	$puts
 	quit
 	EOT
-	
-	echo OK
 }
 
 print_put_statements_from_file () {
