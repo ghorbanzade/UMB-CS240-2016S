@@ -52,6 +52,10 @@ Last Lecture: May 11, 2016
 Final Exam: To be determined
 
 ## Attendance Policy
+Attendance will be taken for all classes but will have no effect in final evaluation.
+Students are expected to participate actively in class by asking and answering questions.
+Students are responsible for material covered in any class that they do not attend.
+
 Class attendance is mandatory, and students are expected to participate actively in class by asking and answering questions.
 Students are responsible for material covered in any class that they do not attend.
 
