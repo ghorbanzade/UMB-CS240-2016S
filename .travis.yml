@@ -6,6 +6,7 @@ addons:
     - texlive-latex-base
     - texlive-latex-extra
     - latex-beamer
+    - pgf
     - ghostscript
 script:
   - make docs
