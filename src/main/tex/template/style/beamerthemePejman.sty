@@ -1,0 +1,121 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2016 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProvidesPackage{beamerthemeSimpleUmass}
+
+% Packages
+\usepackage{lastpage}
+\usepackage{tikz}
+
+% Colors
+\definecolor{myDarkTeal}{HTML}{003333}
+\definecolor{myLightTeal}{HTML}{006666}
+
+% Font Colors
+\setbeamercolor{frametitle}{fg=white, bg=myDarkTeal}
+\setbeamercolor{block title}{fg=myLightTeal}
+\setbeamercolor{alerted text}{fg=myLightTeal}
+\setbeamercolor{caption name}{fg=myLightTeal}
+\setbeamercolor{footline}{bg=myDarkTeal}
+
+% Font Sizes
+\setbeamerfont{caption}{size=\scriptsize}
+\setbeamerfont{frametitle}{size=\normalsize}
+\setbeamerfont{footline}{size=\tiny}
+\setbeamerfont{block title}{size=\large}
+
+% Define Slide
+\newenvironment{slide}
+	{\begin{frame}[fragile,environment=slide]\frametitle{\secname}}
+	{\end{frame}}
+
+% Cover Slide
+\newcommand{\prepareCover}{%
+	\begingroup
+	\begin{frame}[plain]
+	\begin{minipage}[b][\paperheight]{\textwidth}
+
+	\vfill
+	% Course Title
+	\ifx\courseName\@empty
+	\else {
+		\raggedright
+		\linespread{0.8}
+		{\Large \courseName}
+		\par
+	}
+	\vspace*{0.5em}
+	\fi
+	% Lecture Number
+	{Lecture \docNumber}
+	\par
+	\vspace*{0.5em}
+	% Horizontal Line
+	\begin{tikzpicture}
+		\draw[line width=0.5mm, myDarkTeal] (0, 0) -- (\textwidth, 0);
+	\end{tikzpicture}
+	\par
+	\vspace*{1em}
+	% Author
+	\ifx\instructorName\@empty
+	\else {
+		{\small{Instructor}\\ \instructorName}
+		\par
+	}
+	\vspace*{1em}
+	\fi
+	% Semester
+	\ifx\courseSemester\@empty
+	\else {
+		\small{\courseSemester}
+		\par
+	}
+	\vspace*{1em}
+	\fi
+	% Department
+	\ifx\courseDepartment\@empty
+	\else {
+		\small{\courseDepartment}
+		\par
+	}
+	\vspace*{0.25em}
+	\fi
+	% University
+	\ifx\courseUniversity\@empty
+	\else {
+		\normalsize{\courseUniversity}
+		\par
+	}
+	\vspace*{0.5em}
+	\fi
+	% End
+	\vfill
+	\vspace*{5mm}
+
+	\end{minipage}
+	\end{frame}
+	\endgroup
+}
+
+%% Captions
+\setbeamertemplate{caption label separator}{: }
+
+% Footline
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[text line]{
+	\parbox{\linewidth}{
+		\vspace*{-10pt}
+		\instructorName \hfill \courseId: \courseName, \courseUniversity, \courseSemester \hfill \thepage\ of \pageref{LastPage}
+	}
+}
+
+% Line Height
+\linespread{1.15}
+
+% Document Configurations
+\title{Lecture Slide \docNumber}
+\author{\instructorName}
