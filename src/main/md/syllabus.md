@@ -51,6 +51,18 @@ Midterm Exam: March 9, 2016
 Last Lecture: May 11, 2016  
 Final Exam: To be determined
 
+## Supplemental Instruction Sessions
+As part of the College of Science and Mathematics Freshman Success Program, Supplemental Instruction (SI) is available to all CS240 students free of charge.
+During the SI sessions, the SI leader will review the material we discuss in class and will also answer any questions you may have regarding concepts or assignments.
+You may attend as many or as few sessions as you want or feel that you need. Attending these sessions is encouraged.
+
+## Supplemental Instruction Leader
+Alexander Burke  
+Mail Address: ``alexander.burke001 [at] umb [dot] edu``
+
+## Supplemental Instruction Sessions
+Time to be determined based on students feedback
+
 ## Attendance Policy
 Attendance will be taken for all classes but will have no effect in final evaluation.
 Students are expected to participate actively in class by asking and answering questions.
