@@ -1,6 +1,7 @@
 TOP_DIR = .
 BIN_DIR = $(TOP_DIR)/bin
 SRC_DIR = $(TOP_DIR)/src
+COD_DIR = $(SRC_DIR)/main/c
 TEX_DIR = $(SRC_DIR)/main/tex
 DOC_DIR = $(BIN_DIR)/documents
 SYLLABUS_DIR = $(TEX_DIR)/syllabus
@@ -11,7 +12,7 @@ SLIDES_DIR = $(TEX_DIR)/slides
 SYLLABUS = syllabus
 ASSIGNMENTS = hw01
 EXAMS = 
-SLIDES = ls01
+SLIDES = ls01 ls02
 
 ALL_DOC = $(SYLLABUS) $(ASSIGNMENTS) $(EXAMS) $(SLIDES)
 ALL_PDF = $(foreach NUM, $(ALL_DOC), $(DOC_DIR)/$(NUM).pdf)
