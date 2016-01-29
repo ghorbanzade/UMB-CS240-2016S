@@ -63,16 +63,17 @@ exams: directories $(EXAMS_PDF)
 
 $(EXAMS_PDF): $(EXAMS_TEX)
 	@echo -n "  $(@F)... " && \
-	pdflatex -halt-on-error -output-directory $(DOC_DIR) $(EXAMS_DIR)/$(@F:.pdf=.tex) > /dev/null && \
+	pdflatex -halt-on-error -output-directory $(DOC_DIR) $(EXAMS_DIR)/$(@F:.pdf=.tex) && \
 	pdflatex -halt-on-error -output-directory $(DOC_DIR) $(EXAMS_DIR)/$(@F:.pdf=.tex) > /dev/null
 	@echo "Done."
 
 slides: directories $(SLIDES_PDF)
 
 $(SLIDES_PDF): $(SLIDES_TEX)
-	@echo -n "  $(@F)... " && \
-	pdflatex -halt-on-error -output-directory $(DOC_DIR) $(SLIDES_DIR)/$(@F:.pdf=.tex) > /dev/null && \
-	pdflatex -halt-on-error -output-directory $(DOC_DIR) $(SLIDES_DIR)/$(@F:.pdf=.tex) > /dev/null
+	@echo -n "  $(@F)... "
+	@cd $(DOC_DIR) && \
+	pdflatex -halt-on-error -shell-escape ../../$(SLIDES_DIR)/$(@F:.pdf=.tex) > /dev/null && \
+	pdflatex -halt-on-error -shell-escape ../../$(SLIDES_DIR)/$(@F:.pdf=.tex) > /dev/null
 	@echo "Done."
 
 binder:
