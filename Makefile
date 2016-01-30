@@ -10,7 +10,7 @@ EXAMS_DIR = $(TEX_DIR)/exams
 SLIDES_DIR = $(TEX_DIR)/slides
 
 SYLLABUS = syllabus
-ASSIGNMENTS = hw01 hw01s hw02
+ASSIGNMENTS = hw01 hw01s hw02 hw02s
 EXAMS = 
 SLIDES = ls01 ls02
 
@@ -91,6 +91,7 @@ tidy:
 	@find $(BIN_DIR) -name '*.snm' -delete
 	@find $(BIN_DIR) -name '*.toc' -delete
 	@find $(BIN_DIR) -name '*.nav' -delete
+	@find $(BIN_DIR) -name '*.pyg' -delete
 
 clean:
 	rm -rf $(BIN_DIR)
