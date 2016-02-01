@@ -61,7 +61,8 @@ Alexander Burke
 Mail Address: ``alexander.burke001 [at] umb [dot] edu``
 
 ## Supplemental Instruction Sessions
-Time to be determined based on students feedback
+- Mondays, 10:45 AM to 12:45 PM, S-2-SSC
+- Wednesdays, 2:00 PM to 4:00 PM, S-2-SSC
 
 ## Attendance Policy
 Attendance will be taken for all classes but will have no effect in final evaluation.
