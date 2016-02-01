@@ -12,7 +12,7 @@ SLIDES_DIR = $(TEX_DIR)/slides
 SYLLABUS = syllabus
 ASSIGNMENTS = hw01 hw01s hw02 hw02s
 EXAMS = 
-SLIDES = ls01 ls02
+SLIDES = ls01 ls02 ls03
 
 ALL_DOC = $(SYLLABUS) $(ASSIGNMENTS) $(EXAMS) $(SLIDES)
 ALL_PDF = $(foreach NUM, $(ALL_DOC), $(DOC_DIR)/$(NUM).pdf)
@@ -63,7 +63,7 @@ exams: directories $(EXAMS_PDF)
 
 $(EXAMS_PDF): $(EXAMS_TEX)
 	@echo -n "  $(@F)... " && \
-	pdflatex -halt-on-error -output-directory $(DOC_DIR) $(EXAMS_DIR)/$(@F:.pdf=.tex) && \
+	pdflatex -halt-on-error -output-directory $(DOC_DIR) $(EXAMS_DIR)/$(@F:.pdf=.tex) > /dev/null && \
 	pdflatex -halt-on-error -output-directory $(DOC_DIR) $(EXAMS_DIR)/$(@F:.pdf=.tex) > /dev/null
 	@echo "Done."
 

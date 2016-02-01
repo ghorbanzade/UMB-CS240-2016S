@@ -1,0 +1,240 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS114: Introduction to Programming in Java
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS114-2015F/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \topDirectory {../..}
+\def \texDirectory {\topDirectory/src/main/tex}
+
+\documentclass[compress]{beamer}
+%\mode<presentation>
+%\usetheme{default}
+
+\usepackage{\texDirectory/template/style/directives}
+\input{\texDirectory/template/config}
+\usepackage{\texDirectory/template/style/beamerthemePejman}
+\doc{number}{3}
+%\setbeamertemplate{footline}[text line]{}
+
+\begin{document}
+
+\prepareCover
+
+\section{Introduction to C}
+
+\begin{slide}
+	\begin{columns}
+	\column{0.4\textwidth}
+	\begin{block}{Motivation}
+	Developed in 1972 to re-implement Unix operating system for PDP-11.
+	\end{block}
+	\column{0.6\textwidth}
+	\begin{figure}
+	\includegraphics[width=0.8\textwidth]{\texDirectory/img/pioneers.jpg}
+	\end{figure}
+	\end{columns}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Features}
+
+	\begin{itemize}
+	\item[] Portable
+	\item[] Small
+	\item[] Fast
+	\item[] Powerful
+	\end{itemize}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Popularity of C}
+
+	\begin{figure}
+	\includegraphics[width=0.8\textwidth]{\texDirectory/img/pypl.png}
+	\end{figure}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Hello World Program}
+
+	\begin{minted}[fontsize=\small,linenos]{c}
+	#include <stdio.h>
+	
+	int main(void)
+	{
+	    printf("Hello World!\n");
+	}
+	\end{minted}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Running Hello World Program}
+
+	\begin{terminal}
+	pejman@cs240:~$ pwd
+	/home/pejman
+	pejman@cs240:~$ mkdir hello
+	pejman@cs240:~$ cd hello
+	pejman@cs240:~/hello$ touch hello-world.c
+	pejman@cs240:~/hello$ vi hello.c
+	pejman@cs240:~/hello$ gcc hello.c
+	pejman@cs240:~/hello$ ls
+	a.out   hello.c
+	pejman@cs240:~/hello$ ./a.out
+	Hello World!
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{GNU Compiler Collection}
+
+	Originally named GNU C Compiler, \alert{\texttt{gcc}} is the compiler system of GNU project that supports C, C++, Objective C, Java, Ada and Go.
+
+	\end{block}
+	\begin{block}{Other C Compilers}
+
+	\begin{itemize}
+	\item[] clang
+	\item[] MinGW
+	\end{itemize}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Hello World Program}
+
+	\begin{minted}[fontsize=\small,linenos]{c}
+	/*
+	 * This program prints "Hello World"
+	 * on the screen.
+	 */
+
+	#include <stdio.h>
+	
+	int main(void)
+	{
+	    printf("Hello World!\n");
+	}
+	\end{minted}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Comments}
+
+	Any character between \alert{\texttt{/*}} and \alert{\texttt{*/}} is ignored by the compiler.
+
+	\begin{minted}[fontsize=\small]{c}
+	/*
+	 * This is a multi-line comment.
+	 */
+	\end{minted}
+
+	Any character after \alert{\texttt{//}} in a line is considered a comment and is ignored by the compiler.
+
+	\begin{minted}[fontsize=\small]{c}
+	printf("Hello World!"); // prints "Hello World"
+	\end{minted}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Preprocessor Directives}
+
+	source lines of code preceded by a hash sign (\#) are directives for C preprocessor.
+
+	\begin{minted}[fontsize=\small]{c}
+	#include <stdio.h> // includes stdio.h library
+	#define MAX_LENGTH 20 // replaces all instances of
+	                      // MAX_LENGTH with 20
+	\end{minted}
+
+	\alert{\texttt{\#include}} directive appends a specified header file to the current file.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Functions}
+
+	A \alert{function} is a set of statements enclosed in braces \{\} with a \emph{unique} name that is followed by a parenthesized list of arguments.
+	A function may \emph{return} a value of a specific data type.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{The \texttt{main} function}
+
+	Each C program must have a function named \texttt{main}.
+	A C program terminates when all statements inside its \texttt{main} function are executed.
+
+	\begin{minted}[fontsize=\small,linenos,firstnumber=8]{c}
+	int main(void)
+	{
+	    printf("Hello World!\n");
+	}
+	\end{minted}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Statements}
+
+	A statement is a command that instructs the computer to take a specific set of actions.
+	All statements must end with a semicolon.
+
+	\begin{minted}[fontsize=\small,linenos,firstnumber=10]{c}
+	    printf("Hello World!\n");
+	\end{minted}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{\texttt{printf} Function}
+
+	\texttt{printf} function formats a string with given arguments and sends the formatted string to standard output.
+	\texttt{printf} function is part of \texttt{stdio} library and is defined in \texttt{printf.c} file.
+
+	\begin{minted}[fontsize=\small]{c}
+	int printf(const char *format, ...)
+	{
+	   va_list arg;
+	   int done;
+	   va_start(arg, format);
+	   done = vfprintf(stdout, format, arg);
+	   va_end(arg);
+	   return done;
+	}
+	\end{minted}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Put Your Knowledge Into Practice}
+
+	\begin{figure}
+	\includegraphics[width=0.8\textwidth]{\texDirectory/img/random.png}
+	\end{figure}
+
+	\end{block}
+\end{slide}
+
+
+\end{document}
