@@ -4,15 +4,17 @@ SRC_DIR = $(TOP_DIR)/src
 COD_DIR = $(SRC_DIR)/main/c
 TEX_DIR = $(SRC_DIR)/main/tex
 DOC_DIR = $(BIN_DIR)/documents
+ZIP_DIR = $(BIN_DIR)/zip
 SYLLABUS_DIR = $(TEX_DIR)/syllabus
 ASSIGNMENTS_DIR = $(TEX_DIR)/assignments
 EXAMS_DIR = $(TEX_DIR)/exams
 SLIDES_DIR = $(TEX_DIR)/slides
 
 SYLLABUS = syllabus
-ASSIGNMENTS = hw01 hw01s hw02 hw02s
+ASSIGNMENTS = hw01 hw01s
 EXAMS = 
 SLIDES = ls01 ls02 ls03 ls04
+ZIPS = hw01
 
 ALL_DOC = $(SYLLABUS) $(ASSIGNMENTS) $(EXAMS) $(SLIDES)
 ALL_PDF = $(foreach NUM, $(ALL_DOC), $(DOC_DIR)/$(NUM).pdf)
@@ -25,23 +27,25 @@ EXAMS_TEX = $(foreach NUM, $(EXAMS), $(EXAMS_DIR)/$(NUM).tex)
 EXAMS_PDF = $(foreach NUM, $(EXAMS), $(DOC_DIR)/$(NUM).pdf)
 SLIDES_TEX = $(foreach NUM, $(SLIDES), $(SLIDES_DIR)/$(NUM).tex)
 SLIDES_PDF = $(foreach NUM, $(SLIDES), $(DOC_DIR)/$(NUM).pdf)
+ZIP_SRC = $(foreach NUM, $(ZIPS), $(COD_DIR)/$(NUM))
+ZIP_DST = $(foreach NUM, $(ZIPS), $(ZIP_DIR)/$(NUM).zip)
 
-.PHONY: clean code docs publish syllabus assignments exams slides bind tidy all
+.PHONY: clean code docs publish syllabus assignments exams slides zip bind tidy all
 
 all: code
 
-publish: docs
+publish: code docs
 	@echo -n "  Uploading to Remote... " && \
 	./upload-files.sh
 	@echo "Done."
 
-docs: directories code build
+docs: directories syllabus assignments exams slides binder tidy
 
 directories:
 	@mkdir -p $(BIN_DIR)
+	@mkdir -p $(COD_DIR)
 	@mkdir -p $(DOC_DIR)
-
-build: syllabus assignments exams slides binder tidy
+	@mkdir -p $(ZIP_DIR)
 
 syllabus: directories $(SYLLABUS_PDF)
 
@@ -81,7 +85,14 @@ binder:
 	@gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=$(BIN_DIR)/cs240.pdf $(ALL_PDF)
 	@echo "Done."
 
-code:
+code: directories zip
+
+zip: directories $(ZIP_DST)
+
+$(ZIP_DST): $(ZIP_SRC)
+	@echo -n "  $(@F)... "
+	@zip -rq $(ZIP_DIR)/$(@F) $(COD_DIR)/$(@F:.zip=)
+	@echo "Done."
 
 tidy:
 	@find $(BIN_DIR) -name '*.log' -delete
@@ -94,4 +105,6 @@ tidy:
 	@find $(BIN_DIR) -name '*.pyg' -delete
 
 clean:
-	rm -rf $(BIN_DIR)
+	@echo -n "Removing binaries... "
+	@rm -rf $(BIN_DIR)
+	@echo "OK"
