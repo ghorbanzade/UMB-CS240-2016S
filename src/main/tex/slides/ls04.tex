@@ -91,14 +91,14 @@
 	C is a Spartan language, and so should your naming be.
 	Unlike Modula-2 and Pascal programmers, C programmers do not use cute names like \alert{\texttt{ThisVariableIsATemporaryCounter}}.
 	A C programmer would call that variable \alert{\texttt{tmp}}, which is much easier to write, and not the least more difficult to understand.
-	
+
 	[...]
-	
+
 	Local variable names should be short, and to the point.
 	If you have some random integer loop counter, it should probably be called \alert{\texttt{i}}.
 	Calling it \alert{\texttt{loop\_counter}} is non-productive, if there is no chance of it being mis-understood.
 	Similarly, \alert{\texttt{tmp}} can be just about any type of variable that is used to hold a temporary value.
-	
+
 	If you are afraid to mix up your local variable names, you have another problem, which is called the function-growth-hormone-imbalance syndrome.
 
 	\begin{flushright}-- Linux Kernel Coding Style\end{flushright}
@@ -124,21 +124,50 @@
 	\begin{block}{Basic Data Types}
 
 	\begin{columns}
-	\column{0.5\textwidth}
+	\column{0.3\textwidth}
 	\begin{itemize}
 	\item[] int
 	\item[] char
-	\item[] short
-	\item[] long
 	\end{itemize}
 
-	\column{0.5\textwidth}
+	\column{0.4\textwidth}
 	\begin{itemize}
 	\item[] double
 	\item[] float
+	\end{itemize}
+
+	\column{0.3\textwidth}
+	\begin{itemize}
 	\item[] void
 	\end{itemize}
 	\end{columns}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Signed vs. Unsigned}
+
+	By default, the left-most bit of a variable is reserved to indicate sign of its value.
+	If the value of a variable is ensured to be non-negative, it is possible to instruct the compiler not to reserve a \emph{sign} bit.
+
+	\begin{terminal}
+	int a;
+	unsigned int b;
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Integer Data Types}
+
+	You can instruct the compiler to reserve less or more bytes for an integer variable.
+
+	\begin{itemize}
+	\item[] short
+	\item[] long
+	\end{itemize}
 
 	\end{block}
 \end{slide}
@@ -152,13 +181,9 @@
 	Type & Storage Size & Value Range \\
 	\midrule
 	char & 1 byte & -128 to 127 \\
-	unsigned char & 1 byte & 0 to 255 \\
 	int & 4 bytes & $-2^{32-1}$ to $2^{32-1}$ \\
-	unsigned int & 4 bytes & 0 to 4294967295 \\
 	short & 2 bytes & -32768 to 32767 \\
-	unsigned short & 2 bytes & 0 to 65535 \\
 	long & 8 bytes & $-2^{64-1}$ to $2^{64-1}$ \\
-	unsigned long & 8 bytes & 0 to $2^{64} - 1$ \\
 	\bottomrule
 	\end{tabular}
 	\end{table}
@@ -245,7 +270,7 @@
 
 \begin{slide}
 	\begin{block}{Motivation}
-	
+
 	Command line arguments provide efficient interthread communication through piping and redirection.
 
 	\end{block}
