@@ -13,7 +13,7 @@ SLIDES_DIR = $(TEX_DIR)/slides
 SYLLABUS = syllabus
 ASSIGNMENTS = hw01 hw01s
 EXAMS = 
-SLIDES = ls01 ls02 ls03 ls04
+SLIDES = ls04 ls05
 ZIPS = hw01
 
 ALL_DOC = $(SYLLABUS) $(ASSIGNMENTS) $(EXAMS) $(SLIDES)
@@ -105,6 +105,6 @@ tidy:
 	@find $(BIN_DIR) -name '*.pyg' -delete
 
 clean:
-	@echo -n "Removing binaries... "
+	@echo -n "  Removing binaries... "
 	@rm -rf $(BIN_DIR)
 	@echo "OK"
