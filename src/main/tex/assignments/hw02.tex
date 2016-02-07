@@ -1,0 +1,64 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \topDirectory {.}
+\def \texDirectory {\topDirectory/src/main/tex}
+
+\documentclass[12pt,letterpaper,twoside]{article}
+\usepackage{\texDirectory/template/style/directives}
+\usepackage{\texDirectory/template/style/assignment}
+\input{\texDirectory/template/config}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+\doc{title}{Assignment 2}
+\doc{date-pub}{Feb 8, 2016 at 5:30 PM}
+\doc{date-due}{Feb 22, 2016 at 5:30 PM}
+\doc{points}{8}
+
+\prepare{header}
+
+\section*{Question 1}
+
+Write a program \texttt{uppercase.c} that takes an arbitrary number of command line arguments and prints them all in uppercase.
+Following examples illustrate how your program is expected to function.
+
+\begin{terminal}
+$ gcc uppercase.c -o uppercase
+$ ./uppercase the taste of life was sweet
+THE TASTE OF LIFE WAS SWEET
+$ ./uppercase as rain upon my tongue
+AS RAIN UPON MY TONGUE
+$ ./uppercase
+error: missing command line arguments
+\end{terminal}
+
+\section*{Question 2}
+
+Write a program \texttt{hexa.c} that takes a string in form of a command line argument and prints values of its characters in hexadecimal system.
+
+Following is the expected output of a sample run of your program.
+
+\begin{terminal}
+$ gcc hexa.c -o hexa
+$ ./hexa Boston
+42 6f 73 74 6f 6e
+$ ./hexa Quincy Boston
+51 75 69 6e 63 79
+$ ./hexa
+error: missing command line argument
+\end{terminal}
+
+\section*{Question 3}
+
+Write a program \texttt{sequence.c} that without using the multiply operator \texttt{*}, prints numbers $n = 2^{i}-1$ where $0 \leq i \leq 64$ separated by a single space.
+
+\prepare{footer}
+
+\end{document}
