@@ -31,7 +31,9 @@ Office: S-3-124
 Office Hours: Mondays, Wednesdays 16:00 to 17:30
 
 ## Teaching Assistants
-To be determined
+Jia Shaohua  
+Mail Address: ``shaohia [at] cs.umb [dot] edu``  
+Office: S-3-135
 
 ## Course Website
 
@@ -62,7 +64,7 @@ Mail Address: ``alexander.burke001 [at] umb [dot] edu``
 
 ## Supplemental Instruction Sessions
 - Mondays, 10:45 AM to 12:45 PM, S-2-SSC
-- Wednesdays, 2:00 PM to 4:00 PM, S-2-SSC
+- Fridays, 2:00 PM to 4:00 PM, S-2-SSC
 
 ## Attendance Policy
 Attendance will be taken for all classes but will have no effect in final evaluation.
