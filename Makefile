@@ -13,7 +13,7 @@ SLIDES_DIR = $(TEX_DIR)/slides
 SYLLABUS = syllabus
 ASSIGNMENTS = hw01 hw01s hw02 hw02s hw03 hw03s
 EXAMS =
-SLIDES = ls01 ls02 ls03 ls04 ls05
+SLIDES = ls01 ls02 ls03 ls04 ls05 ls06
 ZIPS = hw01 hw02 hw03
 
 ALL_DOC = $(SYLLABUS) $(ASSIGNMENTS) $(EXAMS) $(SLIDES)
