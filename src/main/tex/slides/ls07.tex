@@ -1,0 +1,198 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2016 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \topDirectory {../..}
+\def \texDirectory {\topDirectory/src/main/tex}
+\def \resDirectory {\topDirectory/src/main/c/res}
+
+\documentclass[compress]{beamer}
+%\mode<presentation>
+%\usetheme{default}
+
+\usepackage{\texDirectory/template/style/directives}
+\input{\texDirectory/template/config}
+\usepackage{\texDirectory/template/style/beamerthemePejman}
+\doc{number}{7}
+%\setbeamertemplate{footline}[text line]{}
+
+\begin{document}
+
+\prepareCover
+
+\section{Functions}
+
+\begin{slide}
+	\begin{block}{Definition}
+
+	A function is a block of statements that can be called for execution and may return a value.
+
+	\begin{terminal}
+	@*\textit{data\_type}*@ @*\textit{function\_name}*@(@*\textit{param\_list}*@)
+	{
+	    @*\textit{statements}*@;
+	}
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Declaration}
+
+	\inputminted[firstline=15,lastline=18,linenos]{c}{
+		\resDirectory/function.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Declaration}
+
+	\inputminted[fontsize=\scriptsize,firstline=24,lastline=37,linenos]{c}{
+		\resDirectory/function.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Calling a Function}
+
+	\inputminted[fontsize=\small,firstline=43,lastline=50,linenos]{c}{
+		\resDirectory/function.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Notes}
+
+	\begin{itemize}
+	\item[] Functions may have any number of statements.
+	\item[] Functions may have any number of parameters.
+	\item[] Functions may return only one value.
+	\item[] Functions cannot be nested.
+	\item[] Functions must be introduced to compiler before they are called.
+	\end{itemize}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Coding Style Convention}
+
+	\begin{quotation} \scriptsize \normalfont
+
+	Global variables need to have descriptive names, as do global functions.
+	If you have a function that counts the number of active users, you should
+	call that ``\texttt{count\_active\_users()}'' or similar. You should \textbf{not} call it ``cntusr()''.
+
+	\begin{flushright}-- Linux Kernel Coding Style\end{flushright}
+	
+	\end{quotation}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Coding Style Convention}
+
+	\begin{quotation} \scriptsize \normalfont
+
+	Functions should be short and sweet, and do just one thing.
+	They should fit on one or two screenfuls of text, and do one thing and do that well.
+
+	The maximum length of a function is inversely proportional to the
+	complexity and indentation level of that function.
+	[...]
+	
+	However, if you have a complex function, and you suspect that a less-than-gifted first-year high-school student might not even understand what the function is all about, you should adhere to the maximum limits all the more closely.
+
+	\begin{flushright}-- Linux Kernel Coding Style\end{flushright}
+	
+	\end{quotation}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Coding Style Convention}
+
+	\begin{quotation} \scriptsize \normalfont
+
+	Another measure of the function is the number of local variables.
+	They shouldn't exceed 5-10, or you're doing something wrong.
+	Re-think the function, and split it into smaller pieces.
+	A human brain can generally easily keep track of about 7 different things, anything more and it gets confused.
+	You know you're brilliant, but maybe you'd like to understand what you did 2 weeks from now.
+
+	\begin{flushright}-- Linux Kernel Coding Style\end{flushright}
+	
+	\end{quotation}
+
+	\end{block}
+\end{slide}
+
+\section{User Input}
+
+\begin{slide}
+	\begin{block}{Question 1}
+
+	Write a program \texttt{getchar.c} that prompts for name of the user and prints a greeting message using his name.
+	Assume user's name is less than 32 characters.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution}
+
+	\inputminted[fontsize=\scriptsize,firstline=10,lastline=27,linenos]{c}{
+		\resDirectory/getchar.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Question 2}
+
+	Write a program \texttt{getint.c} that prompts for a number $n$ and prints $n^2$ as output.
+	Assume user input is always a positive integer with less than 16 characters.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution}
+
+	\inputminted[fontsize=\scriptsize,firstline=10,lastline=22,linenos]{c}{
+		\resDirectory/getint.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution}
+
+	\inputminted[fontsize=\scriptsize,firstline=24,lastline=39,linenos]{c}{
+		\resDirectory/getint.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{figure}
+	\includegraphics[width=0.7\textwidth]{\texDirectory/img/pulp.jpg}
+	\end{figure}
+\end{slide}
+
+\end{document}
