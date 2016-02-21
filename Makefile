@@ -11,10 +11,10 @@ EXAMS_DIR = $(TEX_DIR)/exams
 SLIDES_DIR = $(TEX_DIR)/slides
 
 SYLLABUS = syllabus
-ASSIGNMENTS = hw01 hw01s hw02 hw02s hw03 hw03s
+ASSIGNMENTS = hw01 hw01s hw02 hw02s hw03 hw03s hw04 hw04s
 EXAMS =
 SLIDES = ls01 ls02 ls03 ls04 ls05 ls06 ls07
-ZIPS = hw01 hw02 hw03
+ZIPS = hw01 hw02 hw03 hw04
 
 ALL_DOC = $(SYLLABUS) $(ASSIGNMENTS) $(EXAMS) $(SLIDES)
 ALL_PDF = $(foreach NUM, $(ALL_DOC), $(DOC_DIR)/$(NUM).pdf)
