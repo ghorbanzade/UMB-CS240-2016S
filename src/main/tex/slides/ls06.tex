@@ -7,6 +7,7 @@
 
 \def \topDirectory {../..}
 \def \texDirectory {\topDirectory/src/main/tex}
+\def \resDirectory {\topDirectory/src/main/c/res}
 
 \documentclass[compress]{beamer}
 %\mode<presentation>
@@ -142,18 +143,9 @@
 
 	What is the output of the following program?
 
-	\begin{minted}[fontsize=\small,linenos]{c}
-	#include <stdio.h>
-	#include <string.h>
-	
-	int main(void)
-	{
-	    char string[10] = "Goodbye";
-	    printf("%s ", string);
-	    string[5] = '\0';
-	    printf("%s\n", string);
+	\inputminted[fontsize=\scriptsize,firstline=10,linenos]{c}{
+		\resDirectory/ls06-null.c
 	}
-	\end{minted}
 
 	\pause
 
@@ -178,17 +170,9 @@
 
 	What is the output of the following program?
 
-	\begin{minted}[fontsize=\small,linenos]{c}
-	#include <stdio.h>
-	#include <string.h>
-	
-	int main(void)
-	{
-	    char string[10] = "hello";
-	    printf("%d ", (int) strlen(string));
-	    printf("%d\n", (int) sizeof(string));
+	\inputminted[fontsize=\scriptsize,firstline=10,linenos]{c}{
+		\resDirectory/ls06-strlen.c
 	}
-	\end{minted}
 
 	\pause
 

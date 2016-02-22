@@ -502,10 +502,10 @@
 	\begin{terminal}
 	int i = 2;
 	int num = 25;
-	int prime = 0;
+	int prime = 1;
 	while (i <= num / 2)
 	    if (num % i == 0) {
-	        prime = 1;
+	        prime = 0;
 	        break;
 	    }
 	\end{terminal}
@@ -521,11 +521,11 @@
 	\begin{terminal}
 	int i = 2;
 	int num = 25;
-	int prime = 0;
+	int prime = 1;
 	while (i <= num / 2) {
 	    if (num % i)
 	        continue;
-	    prime = 1;
+	    prime = 0;
 	}
 	\end{terminal}
 
