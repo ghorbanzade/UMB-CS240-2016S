@@ -1,0 +1,92 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \topDirectory {.}
+\def \texDirectory {\topDirectory/src/main/tex}
+
+\documentclass[12pt,letterpaper,twoside]{article}
+\usepackage{\texDirectory/template/style/directives}
+\usepackage{\texDirectory/template/style/assignment}
+\input{\texDirectory/template/config}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+\doc{title}{Midterm Exam}
+\doc{date-pub}{Mar 9, 2016 at 5:30 PM}
+\doc{date-due}{Mar 9, 2016 at 6:45 PM}
+\doc{points}{8}
+
+\prepare{header}
+
+\section*{Question 1}
+
+You are asked to test a \texttt{hello-world.c} program on the Unix system of the CS department.
+The following commands have already been executed.
+
+\begin{terminal}
+you@yourmachine:~$ ssh you@users.cs.umb.edu
+you@users.cs.umb.edu password:
+you@itserver6:~$ pwd
+/home/you
+you@itserver6:~$ ls
+cs240
+you@itserver6:~$ ls cs240
+hw01 hw02 hw03 hello-world.c
+\end{terminal}
+
+The objective is to put the \texttt{hello-world.c} file in a new directory with full path \texttt{/home/you/cs240/m01}, display its output and compile and execute it.
+Finally, you should remove the produced object file and the binary files.
+
+List all unix commands that you need to issue to fulfill this objective.
+
+\newpage
+
+\section*{Question 2}
+
+Bellatrix Lestrange, a CS240 student, was asked to write a program that takes an arbitrary number of non-negative integers as command line arguments and prints their average.
+A sample run of the program was expected to be as given below.
+
+\begin{terminal}
+$ gcc command-line.c -o command-line
+$ ./command-line
+error: missing command line arguments
+$ ./command-line 2 5 8
+5.00
+$ ./command-line 1 2 3 4 5 6
+3.50
+\end{terminal}
+
+To solve this problem, she wrote the following program.
+
+\lstset{language=c,tabsize=4}
+\lstinputlisting[firstline=10]{\topDirectory/src/main/c/m01/command-line-q.c}
+
+\newpage
+
+Her program produces the following output.
+
+\begin{terminal}
+$ gcc command-line.c -o command-line
+$ ./command-line
+-15202348.00
+$ ./command-line 2 5 8
+-1147083.00
+$ ./command-line 1 2 3 4 5 6
+-12761818.00
+\end{terminal}
+
+Clearly, something is wrong with Bellatrix's code.
+This is why she is asking for your help to debug her program and fix all its bugs.
+Rewrite the program \texttt{command-line.c} such that its output matches the expected output provided previously.
+
+\section*{Question 3}
+
+Write a function \texttt{int peak\_to\_peak(int array[], int size)} that returns the difference between minimum and maximum of an array of integers.
+
+\end{document}
