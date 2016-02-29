@@ -1,0 +1,208 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2016 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \topDirectory {../..}
+\def \texDirectory {\topDirectory/src/main/tex}
+\def \resDirectory {\topDirectory/src/main/c/res}
+
+\documentclass[compress]{beamer}
+%\mode<presentation>
+%\usetheme{default}
+
+\usepackage{\texDirectory/template/style/directives}
+\input{\texDirectory/template/config}
+\usepackage{\texDirectory/template/style/beamerthemePejman}
+\doc{number}{9}
+%\setbeamertemplate{footline}[text line]{}
+
+\renewenvironment{quotation}
+	{\list{}{
+	        \leftmargin=3pt
+	        \rightmargin=3pt
+			}\item\relax}
+	{\endlist}
+
+\begin{document}
+
+\prepareCover
+
+\section{Header Files}
+
+\begin{slide}
+	\begin{block}{Quiz}
+
+	Why does the following program produce compilation errors?
+
+	\inputminted[fontsize=\scriptsize, firstline=12, linenos]{c}{
+		\resDirectory/ls09-hello1.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Answer}
+
+	The \texttt{say\_hello} function is not yet declared when called from the \texttt{main} function.
+
+	\begin{terminal}
+	8:6: warning: conflicting types for `say_hello` [enabled by default]
+	void say_hello(int i)
+	5:2: previous implicit declaration of say_hello was here
+	say_hello(10);
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{First Solution}
+
+	\inputminted[fontsize=\footnotesize, firstline=10, linenos]{c}{
+		\resDirectory/ls09-hello2.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Second Solution}
+
+	\inputminted[fontsize=\footnotesize, firstline=10, linenos]{c}{
+		\resDirectory/ls09-hello1.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Definition}
+
+	A header file is a file containing function declarations and macro definitions to be shared between several source files.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Usage}
+
+	A header file can be included in your program using the \texttt{\#include} preprocessing directive.
+
+	\begin{terminal}
+	#include <stdio.h>
+	#include "my-program.h"
+	\end{terminal}
+
+	Including a header file produces the same result as copying the header file into the source file.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Third Solution: \texttt{ls09-header.h}}
+
+	\inputminted[fontsize=\footnotesize, firstline=13, lastline=17, linenos]{c}{
+		\resDirectory/ls09-header.h
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Third Solution: \texttt{ls09-hello3.c}}
+
+	\inputminted[fontsize=\footnotesize, firstline=10, linenos]{c}{
+		\resDirectory/ls09-hello3.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{\texttt{\#include <header.h>}}
+
+	When header filename is specified with brackets, preprocessor will search for the file \texttt{header.h} in a standard list of system directories.
+	In a Unix system this list is by default as follows.
+
+	\begin{itemize}
+	\item[] \texttt{/usr/local/include}
+	\item[] \texttt{libdir/gcc/target/version/include}
+	\item[] \texttt{/usr/target/include}
+	\item[] \texttt{/usr/include}
+	\end{itemize}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{\texttt{\#include <header.h>}}
+
+	You can prepend a new directory to the list of system directories using \texttt{-I} option of \texttt{gcc} command.
+
+	\begin{terminal}
+	gcc ls09-hello.c -I../inc
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{\texttt{\#include "header.h"}}
+
+	When header filename is specified with double quotation marks, preprocessor will search for the file \texttt{header.h} in the current directory and quote directories.
+	If the file is not found, preprocessor will look into system directories.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{\texttt{\#include "header.h"}}
+
+	You can prepend a new directory to the list of quote directories using \texttt{-iquote} option of \texttt{gcc} command.
+
+	\begin{terminal}
+	gcc ls09-hello.c -iquote../inc
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Single Inclusion}
+
+	Including a header file in a source file more than once, will likely cause an error.
+	To avoid multiple inclusion, it is advised to use header guards for every header files.
+
+	\inputminted[fontsize=\footnotesize, firstline=10, linenos]{c}{
+		\resDirectory/ls09-header.h
+	}
+
+	\end{block}
+\end{slide}
+
+
+\begin{slide}
+	\begin{columns}
+	\column{0.5\textwidth}
+	\begin{quotation} \scriptsize \normalfont
+
+Two strings walk into a bar and sit down.
+The bartender says, ``So what will it be?''
+
+The first string says, ``I think I will have a beer quag fulk boorg jdk\^CjfdLk jk3s d\#f67howe\%\^U r89nvy owmc63\^Dz x.xvcu''
+
+``Please excuse my friend,'' the second string says, ``He isn't null-terminated.''
+
+	\end{quotation}
+	\column{0.5\textwidth}
+	\begin{figure}
+	\includegraphics[width=\textwidth]{\texDirectory/img/obama.jpg}
+	\end{figure}
+	\end{columns}
+\end{slide}
+
+\end{document}
