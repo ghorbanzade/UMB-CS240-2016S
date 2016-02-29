@@ -1,0 +1,174 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2016 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \topDirectory {../..}
+\def \texDirectory {\topDirectory/src/main/tex}
+\def \resDirectory {\topDirectory/src/main/c/res}
+
+\documentclass[compress]{beamer}
+%\mode<presentation>
+%\usetheme{default}
+
+\usepackage{\texDirectory/template/style/directives}
+\input{\texDirectory/template/config}
+\usepackage{\texDirectory/template/style/beamerthemePejman}
+\doc{number}{8}
+%\setbeamertemplate{footline}[text line]{}
+
+\begin{document}
+
+\prepareCover
+
+\section{Recursion}
+
+\begin{slide}
+	\begin{block}{Definition}
+
+	A recursive function is a function whose block statements include a call to itself.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Example}
+
+	\inputminted[fontsize=\scriptsize, firstline=10, linenos]{c}{
+		\resDirectory/ls08-hellos.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Conditions}
+
+	\begin{itemize}
+	\item[] The recursive call chain must terminate at some point.
+	\item[] A recursive call must be compulationally less complicated.
+	\item[] No two recursive calls should overlap.
+	\end{itemize}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Caution}
+
+	\begin{itemize}
+	\item[] Numerous recursive calls will cause prohibitive memory allocation resulting in a stack overflow.
+	\item[] Recursion simplifies implementation yet increases space complexity.
+	\end{itemize}
+
+	\end{block}
+\end{slide}
+
+\section{Macros}
+
+\begin{slide}
+	\begin{block}{Definition}
+
+	A macro is a fragment of code which has been given a name.
+	Whenever the name is used, it is replaced by the content of the macro.
+
+	\begin{terminal}
+	#define @*\textit{macro\_name}*@ @*\textit{token\_sequence}*@
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Types}
+
+	\begin{description}
+	\item[Object-like Macros] Macros that resemble data objects
+	\item[Function-like Macros] Macros that resemble function calls
+	\end{description}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Object-like Macros}
+
+	An object-like macro is a simple identifier to be replaced by a code fragment.
+	It is most commonly used to give symbolic names to constants.
+
+	\begin{terminal}
+	#define BUFFER_SIZE 256
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Function-like Macros}
+
+	A function-like macro is a macro whose identifier follows a list of parameters.
+	When a macro is \textit{expanded}, each use of a parameter in its body is replaced by the tokens of the corresponding argument.
+
+	\begin{terminal}
+	#define max(x, y) ((x > y) ? x : y)
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Coding Style Convention}
+
+	\begin{itemize}
+	\item[] To easily distinguish them from other variables, macro names are written in upper case.
+	\item[] To avoid common pitfalls, using function-like macros is often discouraged.
+	\end{itemize}
+
+	\end{block}
+\end{slide}
+
+
+\section{Registers}
+
+\begin{slide}
+	\begin{block}{Definition}
+
+	Computer processors provide a very limited number of temporary data storage units, called registers.
+	Retreiving data for processing from registers is much faster than from memory.
+	Hence, storing a heavily used variable in a register allows efficient access to and manipulation of its value.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Usage}
+
+	C provides the \alert{\texttt{register}} keyword to \emph{ask} for a variable to be stored in a register.
+	The compiler will fulfill your request, if a free register is available and it agrees that the specified variable should be stored in a register.
+
+	\begin{terminal}
+	register int i = 1;
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Drawback}
+
+	Once petitioned to be stored in a register, you may not access the address of the variable.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Note}
+
+	Modern compilers will automatically store heavily used variables in registers.
+
+	\end{block}
+\end{slide}
+
+\end{document}
