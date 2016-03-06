@@ -28,7 +28,7 @@ int is_prime(int num)
 	if (num < 2)
 		goto ERROR;
 	i = 2;
-	while (i < num/2)
+	while (i <= num/2)
 		if (num % i++ == 0)
 			goto ERROR;
 	ret = 1;
