@@ -1,0 +1,91 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \topDirectory {.}
+\def \texDirectory {\topDirectory/src/main/tex}
+
+\documentclass[12pt,letterpaper,twoside]{article}
+\usepackage{\texDirectory/template/style/directives}
+\usepackage{\texDirectory/template/style/assignment}
+\input{\texDirectory/template/config}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+\doc{title}{Assignment 5}
+\doc{date-pub}{Mar 28, 2016 at 5:30 PM}
+\doc{date-due}{Apr 11, 2016 at 5:30 PM}
+\doc{points}{8}
+
+\prepare{header}
+
+\section*{Question 1}
+
+To check whether a given non-negative integer $n$ is a prime, it suffices to check if it is divisible by at least one of the elements in $\mathbb{S}_n =  \{ k_i \in \mathbb{P} | k_i < \sqrt{n} \}$.
+If $\mathbb{S}_n$ is known, it takes $|\mathbb{S}_n|$ operations to check for primality of $n$.
+This is much better than when $\mathbb{S}_n$ is not known in which case it takes $\mathbb{O}(n \log \log n)$ operations to construct it.
+
+Suppose we can store $\mathbb{P} = \mathbb{S}_n$, as set of all \textit{known} prime numbers, in a file and access it when testing primality of another non-negative integer $m$.
+This way, if $1 << m < n$, primality testing of $m$ would be trivial.
+On the other hand, if $1 << n < m$, $\mathbb{S}_n$ would still be very useful in constructing $\mathbb{S}_m$ and required operations for prime-checking $m$ will be reduced by $c_1 n \log \log n + c_2$ operations where $c_1$ and $c_2$ are positive integers.
+In this case, once $m$ is prime-checked, we can update the list of \textit{known} prime numbers to $\mathbb{S}_m$ for later use.
+
+You are asked to write a program \texttt{fast-prime.c} that accepts a set of non-negative integer numbers as command line arguments and, using the above-mentioned algorithm, checks for their primality.
+
+You may not include any header file other than \texttt{fast-prime.h}.
+In addition, your \texttt{fast-prime.c} file should accompany a \texttt{Makefile} to facilitate building process and artifact removal.
+
+Following illustrates the expected functionality of your program.
+
+\newpage
+
+\begin{terminal}
+$ ls
+fast-prime.c fast-prime.h Makefile
+$ make
+gcc -c -o fast-prime.o fast-prime.c
+gcc -o fast-prime fast-prime.o -Werror -Wall -std=gnu99 -I.
+$ ./fast-prime
+error: missing command line argument
+$ ./fast-prime 6
+6     : not prime
+$ ls
+fast-prime fast-prime.c fast-prime.h fast-prime.o
+Makefile primes.log
+$ cat primes.log
+2
+3
+5
+$ ./fast-prime 25 37 39 29
+25    : not prime
+37    : prime
+39    : not prime
+29    : prime
+$ make clean
+rm -rf fast-prime fast-prime.o
+$ ls
+fast-prime.c fast-prime.h Makefile primes.log
+$ cat primes.log
+2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+31
+37
+\end{terminal}
+
+\prepare{footer}
+
+\end{document}

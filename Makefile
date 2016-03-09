@@ -11,7 +11,7 @@ EXAMS_DIR = $(TEX_DIR)/exams
 SLIDES_DIR = $(TEX_DIR)/slides
 
 SYLLABUS = syllabus
-ASSIGNMENTS = hw01 hw01s hw02 hw02s hw03 hw03s hw04 hw04s
+ASSIGNMENTS = hw01 hw01s hw02 hw02s hw03 hw03s hw04 hw04s hw05
 EXAMS = m01 m01s m02 m02s
 SLIDES = ls01 ls02 ls03 ls04 ls05 ls06 ls07 ls08 ls09
 ZIPS = hw01 hw02 hw03 hw04 m01 m02
