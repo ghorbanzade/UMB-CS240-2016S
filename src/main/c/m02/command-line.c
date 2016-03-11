@@ -15,10 +15,14 @@ int main(int argc, char *argv[])
 	int i;
 	float sum = 0;
 	float avg;
-	for (i = 1; i < argc; i++)
-		sum += str2num(argv[i]);
-	avg = sum / (argc - 1);
-	printf("%.2f\n", avg);
+	if (argc < 2) {
+		printf("error: missing command line arguments\n");
+	} else {
+		for (i = 1; i < argc; i++)
+			sum += str2num(argv[i]);
+		avg = sum / (argc - 1);
+		printf("%.2f\n", avg);
+	}
 }
 
 int str2num(char str[])

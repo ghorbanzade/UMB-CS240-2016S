@@ -40,7 +40,7 @@ you@itserver6:~$ ls cs240
 hw01 hw02 hw03 hello-world.c
 \end{terminal}
 
-The objective is to put the \texttt{hello-world.c} file in a new directory with full path \texttt{/home/you/cs240/m01}, display its output and compile and execute it.
+The objective is to put the \texttt{hello-world.c} file in a new directory with full path \texttt{/home/you/cs240/m01}, display its content and compile and execute it.
 Finally, you should remove the produced object file and the binary files.
 
 List all unix commands that you need to issue to fulfill this objective.
@@ -53,7 +53,8 @@ you@itserver6:~/cs240$ mkdir m01
 you@itserver6:~/cs240$ mv hello-world.c m01
 you@itserver6:~/cs240$ cd m01
 you@itserver6:~/cs240/m01$ cat hello-world.c
-you@itserver6:~/cs240/m01$ gcc hello-world.c -o hello-world
+you@itserver6:~/cs240/m01$ gcc -c -o hello-world.o hello-world.c
+you@itserver6:~/cs240/m01$ gcc -o hello-world hello-world.o
 you@itserver6:~/cs240/m01$ ./hello-world
 Hello World!
 you@itserver6:~/cs240/m01$ rm hello-world.o hello-world
