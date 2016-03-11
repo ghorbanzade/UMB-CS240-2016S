@@ -6,7 +6,7 @@ This repository contains course material developed for *CS240: Programming in C*
 For more information, please see the course [syllabus].
 
 ## Development
-Instructions for building source codes and documents are described [here](https://github.com/ghorbanzade/UMB-CS114-2015F/blob/master/src/main/md/dependencies.md).
+Instructions for building source codes and documents are described in [dependencies] file.
 
 ## License
 All documents are licensed under [Creative Commons Attribution-ShareAlike 4.0 International License].
@@ -20,6 +20,7 @@ For questions or further information please contact [Pejman Ghorbanzade].
 [University of Massachusetts Boston]: http://www.umb.edu
 [Pejman Ghorbanzade]: http://www.ghorbanzade.com
 [syllabus]: https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/src/main/md/syllabus.md
+[dependencies]: https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/src/main/md/dependencies.md
 [Creative Commons Attribution-ShareAlike 4.0 International License]: https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
 [Public Domain]: http://en.wikipedia.org/wiki/Public_Domain
 [Introduction to Computing]: https://github.com/ghorbanzade/UMB-CS110-2015S
