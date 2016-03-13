@@ -18,7 +18,7 @@
 
 \begin{document}
 
-\doc{title}{Assignment 5}
+\doc{title}{Solution to Assignment 5}
 \doc{date-pub}{Mar 28, 2016 at 5:30 PM}
 \doc{date-due}{Apr 11, 2016 at 5:30 PM}
 \doc{points}{8}
@@ -54,7 +54,7 @@ gcc -o fast-prime fast-prime.o -Werror -Wall -std=gnu99 -I.
 $ ./fast-prime
 error: missing command line argument
 $ ./fast-prime 6
-6     : not prime
+6: not prime
 $ ls
 fast-prime fast-prime.c fast-prime.h fast-prime.o
 Makefile primes.log
@@ -63,10 +63,10 @@ $ cat primes.log
 3
 5
 $ ./fast-prime 25 37 39 29
-25    : not prime
-37    : prime
-39    : not prime
-29    : prime
+25: not prime
+37: prime
+39: not prime
+29: prime
 $ ls
 fast-prime fast-prime.c fast-prime.h fast-prime.o Makefile primes.log
 $ cat primes.log
@@ -88,6 +88,20 @@ rm -rf primes.log
 find . -name '*.o' -delete
 \end{terminal}
 
-\prepare{footer}
+\newpage
+
+\subsection*{Solution}
+
+\lstset{language=c,tabsize=4}
+\begin{itemize}
+\item[] File \texttt{fast-prime.c}:
+\lstinputlisting[firstline=10]{\topDirectory/src/main/c/hw05/fast-prime.c}
+\item[] File \texttt{fast-prime.h}:
+\lstinputlisting[firstline=10]{\topDirectory/src/main/c/hw05/fast-prime.h}
+\newpage
+\lstset{language=[gnu]make,tabsize=4}
+\item[] File \texttt{Makefile}:
+\lstinputlisting[firstline=1]{\topDirectory/src/main/c/hw05/Makefile}
+\end{itemize}
 
 \end{document}
