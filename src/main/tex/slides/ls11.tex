@@ -64,6 +64,60 @@
 	\end{block}
 \end{slide}
 
-\subsection{Pointers and Strings}
+\begin{slide}
+	\begin{block}{Differences}
+
+	\inputminted[fontsize=\footnotesize, firstline=15, lastline=23, linenos]{c}{
+		\resDirectory/ls11-string1.c
+	}
+
+	\end{block}
+	\begin{block}{Moral Point}
+
+	A pointer to a character is not a character; it is a pointer.
+
+	\end{block}
+\end{slide}
+
+\subsection{Character Pointers and Functions}
+
+\begin{slide}
+	\begin{block}{Exercise}
+
+	Write a function \texttt{strcpy(char *s, char *t)} that copies the string \texttt{t} to the string \texttt{s}.
+	You may assume that the destination string is larger than the source.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution 1}
+
+	\inputminted[fontsize=\scriptsize, firstline=10, linenos]{c}{
+		\resDirectory/ls11-strcpy1.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution 2}
+
+	\inputminted[fontsize=\scriptsize, firstline=10, linenos]{c}{
+		\resDirectory/ls11-strcpy2.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution 3}
+
+	\inputminted[fontsize=\scriptsize, firstline=10, linenos]{c}{
+		\resDirectory/ls11-strcpy3.c
+	}
+
+	\end{block}
+\end{slide}
 
 \end{document}
