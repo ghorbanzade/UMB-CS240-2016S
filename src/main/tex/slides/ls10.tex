@@ -34,6 +34,7 @@
 	\begin{block}{Motivation}
 
 	Using pointers improves efficiency, clarity and simplicity of the program.
+	Pointers are key to constructing more advanced data structures.
 
 	\end{block}
 \end{slide}
@@ -46,6 +47,7 @@
 	\inputminted[fontsize=\footnotesize, firstline=14, lastline=16, linenos]{c}{
 		\resDirectory/ls10-point1.c
 	}
+
 	\begin{terminal}
 	value of var1: 3
 	address of var1: 0x7ffce5183f2c
@@ -146,9 +148,11 @@
 \begin{slide}
 	\begin{block}{Problem Statement}
 
-	All function arguments are passed by value.
-	Altering an external variable in a calling function is not \textit{directly} possible.
-	A function may not return more than one value.
+	\begin{itemize}
+	\item[] All function arguments are passed by value.
+	\item[] Altering an external variable in a calling function is not \textit{directly} possible.
+	\item[] A function may not return more than one value.
+	\end{itemize}
 
 	\end{block}
 \end{slide}
@@ -219,7 +223,6 @@
 
 	\end{block}
 \end{slide}
-
 
 \begin{slide}
 	\begin{figure}
