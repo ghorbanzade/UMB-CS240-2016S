@@ -79,7 +79,7 @@
 	\end{block}
 \end{slide}
 
-\subsection{Character Pointers and Functions}
+\subsection{Pointers and Functions}
 
 \begin{slide}
 	\begin{block}{Exercise}
@@ -118,6 +118,112 @@
 	}
 
 	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{figure}
+	\includegraphics[width=0.8\textwidth]{\texDirectory/img/array.jpg}
+	\end{figure}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Exercise}
+
+	Write a function with the following signature that reverses a given array of integer.
+
+	\begin{terminal}
+	void reverse(int *array, int size);
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution}
+
+	\inputminted[fontsize=\scriptsize, firstline=10, lastline=25, linenos]{c}{
+		\resDirectory/ls11-reverse.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution}
+
+	\inputminted[fontsize=\scriptsize, firstline=27, linenos]{c}{
+		\resDirectory/ls11-reverse.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Exercise}
+
+	Write a function with the following signature that multiples a square matrix $m$ by itself, given a pointer to element $m_{1,1}$.
+
+	\begin{terminal}
+	void matrix(int *m, int size);
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution}
+
+	\inputminted[fontsize=\scriptsize, firstline=17, lastline=28, linenos]{c}{
+		\resDirectory/ls11-matrix.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution}
+
+	\inputminted[fontsize=\scriptsize, firstline=30, lastline=38, linenos]{c}{
+		\resDirectory/ls11-matrix.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution}
+
+	\inputminted[fontsize=\scriptsize, firstline=40, lastline=48, linenos]{c}{
+		\resDirectory/ls11-matrix.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution}
+
+	\inputminted[fontsize=\scriptsize, firstline=50, lastline=61, linenos]{c}{
+		\resDirectory/ls11-matrix.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution}
+
+	\inputminted[fontsize=\scriptsize, firstline=63, lastline=74, linenos]{c}{
+		\resDirectory/ls11-matrix.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{figure}
+	\includegraphics[width=0.6\textwidth]{\texDirectory/img/pulp.jpg}
+	\end{figure}
 \end{slide}
 
 \end{document}
