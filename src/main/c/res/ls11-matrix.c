@@ -32,7 +32,7 @@ void show(int *m, int size)
 	int i, j;
 	for (i = 0; i < size; i++) {
 		for (j = 0; j < size; j++)
-			printf("%3d ", *(m + 3 * i + j));
+			printf("%3d ", *(m + size * i + j));
 		printf("\n");
 	}
 }
@@ -62,13 +62,7 @@ int calc(int *m, int row, int col, int size)
 
 void copy(int *m, int *n, int size)
 {
-	int i, j;
-	int *p, *q;
-	for (i = 0; i < size; i++) {
-		for (j = 0; j < size; j++) {
-			p = m + size * i + j;
-			q = n + size * i + j;
-			*p = *q;
-		}
-	}
+	int i;
+	for (i = 0; i < size * size; i++)
+		*m++ = *n++;
 }
