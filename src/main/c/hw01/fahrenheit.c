@@ -13,7 +13,8 @@
 #define MAX 100
 #define STEP 10
 
-main() {
+int main(void)
+{
 	int tempC, tempF;
 	printf(" %-4s %-4s \n", "C", "F");
 	printf("-----------\n");

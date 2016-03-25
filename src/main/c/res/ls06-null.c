@@ -12,8 +12,8 @@
 
 int main(void)
 {
-    char string[10] = "Goodbye";
-    printf("%s ", string);
-    string[4] = '\0';
-    printf("%s\n", string);
+	char string[10] = "Goodbye";
+	printf("%s ", string);
+	string[4] = '\0';
+	printf("%s\n", string);
 }

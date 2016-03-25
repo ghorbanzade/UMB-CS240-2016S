@@ -7,6 +7,9 @@
  * He makes no warranty and accepts no liability for this file.
  */
 
+#ifndef FAST_PRIME_H
+#define FAST_PRIME_H
+
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,3 +25,5 @@ int check_on_set(int num, int *primes, int size);
 int check_beyond(int num, int **primes, int *size);
 int get_alloc_size(int size);
 int write_primes(int *primes, int primes_size);
+
+#endif // FAST_PRIME_H

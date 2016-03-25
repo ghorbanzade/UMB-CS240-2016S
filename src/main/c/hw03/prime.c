@@ -12,7 +12,8 @@
 /**
  * checks whether a given number is not prime
  */
-int not_prime(int num) {
+int not_prime(int num)
+{
 	int i = 2;
 	for (i = 2; i < num / 2; i++)
 		if (num % i == 0)
@@ -23,7 +24,8 @@ int not_prime(int num) {
 /**
  * returns the smallest prime number bigger than a given number
  */
-int prime(int num) {
+int prime(int num)
+{
 	int tmp = num + 1;
 	while (not_prime(tmp))
 		tmp++;
@@ -33,7 +35,8 @@ int prime(int num) {
 /**
  * asks user for a character of the set
  */
-int prompt(void) {
+int prompt(void)
+{
 	char c;
 	while (1) {
 		printf("another number [y/n]? ");
@@ -53,7 +56,8 @@ int prompt(void) {
  * as long as the user enters y or Y. Program terminates when
  * user enters n or N.
  */
-main() {
+int main(void)
+{
 	int i = 1;
 	do {
 		int p = prime(i);

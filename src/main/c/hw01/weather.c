@@ -9,7 +9,8 @@
 
 #include <stdio.h>
 
-main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
 	if (argc >= 2) {
 		printf("%s is %s today!\n", argv[1], argv[2]);
 	} else {

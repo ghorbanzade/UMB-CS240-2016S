@@ -39,6 +39,6 @@ void show_basket(char *basket[], int size)
 {
 	int i;
 	for (i = 0; i < size; i++) {
-		printf("fruit %d: %s\n", i+1, basket[i]);
+		printf("fruit %d: %s\n", i + 1, basket[i]);
 	}
 }

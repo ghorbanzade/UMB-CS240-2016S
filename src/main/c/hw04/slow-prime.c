@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	next_prime(num, &nxt);
 	printf("%d\n", nxt);
 	ret = EXIT_SUCCESS;
-ERROR:
+ ERROR:
 	return ret;
 }
 
@@ -50,7 +50,7 @@ int get_number(char *str, int *num)
 	}
 	*num = res;
 	ret = 0;
-ERROR:
+ ERROR:
 	return ret;
 }
 
@@ -75,6 +75,6 @@ int is_prime(int num)
 			goto ERROR;
 	}
 	ret = 1;
-ERROR:
+ ERROR:
 	return ret;
 }

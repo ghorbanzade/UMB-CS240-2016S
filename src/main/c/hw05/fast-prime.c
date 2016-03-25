@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 			printf("%d: prime\n", num);
 	}
 	ret = EXIT_SUCCESS;
-ERROR:
+ ERROR:
 	return ret;
 }
 
@@ -61,7 +61,7 @@ int str2int(char *str, int *num)
 	}
 	*num *= sign;
 	ret = 0;
-ERROR:
+ ERROR:
 	return ret;
 }
 
@@ -85,7 +85,7 @@ int prime_check(int num)
 	if (check_beyond(num, &primes, &primes_size))
 		goto ERROR;
 	ret = 0;
-ERROR:
+ ERROR:
 	free(primes);
 	return ret;
 }
@@ -106,7 +106,7 @@ int read_primes(int **primes, int *size)
 	if (fp == NULL)
 		goto ERROR;
 	while (fgets(line, LINE_WIDTH, fp) != NULL) {
-		line[strlen(line)-1] = '\0';
+		line[strlen(line) - 1] = '\0';
 		if (str2int(line, &prime))
 			goto ERROR;
 		(*primes)[(*size)++] = prime;
@@ -119,7 +119,7 @@ int read_primes(int **primes, int *size)
 		(*primes)[(*size)++] = 2;
 	ret = 0;
 
-ERROR:
+ ERROR:
 	if (fp != NULL)
 		fclose(fp);
 	return ret;
@@ -140,7 +140,7 @@ int check_on_set(int num, int *primes, int size)
 			goto ERROR;
 	}
 	ret = 0;
-ERROR:
+ ERROR:
 	return ret;
 }
 
@@ -168,7 +168,7 @@ int check_beyond(int num, int **primes, int *size)
 	if (check_on_set(num, *primes, *size))
 		goto ERROR;
 	ret = 0;
-ERROR:
+ ERROR:
 	if (write_primes(*primes, *size))
 		printf("error: unable to save new primes\n");
 	return ret;
@@ -205,7 +205,7 @@ int write_primes(int *primes, int primes_size)
 		fprintf(fp, "%d\n", primes[i]);
 	ret = 0;
 
-ERROR:
+ ERROR:
 	if (fp != NULL)
 		fclose(fp);
 	return ret;

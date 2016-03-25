@@ -13,7 +13,7 @@ int main(void)
 {
 	int out;
 	int array[] = {1, -1, 4, 5, 4, 1, -1};
-	int size = sizeof(array)/sizeof(array[0]);
+	int size = sizeof(array) / sizeof(array[0]);
 	out = single_number(array, size);
 	printf("%d\n", out);
 }

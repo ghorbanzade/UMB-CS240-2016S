@@ -17,7 +17,7 @@ int main(void)
 	int i;
 	int size;
 	int a[] = {1, 2, 3, 4, 5, 6};
-	size = sizeof(a)/sizeof(a[0]);
+	size = sizeof(a) / sizeof(a[0]);
 	reverse(a, size);
 	for (i = 0; i < size; i++) {
 		printf("a[%d] = %d\n", i, a[i]);

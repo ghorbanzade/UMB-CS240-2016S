@@ -13,7 +13,8 @@
  * print the group under which the person is classified
  * based on his given bmi
  */
-void classify(float bmi) {
+void classify(float bmi)
+{
 	printf("You are classified as ");
 	if (bmi < 18.5)
 		printf("Underweight");
@@ -31,7 +32,8 @@ void classify(float bmi) {
  * and prints his bmi as well as the group under which
  * he is classified.
  */
-main() {
+int main(void)
+{
 	int height, weight;
 	float bmi;
 	printf("Your height (in): ");

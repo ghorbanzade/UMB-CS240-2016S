@@ -12,7 +12,7 @@
 
 int main(void)
 {
-    char string[10] = "hello";
-    printf("%d ", (int) strlen(string));
-    printf("%d\n", (int) sizeof(string));
+	char string[10] = "hello";
+	printf("%d ", (int) strlen(string));
+	printf("%d\n", (int) sizeof(string));
 }

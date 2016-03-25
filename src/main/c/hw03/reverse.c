@@ -13,14 +13,16 @@
 /**
  * print a message as an error
  */
-void print_error(char *message) {
+void print_error(char *message)
+{
 	printf("error: %s\n", message);
 }
 
 /**
  * check if a given argument makes sense as a number
  */
-int is_number(char *arg) {
+int is_number(char *arg)
+{
 	int i = (arg[0] == '-') ? 1 : 0;
 	while (arg[i] != '\0') {
 		if (arg[i] > '9' || arg[i] < '0')
@@ -33,7 +35,8 @@ int is_number(char *arg) {
 /**
  * print reverse of a given argument
  */
-void print_reverse(char *arg) {
+void print_reverse(char *arg)
+{
 	int i, j = 0;
 	int len = strlen(arg);
 	char rev[len];
@@ -53,7 +56,8 @@ void print_reverse(char *arg) {
  * checks whether it is a valid integer number
  * and prints its reverse
  */
-main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
 	if (argc >= 2) {
 		char *arg = argv[1];
 		if (is_number(arg)) {
