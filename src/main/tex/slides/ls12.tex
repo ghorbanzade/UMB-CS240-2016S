@@ -1,0 +1,180 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2016 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \topDirectory {../..}
+\def \texDirectory {\topDirectory/src/main/tex}
+\def \resDirectory {\topDirectory/src/main/c/res}
+
+\documentclass[compress]{beamer}
+%\mode<presentation>
+%\usetheme{default}
+
+\usepackage{\texDirectory/template/style/directives}
+\input{\texDirectory/template/config}
+\usepackage{\texDirectory/template/style/beamerthemePejman}
+\doc{number}{12}
+%\setbeamertemplate{footline}[text line]{}
+
+\begin{document}
+
+\prepareCover
+
+\section{Pointers}
+
+\subsection{Array of Pointers}
+
+\begin{slide}
+	\begin{block}{Introduction}
+
+	\begin{itemize}
+	\item[] Array is a data structure that holds a \emph{fixed} number of variables of a \emph{single} type.
+	\item[] A pointer is a \alert{variable} that points to another variable.
+	\item[] An array can hold a fixed number of pointers of similar type.
+	\end{itemize}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Declaration}
+
+	\inputminted[fontsize=\footnotesize, firstline=10, linenos]{c}{
+		\resDirectory/ls12-array1.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Array of Strings}
+
+	\inputminted[fontsize=\footnotesize, firstline=10, linenos]{c}{
+		\resDirectory/ls12-array2.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Array of Strings}
+
+	\inputminted[fontsize=\footnotesize, firstline=10, linenos]{c}{
+		\resDirectory/ls12-array3.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Pointers vs. Multi-dimensional Arrays}
+
+	\inputminted[fontsize=\footnotesize, firstline=10, linenos]{c}{
+		\resDirectory/ls12-array4.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Command-line Arguments}
+
+	\inputminted[fontsize=\footnotesize, firstline=10, linenos]{c}{
+		\resDirectory/ls12-cmdargs.c
+	}
+
+	\end{block}
+\end{slide}
+
+\subsection{Pointers to Pointers}
+
+\begin{slide}
+	\begin{figure}
+	\includegraphics[width=0.6\textwidth]{\texDirectory/img/pointers2.jpg}
+	\end{figure}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Introduction}
+
+	A pointers may point to another pointer.
+
+	\inputminted[fontsize=\footnotesize, firstline=10, linenos]{c}{
+		\resDirectory/ls12-ptrptr1.c
+	}
+
+	\end{block}
+\end{slide}
+
+\subsection{Pointer to Functions}
+
+\begin{slide}
+	\begin{block}{Introduction}
+
+	A function in C is a pointer to a memory location where its implementation is stored.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{How it works!}
+
+	\inputminted[fontsize=\footnotesize, firstline=10, lastline=20, linenos]{c}{
+		\resDirectory/ls12-ptrfunc1.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{How it works!}
+
+	\inputminted[fontsize=\footnotesize, firstline=22, linenos]{c}{
+		\resDirectory/ls12-ptrfunc1.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Motivation}
+
+	\begin{itemize}
+	\item[] Callback Mechanism
+	\item[] Event Listeners
+	\item[] Dependency Inversion
+	\end{itemize}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Function Pointers}
+
+	\inputminted[fontsize=\footnotesize, firstline=10, lastline=20, linenos]{c}{
+		\resDirectory/ls12-ptrfunc2.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Function Pointers}
+
+	\inputminted[fontsize=\footnotesize, firstline=22, linenos]{c}{
+		\resDirectory/ls12-ptrfunc2.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{figure}
+	\includegraphics[width=0.6\textwidth]{\texDirectory/img/pulp.jpg}
+	\end{figure}
+\end{slide}
+
+\end{document}
