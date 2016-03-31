@@ -1,0 +1,17 @@
+CC=gcc
+CFLAGS=-I.
+DEPS = hello.h
+OBJS = hello.o
+TARGETS = hello
+
+all: $(TARGET)
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+$(TARGET): $(OBJS)
+	$(CC) -o $@ $^ $(CFLAGS)
+
+clean:
+	rm -rf $(OBJS)
+	rm -rf $(TARGET)

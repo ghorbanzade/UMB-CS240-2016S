@@ -1,0 +1,240 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2016 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \topDirectory {../..}
+\def \texDirectory {\topDirectory/src/main/tex}
+\def \resDirectory {\topDirectory/src/main/c/res/ls13}
+
+\documentclass[compress]{beamer}
+%\mode<presentation>
+%\usetheme{default}
+
+\usepackage{\texDirectory/template/style/directives}
+\input{\texDirectory/template/config}
+\usepackage{\texDirectory/template/style/beamerthemePejman}
+\doc{number}{13}
+%\setbeamertemplate{footline}[text line]{}
+
+\begin{document}
+
+\prepareCover
+
+\section{Build Automation}
+
+\subsection{Introduction}
+
+\begin{slide}
+	\begin{block}{Objective}
+
+	Write a program \texttt{hello-world.c} that uses \texttt{hello-world.h} to print ''Hello World!'' as standard output.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Implementation}
+
+	\inputminted[fontsize=\footnotesize, firstline=10, linenos]{c}{
+		\resDirectory/hello.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Implementation}
+
+
+	\inputminted[fontsize=\footnotesize, firstline=10, linenos]{c}{
+		\resDirectory/hello.h
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Compilation}
+
+	Instructions to build source code:
+
+	\begin{terminal}
+	$ ls
+	hello.c
+	$ gcc -c -o hello.o hello.o
+	$ gcc -o hello hello.o
+	$ ls
+	hello hello.c hello.o
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Compilation}
+
+	Instructions to remove build artifacts:
+
+	\begin{terminal}
+	$ ls
+	hello hello.c hello.o
+	$ rm hello
+	$ rm hello.o
+	$ ls
+	hello.c
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Problem Statement}
+
+	As software grows in size and complexity, instructions to build the software from source code grow in size.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Proposed Solution}
+
+	Automate the build procedure such that the entire software is built using a simple instruction.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Advantages}
+
+	\begin{itemize}
+	\item[] Effortless generation of executable files from the source code
+	\item[] Troublefree romoval of build artifacts
+	\item[] Automatic dependency management and platfrom configuration
+	\end{itemize}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Build Components}
+
+	A build automation process typically includes the following steps.
+
+	\begin{itemize}
+	\item[] Code Compilation
+	\item[] Unit Testing
+	\item[] Static Code Analysis
+	\item[] Code Coverage Analysis
+	\item[] Build Deployment
+	\item[] Documentation
+	\item[] Software Versioning
+	\end{itemize}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Build Automation Tools}
+
+	Some of the notable tools associated with automating build processes are as follows.
+
+	\begin{description}
+	\item[C] GNU Make
+	\item[Java] Ant, Maven, Gradle
+	\item[Python] SCons, Paver
+	\item[Ruby] Rake
+	\end{description}
+
+	This course provides a brief introduction to GNU Make build tool.
+
+	\end{block}
+\end{slide}
+
+\subsection{GNU Make}
+
+\begin{slide}
+	\begin{block}{Objective}
+
+	Write a Makefile that automates the build procedure as shown below:
+
+	\begin{terminal}
+	$ ls
+	hello.c
+	$ make
+	gcc -c -o hello.o hello.o
+	gcc -o hello hello.o
+	$ ls
+	hello hello.c hello.o
+	$ make clean
+	rm hello
+	rm hello.o
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Makefile v1}
+
+	\inputminted[fontsize=\footnotesize, linenos]{text}{
+		\resDirectory/make1.txt
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Syntax}
+
+	\begin{terminal}
+	@*\textit{target}*@: @*\textit{dependency}*@
+	    @*\textit{instruction(s)}*@
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Makefile v2}
+
+	\inputminted[fontsize=\scriptsize, linenos]{text}{
+		\resDirectory/make2.txt
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Makefile v3}
+
+	\inputminted[fontsize=\scriptsize, linenos]{text}{
+		\resDirectory/make3.txt
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Makefile v4 Part 1}
+
+	\inputminted[fontsize=\scriptsize, lastline=13, linenos]{text}{
+		\resDirectory/make4.txt
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Makefile v4 Part 2}
+
+	\inputminted[fontsize=\scriptsize, firstline=15, linenos]{text}{
+		\resDirectory/make4.txt
+	}
+
+	\end{block}
+\end{slide}
+
+\end{document}

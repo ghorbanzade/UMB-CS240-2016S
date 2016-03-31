@@ -1,0 +1,11 @@
+CC=gcc
+CFLAGS=-I.
+
+all: hello
+
+hello: hello.o
+	$(CC) -o hello hello.o $(CFLAGS)
+
+clean:
+	rm hello
+	rm hello.o
