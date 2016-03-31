@@ -7,7 +7,7 @@
 
 \def \topDirectory {../..}
 \def \texDirectory {\topDirectory/src/main/tex}
-\def \resDirectory {\topDirectory/src/main/c/res}
+\def \resDirectory {\topDirectory/src/main/c/res/ls10}
 
 \documentclass[compress]{beamer}
 %\mode<presentation>
@@ -45,7 +45,7 @@
 	We can access the address of a variable using the unary operator \alert{\texttt{\&}}.
 
 	\inputminted[fontsize=\footnotesize, firstline=14, lastline=16, linenos]{c}{
-		\resDirectory/ls10-point1.c
+		\resDirectory/point1.c
 	}
 
 	\begin{terminal}
@@ -75,7 +75,7 @@
 	We can access the object a pointer points to, using the unary operator \alert{\texttt{*}}.
 
 	\inputminted[fontsize=\footnotesize, firstline=14, lastline=16, linenos]{c}{
-		\resDirectory/ls10-point2.c
+		\resDirectory/point2.c
 	}
 
 	\begin{terminal}
@@ -94,7 +94,7 @@
 	Dereferencing a pointer \texttt{ptr} allows access to the value of the variable to which \texttt{ptr} points.
 
 	\inputminted[fontsize=\footnotesize, firstline=14, lastline=16, linenos]{c}{
-		\resDirectory/ls10-point2.c
+		\resDirectory/point2.c
 	}
 
 	\begin{terminal}
@@ -113,7 +113,7 @@
 	A pointer can be dereferenced using the unary operator \alert{\texttt{*}}.
 
 	\inputminted[fontsize=\footnotesize, firstline=14, lastline=17, linenos]{c}{
-		\resDirectory/ls10-point2.c
+		\resDirectory/point2.c
 	}
 
 	\begin{terminal}
@@ -131,7 +131,7 @@
 	What is the output of the following code snippet?
 
 	\inputminted[fontsize=\footnotesize, firstline=10, linenos]{c}{
-		\resDirectory/ls10-point3.c
+		\resDirectory/point3.c
 	}
 
 	\pause
@@ -177,7 +177,7 @@
 	\pause
 
 	\inputminted[fontsize=\footnotesize, firstline=12, lastline=17, linenos]{c}{
-		\resDirectory/ls10-swap.c
+		\resDirectory/swap.c
 	}
 
 	\end{block}
@@ -195,7 +195,7 @@
 	\pause
 
 	\inputminted[fontsize=\footnotesize, firstline=19, linenos]{c}{
-		\resDirectory/ls10-swap.c
+		\resDirectory/swap.c
 	}
 
 	\end{block}
@@ -218,7 +218,7 @@
 	\begin{block}{Solution}
 
 	\inputminted[fontsize=\scriptsize, firstline=14, lastline=31, linenos]{c}{
-		\resDirectory/ls10-str2int.c
+		\resDirectory/str2int.c
 	}
 
 	\end{block}
