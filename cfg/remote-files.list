@@ -13,6 +13,8 @@ ls08.pdf
 ls09.pdf
 ls10.pdf
 ls11.pdf
+ls12.pdf
+ls13.pdf
 
 hw01.pdf  hw01-czjkkbmc.pdf
 hw01s.pdf hw01s-rzhhnrav.pdf
@@ -24,6 +26,8 @@ hw04.pdf  hw04-sqhcbkch.pdf
 hw04s.pdf hw04s-dqprwvtm.pdf
 hw05.pdf  hw05-hputpeye.pdf
 hw05s.pdf hw05s-xuzzhpft.pdf
+hw06.pdf  hw06-kkmyyvay.pdf
+hw06s.pdf hw06s-jmvabyhe.pdf
 m01.pdf   m01-gaerzaup.pdf
 m01s.pdf  m01s-ycnevaqf.pdf
 m02.pdf   m02-hsemfjkd.pdf
@@ -34,7 +38,8 @@ m02s.pdf  m02s-qexvuwwc.pdf
 ../zip/hw03.zip hw03s-vbaqmxmu.zip
 ../zip/hw04.zip hw04s-gtvesmey.zip
 ../zip/hw05.zip hw05s-zwspwqxq.zip
+../zip/hw06.zip hw06s-ddnedunz.zip
 ../zip/m01.zip  m01s-xpvzvvxj.zip
 ../zip/m02.zip  m02s-rdmvwvby.zip
 
-../cs240.pdf
+#../cs240.pdf

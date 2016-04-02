@@ -18,81 +18,74 @@
 
 \begin{document}
 
-\doc{title}{Assignment 6}
-\doc{date-pub}{Apr 18, 2016 at 5:30 PM}
+\doc{title}{Final Project}
+\doc{date-pub}{Apr 4, 2016 at 5:30 PM}
 \doc{date-due}{May 2, 2016 at 5:30 PM}
-\doc{points}{8}
+\doc{points}{20}
 
 \prepare{header}
 
 \section*{Question 1}
 
-Write a program \texttt{array-generate.c} that takes command line arguments $n$, $m_1$ and $m_2$ and gives as output an array of $n$ integers with values between $m_1$ inclusive and $m_2$ exclusive in ascending order.
+To check whether a given non-negative integer $n$ is a prime, it suffices to check if it is divisible by at least one of the elements in $\mathbb{S}_n =  \{ k_i \in \mathbb{P} | k_i < \sqrt{n} \}$.
+If $\mathbb{S}_n$ is known, it takes $|\mathbb{S}_n|$ operations to check for primality of $n$.
+This is much better than when $\mathbb{S}_n$ is not known in which case it takes $\mathbb{O}(n \log \log n)$ operations to construct it.
 
-Following is an expected sample run of the program:
+Suppose we can store $\mathbb{P} = \mathbb{S}_n$, as set of all \textit{known} prime numbers, in a file and access it when testing primality of another non-negative integer $m$.
+This way, if $1 << m < n$, primality testing of $m$ would be trivial.
+On the other hand, if $1 << n < m$, $\mathbb{S}_n$ would still be very useful in constructing $\mathbb{S}_m$ and required operations for prime-checking $m$ will be reduced by $c_1 n \log \log n + c_2$ operations where $c_1$ and $c_2$ are positive integers.
+In this case, once $m$ is prime-checked, we can update the list of \textit{known} prime numbers to $\mathbb{S}_m$ for later use.
 
-\begin{terminal}
-$ ls
-array-generate.c array-generate.h
-$ gcc array-sort.c -o array-sort
-$ ./array-generate 10 30 40
-34 35 32 38 32 30 33 35 37 30
-$ ./array-sort 5 0 10
-5 2 8 9 8
-\end{terminal}
+You are asked to write a program \texttt{fast-prime.c} that accepts a set of non-negative integer numbers as command line arguments and, using the above-mentioned algorithm, checks for their primality.
 
-\section*{Question 2}
+You may not include any header file other than \texttt{fast-prime.h}.
+In addition, your \texttt{fast-prime.c} file should accompany a \texttt{Makefile} to facilitate building process and artifact removal.
 
-Write a program \texttt{array-sort.c} that takes an arbitrary number of integers as command line arguments and prints the array in ascending order randomly choosing of the \texttt{bubble-sort}, \texttt{insertion-sort} or \texttt{selection-sort} algorithms.
+Following illustrates the expected functionality of your program.
 
-\begin{terminal}
-$ ls
-array-sort.c array-sort.h array-utils.c array-utils.h
-$ gcc -c -o array-utils.o array-utils.c 
-$ gcc -c -o array-sort.o array-sort.c 
-$ gcc -o array-sort array-sort.o array-utils.o -Werror -Wall -std=gnu99 -I.
-$ ls
-$ ./array-sort 34 35 32 38 32 30 33 35 37 30
-30 30 32 32 33 34 35 35 37 38
-\end{terminal}
-
-\section*{Question 3}
-
-Write a shell script \texttt{random-sorted-array.sh} that generates three positive random integers (less than 20) and passes them to the \texttt{array-generate} program, developed in Question 1.
-The shell script should then pipe the ouput of \texttt{array-generate} as standard input to \texttt{array-sort} program, developed in Question 2.
-
-The desired output of the shell script is given below.
+\newpage
 
 \begin{terminal}
 $ ls
-array-generate array-sort random-sorted-array.sh
-$ chmod 755 random-sorted-array.sh
-$ ,/random-sorted-array.sh
-30 30 32 32 33 34 35 35 37 38
-$ ./random-sorted-array.sh
-7 7 7 8 8 9 10
-\end{terminal}
-
-\section*{Question 4}
-
-Building source code for questions 1 and 2 of this assignment requires initiating multiple commands.
-To simplify the build procedure and render the process less error-prone, write a \texttt{Makefile} that summarizes the build procedure as follows.
-
-\begin{terminal}
-$ make clean
-rm -rf ./array-generate ./array-sort
-find . -name '*.o' -delete
-$ ls
-array-generate.c array-generate.h array-sort.c array-sort.h
-array-utils.c array-utils.h random-sorted-array.sh
+fast-prime.c fast-prime.h Makefile
 $ make
-gcc -c -o array-generate.o array-generate.c
-gcc -c -o array-utils.o array-utils.c
-gcc -o array-generate array-generate.o array-utils.o -Werror -Wall -std=gnu99 -I.
-gcc -c -o array-sort.o array-sort.c
-gcc -o array-sort array-sort.o array-utils.o -Werror -Wall -std=gnu99 -I.
-$ ./random-sorted-array.sh
-5 12 16 17 17 19 20
+gcc -c -o fast-prime.o fast-prime.c
+gcc -o fast-prime fast-prime.o -Werror -Wall -std=gnu99 -I.
+$ ./fast-prime
+error: missing command line argument
+$ ./fast-prime 6
+6     : not prime
+$ ls
+fast-prime fast-prime.c fast-prime.h fast-prime.o
+Makefile primes.log
+$ cat primes.log
+2
+3
+5
+$ ./fast-prime 25 37 39 29
+25    : not prime
+37    : prime
+39    : not prime
+29    : prime
+$ ls
+fast-prime fast-prime.c fast-prime.h fast-prime.o Makefile primes.log
+$ cat primes.log
+2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+31
+37
+$ make clean
+rm -rf fast-prime
+rm -rf primes.log
+find . -name '*.o' -delete
 \end{terminal}
 
 \prepare{footer}
