@@ -1,0 +1,333 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2016 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \topDirectory {../..}
+\def \texDirectory {\topDirectory/src/main/tex}
+\def \resDirectory {\topDirectory/src/main/c/res/ls14}
+
+\documentclass[compress]{beamer}
+%\mode<presentation>
+%\usetheme{default}
+
+\usepackage{\texDirectory/template/style/directives}
+\input{\texDirectory/template/config}
+\usepackage{\texDirectory/template/style/beamerthemePejman}
+\doc{number}{14}
+%\setbeamertemplate{footline}[text line]{}
+
+\begin{document}
+
+\prepareCover
+
+\section{Memory Management}
+
+\subsection{Static Memory Allocation}
+
+\begin{slide}
+	\begin{block}{Introduction}
+
+	Static memory is the memory allocated at compile-time before the associated program is executed.
+
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Lifetime}
+
+	Static variables persist during the lifetime of the program and are accessible from within any function defined in the same file in which the variable is declared.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Syntax}
+
+	Static memory can be allocated using the \texttt{static} keyword.
+
+	\begin{terminal}
+	static int a = 4;
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Example}
+
+	\inputminted[fontsize=\scriptsize, firstline=10, linenos]{c}{
+		\resDirectory/static.c
+	}
+
+	\end{block}
+\end{slide}
+
+\subsection{Atomatic Memory Allocation}
+
+\begin{slide}
+	\begin{block}{Introduction}
+
+	Automatic memory is the memory allocated in the \alert{stack} frame of the function they are declared in.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Lifetime}
+
+	Automatic variables have a scope \emph{local} to the function they are declared in.
+	Memory allocated to an automatic variable is freed once its declaring function exits the stack (returns).
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Example}
+
+	\inputminted[fontsize=\scriptsize, firstline=10, linenos]{c}{
+		\resDirectory/automatic.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Limitation}
+
+	Size of the memory to be allocated for static or automatic variables must be constant and known to the compiler.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Problem}
+
+	What if the required size for a variable is not known during the compilation time?
+
+	\end{block}
+\end{slide}
+
+\subsection{Dynamic Memory Allocation}
+
+\begin{slide}
+	\begin{block}{Objective}
+
+	Write a program \texttt{dynamic-array.c} that continues to prompt user for integers as long as the number is not negative.
+	Your program should print all numbers previously entered, once the user enters a negative integer.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Introduction}
+
+	C allows \emph{dynamic memory allocation} with which memory allocated to a variable can be explicitly manipulated.
+	Memory dynamically assigned to a variable is \emph{borrowed} from \emph{the heap}.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Heap Memory}
+
+	\textit{The heap} is a region in computer memory which is not tightly managed by the CPU.
+	The heap memory may be manually managed by the programmer.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Allocating Heap Memory}
+
+	C provides a set of built-in functions to allocate memory on the heap.
+	If the allocation is successful, the address of the allocated memory can be stored in a pointer and used the same way as the memory allocated on the stack.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{\texttt{malloc()} Function}
+
+	Declaring an array of fixed-size 10 on the stack memory.
+
+	\begin{terminal}
+	int array[10];
+	\end{terminal}
+
+	Declaring an array with initial size 10 on the heap memory.
+
+	\begin{terminal}
+	int *array = malloc(10 * sizeof(int));
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Note}
+
+	A request for allocated memory of a certain size may be rejected by the operating system, in which case, \texttt{malloc()} will return \texttt{NULL}.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Error Checking}
+
+	\begin{terminal}
+	int *array = malloc(10 * sizeof(int));
+	if (array == NULL)
+		goto ERROR;
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+
+\begin{slide}
+	\begin{block}{Memory Leak}
+
+	Memory allocated on the heap will persist as long as it is not freed.
+	If a program terminates without freeing a memory block reserved on the heap for it, the memory block will remain inaccessible by other processes, causing \emph{memory leak}.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{\texttt{free()} Function}
+
+	The function \texttt{void free(void *ptr)} deallocates the heap memory previously allocated by the program.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Note}
+
+	Function \texttt{void *malloc(size\_t size)} does not initialize the allocated memory.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{\texttt{calloc()} Function}
+
+	Function \texttt{void *calloc(size\_t num, size\_t size)} can be used to dynamically allocate \texttt{num} elements of size \texttt{size} on the heap and initialize all the elements with zero.
+
+	\begin{terminal}
+	int *array = calloc(10, sizeof(int));
+	if (array == NULL)
+		goto ERROR;
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Note}
+
+	Since \texttt{calloc()} initializes the allocated memory, a call to \texttt{calloc()} is slightly more costly than a call to \texttt{malloc()}.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Example}
+
+	\inputminted[fontsize=\scriptsize, firstline=10, linenos]{c}{
+		\resDirectory/malloc.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Memory Reallocation}
+
+	A dynamically allocated memory block can be reallocated to another memory block of a different size.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Function \texttt{realloc()}}
+
+	C provides the \texttt{realloc()} function for memory reallocation.
+
+	\begin{terminal}
+	void *realloc(void *ptr, size_t size);
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Function \texttt{realloc()}}
+
+	\begin{terminal}
+	int *ptr1 = malloc(5 * sizeof(int));
+	size_t size = 10 * sizeof(int);
+	int *ptr2 = realloc(ptr1, size);
+	\end{terminal}
+
+	If reallocation is successful:
+	\begin{itemize}
+	\item[] A new memory block of size \texttt{size} will be allocated.
+	\item[] Content of memory block pointed by \texttt{ptr1} will be copied to the new memory block.
+	\item[] Memory block pointed by \texttt{ptr1} is deallocated.
+	\item[] Function returns address of newly allocated memory block.
+	\end{itemize}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Function \texttt{realloc()}}
+
+	\begin{terminal}
+	int *ptr1 = malloc(5 * sizeof(int));
+	size_t size = 10 * sizeof(int);
+	int *ptr2 = realloc(ptr1, size);
+	\end{terminal}
+
+	If reallocation fails:
+	\begin{itemize}
+	\item[] Memory block pointed by \texttt{ptr1} remains allocated.
+	\item[] Function returns \texttt{NULL}.
+	\end{itemize}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Example}
+
+	\inputminted[fontsize=\scriptsize, firstline=10, linenos]{c}{
+		\resDirectory/realloc.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Notes}
+
+	\begin{itemize}
+	\item[] Accessing the memory allocated on the heap is slightly slower than the memory allocated on the stack.
+	\item[] Exessive heap memory allocation may lead to memory fragmentation.
+	\end{itemize}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{figure}
+	\includegraphics[width=0.5\textwidth]{\texDirectory/img/malloc.jpg}
+	\end{figure}
+\end{slide}
+
+\end{document}
