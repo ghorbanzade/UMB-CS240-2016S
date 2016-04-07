@@ -15,13 +15,14 @@ Data types, Operators and Expressions
 Program Control Flow  
 Functions and Program Structures  
 Pointers and Arrays  
-Data Structures  
+Dynamic Memory Allocation  
+Dynamic Data Structures  
 File Handling
 
 ## Prerequisites
 Students taking this course should have passed CS110 (Introduction to Computing) or CS115 (Introduction to Java - Part 2) and should be taking CS210 (Intermediate Computing with Data Structures) at the same time.
 
-## Recommended Textbook
+## Textbook
 Brian Kernighan and Dennis Ritchie, The C Programming Language, 2nd Edition, Prentice Hall
 
 ## Instructor
@@ -36,7 +37,6 @@ Mail Address: ``shaohia [at] cs.umb [dot] edu``
 Office: S-3-135
 
 ## Course Website
-
 Students are expected to check the [course website] on a regular basis.
 
 All information such as important announcements, course schedule, useful links as well as assignments and their solution will be available at the course website.
@@ -45,7 +45,8 @@ In the unlikely case that the course website is not accessible, __some__ materia
 ## Grading
 Homeworks: 40 points  
 Midterm Exam: 20 points  
-Final Exam: 40 points
+Final Project: 20 points  
+Final Exam: 20 points
 
 ## Important Dates
 First Lecture: January 25, 2016  
@@ -69,9 +70,6 @@ Mail Address: ``alexander.burke001 [at] umb [dot] edu``
 ## Attendance Policy
 Attendance will be taken for all classes but will have no effect in final evaluation.
 Students are expected to participate actively in class by asking and answering questions.
-Students are responsible for material covered in any class that they do not attend.
-
-Class attendance is mandatory, and students are expected to participate actively in class by asking and answering questions.
 Students are responsible for material covered in any class that they do not attend.
 
 ## Late Submission Policy
