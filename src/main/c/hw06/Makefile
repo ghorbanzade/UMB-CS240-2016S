@@ -5,33 +5,25 @@ SRC_DIR = .
 
 CFLAGS = -Werror -Wall -std=gnu99 -I$(INC_DIR)
 
-_TARGETS = array-generate array-sort
-LIBS1 = 
-LIBS2 =
-FILES1 = array-generate array-utils
-FILES2 = array-sort array-utils
+_TARGETS = fast-prime
+LIBS = 
+FILES = fast-prime
+ARTIFACTS = primes.log
 TARGETS = $(addprefix $(BIN_DIR)/, $(_TARGETS))
-DEPS1 = $(foreach FILE, $(FILES1), $(INC_DIR)/$(FILE).h)
-OBJS1 = $(foreach FILE, $(FILES1), $(BIN_DIR)/$(FILE).o)
-DEPS2 = $(foreach FILE, $(FILES2), $(INC_DIR)/$(FILE).h)
-OBJS2 = $(foreach FILE, $(FILES2), $(BIN_DIR)/$(FILE).o)
+DEPS = $(foreach FILE, $(FILES), $(INC_DIR)/$(FILE).h)
+OBJS = $(foreach FILE, $(FILES), $(BIN_DIR)/$(FILE).o)
 
 .PHONY: all clean
 
 all: $(TARGETS)
 
-$(BIN_DIR)/array-generate: $(OBJS1)
-	$(CC) -o $@ $^ $(CFLAGS) $(LIBS1)
+$(BIN_DIR)/fast-prime: $(OBJS)
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
-$(BIN_DIR)/array-sort: $(OBJS2)
-	$(CC) -o $@ $^ $(CFLAGS) $(LIBS2)
-
-$(BIN_DIR)/%.o: $(SRC_DIR)/%.c $(DEPS1)
+$(BIN_DIR)/%.o: $(SRC_DIR)/%.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFALGS)
-
-$(BIN_DIR)/%.o: $(SRC_DIR)/%.c $(DEPS2)
-	$(CC) -c -o $@ $< $(CFLAGS)
 
 clean:
 	rm -rf $(TARGETS)
+	rm -rf $(ARTIFACTS)
 	find $(BIN_DIR) -name '*.o' -delete
