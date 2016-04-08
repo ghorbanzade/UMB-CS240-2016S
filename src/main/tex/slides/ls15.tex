@@ -1,0 +1,282 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2016 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \topDirectory {../..}
+\def \texDirectory {\topDirectory/src/main/tex}
+\def \resDirectory {\topDirectory/src/main/c/res/ls15}
+
+\documentclass[compress]{beamer}
+%\mode<presentation>
+%\usetheme{default}
+
+\usepackage{\texDirectory/template/style/directives}
+\input{\texDirectory/template/config}
+\usepackage{\texDirectory/template/style/beamerthemePejman}
+\doc{number}{15}
+%\setbeamertemplate{footline}[text line]{}
+
+\usepackage{booktabs}
+
+\begin{document}
+
+\prepareCover
+
+\section{File Handling}
+
+\subsection{Unix File System}
+
+\begin{slide}
+	\begin{block}{Definition}
+
+	A Unix file system is a single rooted-tree of directories which form a logical collection of files on a partition.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{What is a File?}
+
+	\begin{itemize}
+	\item[] A file is \emph{simply} a sequence of bytes.
+	\item[] The number of bytes stored in a file defines its size.
+	\end{itemize}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{What is a Directory?}
+
+	\begin{itemize}
+	\item[] A directory is a container of a set of files.
+	\item[] Directories allow better organization of files.
+	\item[] By origin, a directory is a file that lists the set of files that it contains.
+	\end{itemize}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Special Files}
+
+	In Unix, everything, including physical drives, is considered to be a file.
+	Files representing external physical devices are treated as \emph{special}.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Lifetime}
+
+	Files are created for permanent storage of data.
+	Information stored in a file (located in a writable file system) is held until the user modifies or removes the file.
+
+	\end{block}
+\end{slide}
+
+\subsection{File Handling in C}
+
+\begin{slide}
+	\begin{block}{Pointer to Files}
+
+	C allows creation, modification and removal of files using a pointer to a \texttt{FILE} data type.
+
+	\begin{terminal}
+	FILE *fp;
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Overview}
+
+	All input/output handlings in C are made through a set of built-in functions.
+
+	\begin{description}
+	\item[\texttt{fopen()}] create a new file or open an existing file
+	\item[\texttt{fread()}] reads a number of bytes from a file
+	\item[\texttt{fwrite()}] writes a number of bytes into a file
+	\item[\texttt{fclose()}] closes a file to be used by other processes
+	\end{description}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Opening a file}
+
+	A file must be opened before reading from or writing into it.
+
+	\begin{terminal}
+	FILE *fopen(const char *filename, const char *mode);
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Access Modes}
+
+	You must specify the mode in which you want to access a file.
+
+	\begin{table}
+	\begin{tabular}{cl}
+	\toprule
+	Mode & Description\\
+	\midrule
+	r & open an existing file for reading\\
+	w & create or open file for writing from the beginning\\
+	a & create or open file for writing from the end\\
+	\bottomrule
+	\end{tabular}
+	\caption{File Access Modes}
+	\end{table}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Writing to File}
+
+	\inputminted[fontsize=\scriptsize, firstline=10, linenos]{c}{
+		\resDirectory/fileio-w.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{\texttt{write} Access Mode}
+
+	Access mode \alert{\texttt{w}} creates the file if it does not exist.
+
+	\begin{terminal}
+	$ ls
+	file-io.c
+	$ gcc file-io.c
+	$ ./a.out
+	$ cat sample.txt
+	content of the file
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{\texttt{write} Access Mode}
+
+	Access mode \alert{\texttt{w}} returns a pointer to the first byte of the file.
+
+	\begin{terminal}
+	$ ls
+	file-io.c sample.txt
+	$ cat sample.txt
+	previous content of file
+	$ gcc file-io.c
+	$ ./a.out
+	$ ls
+	a.out file-io.c sample.txt
+	$ cat sample.txt
+	content of the file
+	previous content of file
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{\texttt{append} Access Mode}
+
+	Access mode \alert{\texttt{a}} returns a pointer to the last byte of the file.
+
+	\begin{terminal}
+	$ ls
+	file-io.c sample.txt
+	$ cat sample.txt
+	previous content of file
+	$ gcc file-io.c
+	$ ./a.out
+	$ ls
+	a.out file-io.c sample.txt
+	$ cat sample.txt
+	previous content of file
+	content of the file
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Reading from File}
+
+	\inputminted[fontsize=\scriptsize, firstline=10, linenos]{c}{
+		\resDirectory/fileio-r1.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{\texttt{read} Access Mode}
+
+	Access mode \alert{\texttt{r}} returns a pointer to the first byte of the file.
+
+	\begin{terminal}
+	$ ls
+	file-io.c sample.txt
+	$ cat sample.txt
+	content of file
+	$ gcc file-io.c
+	$ ./a.out
+	content of file
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{\texttt{fgets()} Function}
+
+	\inputminted[fontsize=\scriptsize, firstline=10, linenos]{c}{
+		\resDirectory/fileio-r2.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{\texttt{fread()} Function}
+
+	\inputminted[fontsize=\scriptsize, firstline=10, linenos]{c}{
+		\resDirectory/fileio-r3.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{\texttt{fclose() Function}}
+
+	\texttt{fclose()} is used to close an already opened file and release its lock, if any.
+
+	\begin{terminal}
+	int fclose(FILE *fp)
+	\end{terminal}
+
+	Pointer passed to \texttt{fclose()} must be the pointer returned by a successful call to \texttt{fopen()}.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{figure}
+	\includegraphics[width=0.7\textwidth]{\texDirectory/img/fread.jpg}
+	\end{figure}
+\end{slide}
+
+\end{document}
