@@ -1,0 +1,206 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2016 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \topDirectory {../..}
+\def \texDirectory {\topDirectory/src/main/tex}
+\def \resDirectory {\topDirectory/src/main/c/res/ls16}
+
+\documentclass[compress]{beamer}
+%\mode<presentation>
+%\usetheme{default}
+
+\usepackage{\texDirectory/template/style/directives}
+\input{\texDirectory/template/config}
+\usepackage{\texDirectory/template/style/beamerthemePejman}
+\doc{number}{16}
+%\setbeamertemplate{footline}[text line]{}
+
+\usepackage{booktabs}
+
+\begin{document}
+
+\prepareCover
+
+\section{Structures}
+
+\subsection{Definition}
+
+\begin{slide}
+	\begin{block}{Definition}
+
+	A structure is a user-defined data type that defines a physically grouped list of variables under one name in a block of memory.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Syntax}
+
+	\begin{terminal}
+	struct @*\textit{datatype\_name}*@ {
+	        @*\textit{type1 var1}*@;
+	        @*\textit{type2 var2}*@;
+	};
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Declaring a \texttt{struct}}
+
+	\inputminted[fontsize=\scriptsize, firstline=10, linenos]{c}{
+		\resDirectory/student.h
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Accessing \texttt{struct} Members}
+
+	To access any member of a structure, we use the member access operator (\texttt{.}).
+
+	\begin{terminal}
+	struct student std;
+	std.age = 10;
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Initializing a \texttt{struct}}
+
+	\inputminted[fontsize=\scriptsize, firstline=10, linenos]{c}{
+		\resDirectory/student1.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Accessing \texttt{struct} Members}
+
+	Given a pointer to a structure, any member of that structure can be accessed using the member access operator (\texttt{->}).
+
+	\begin{terminal}
+	struct student std;
+	ptr = &std;
+	ptr->age = 10;
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Initializing a \texttt{struct}}
+
+	\inputminted[fontsize=\scriptsize, firstline=10, lastline=20, linenos]{c}{
+		\resDirectory/student2.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Initializing a \texttt{struct}}
+
+	\inputminted[fontsize=\scriptsize, firstline=22, linenos]{c}{
+		\resDirectory/student2.c
+	}
+
+	\end{block}
+\end{slide}
+
+\subsection{Example}
+
+\begin{slide}
+	\begin{figure}
+	\includegraphics[width=0.7\textwidth]{\texDirectory/img/daltons.png}
+	\end{figure}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Objective}
+
+	Write a program \texttt{daltons.h} that takes the height of the Dalton brothers, Joe, William, Jack and Averell, and outputs their names in ascending order of their heights.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution}
+
+	\inputminted[fontsize=\scriptsize, firstline=10, linenos]{c}{
+		\resDirectory/daltons.h
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution}
+
+	\inputminted[fontsize=\scriptsize, firstline=16, lastline=33, linenos]{c}{
+		\resDirectory/daltons.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution}
+
+	\inputminted[fontsize=\scriptsize, firstline=38, lastline=55, linenos]{c}{
+		\resDirectory/daltons.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution}
+
+	\inputminted[fontsize=\scriptsize, firstline=60, lastline=71, linenos]{c}{
+		\resDirectory/daltons.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution}
+
+	\inputminted[fontsize=\scriptsize, firstline=76, lastline=81, linenos]{c}{
+		\resDirectory/daltons.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution}
+
+	\inputminted[fontsize=\scriptsize, firstline=86, lastline=93, linenos]{c}{
+		\resDirectory/daltons.c
+	}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Solution}
+
+	\inputminted[fontsize=\scriptsize, firstline=98, lastline=104, linenos]{c}{
+		\resDirectory/daltons.c
+	}
+
+	\end{block}
+\end{slide}
+
+\end{document}
