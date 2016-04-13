@@ -52,7 +52,7 @@ Final Exam: 20 points
 First Lecture: January 25, 2016  
 Midterm Exam: March 9, 2016  
 Last Lecture: May 11, 2016  
-Final Exam: To be determined
+Final Exam: May 16, 2016
 
 ## Supplemental Instruction Sessions
 As part of the College of Science and Mathematics Freshman Success Program, Supplemental Instruction (SI) is available to all CS240 students free of charge.
