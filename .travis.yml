@@ -7,6 +7,7 @@ addons:
     - texlive-latex-extra
     - latex-beamer
     - pgf
+    - python-pygments
     - ghostscript
 script:
   - make docs
