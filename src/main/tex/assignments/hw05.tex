@@ -34,10 +34,10 @@ Following is an expected sample run of the program:
 \begin{terminal}
 $ ls
 array-generate.c array-generate.h
-$ gcc array-sort.c -o array-sort
+$ gcc array-generate.c -o array-generate
 $ ./array-generate 10 30 40
 34 35 32 38 32 30 33 35 37 30
-$ ./array-sort 5 0 10
+$ ./array-generate 5 0 10
 5 2 8 9 8
 \end{terminal}
 
@@ -51,7 +51,6 @@ array-sort.c array-sort.h array-utils.c array-utils.h
 $ gcc -c -o array-utils.o array-utils.c 
 $ gcc -c -o array-sort.o array-sort.c 
 $ gcc -o array-sort array-sort.o array-utils.o -Werror -Wall -std=gnu99 -I.
-$ ls
 $ ./array-sort 34 35 32 38 32 30 33 35 37 30
 30 30 32 32 33 34 35 35 37 38
 \end{terminal}
