@@ -79,7 +79,7 @@
 	Size of an array is the number of bytes allocated to the array.
 	Size of an array is a product of number of its elements and size of each element.
 	Size of an array (like any variable) can be obtained using the \alert{\texttt{sizeof}} operator.
-	
+
 	\begin{terminal}
 	int numbers[4] = {1, 2, 3};
 	printf("%d\n", sizeof(numbers));
@@ -143,9 +143,11 @@
 
 	What is the output of the following program?
 
-	\inputminted[fontsize=\scriptsize,firstline=10,linenos]{c}{
-		\resDirectory/null.c
-	}
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=10,
+		linenos
+	]{c}{\resDirectory/null.c}
 
 	\pause
 
@@ -170,9 +172,12 @@
 
 	What is the output of the following program?
 
-	\inputminted[fontsize=\scriptsize,firstline=10,linenos]{c}{
-		\resDirectory/strlen.c
-	}
+
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=10,
+		linenos
+	]{c}{\resDirectory/strlen.c}
 
 	\pause
 
@@ -185,7 +190,7 @@
 
 \begin{slide}
 	\begin{block}{\texttt{string.h} Library}
-	
+
 	The \texttt{string.h} library provides useful functions for string operations.
 
 	\begin{columns}
