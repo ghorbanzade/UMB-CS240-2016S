@@ -1,0 +1,334 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2016 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \topDirectory {../..}
+\def \texDirectory {\topDirectory/src/main/tex}
+\def \resDirectory {\topDirectory/src/main/c/res/ls17}
+
+\documentclass[compress]{beamer}
+%\mode<presentation>
+%\usetheme{default}
+
+\usepackage{\texDirectory/template/style/directives}
+\input{\texDirectory/template/config}
+\usepackage{\texDirectory/template/style/beamerthemePejman}
+\doc{number}{17}
+%\setbeamertemplate{footline}[text line]{}
+
+\usepackage{booktabs}
+
+\begin{document}
+
+\prepareCover
+
+\section{Typedef}
+
+\begin{slide}
+	\begin{block}{Definition}
+
+	C provides \texttt{typedef} to define new \textit{data type names} for already defined data types.
+
+	\begin{terminal}
+	typedef float Length;
+	\end{terminal}
+
+	Once a new type name is defined, it can be used interchangeably throughout the program.
+
+	\begin{terminal}
+	Length ruler = 10.0F;
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Typedef for Structures}
+
+	You may define new type names for any known data type.
+
+	\inputminted[
+		fontsize=\footnotesize,
+		firstline=18,
+		lastline=22,
+		linenos
+	]{c}{\resDirectory/typedef.h}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Using Typedefs}
+
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=10,
+		linenos
+	]{c}{\resDirectory/typedef.c}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Coding Style Convention}
+
+	\footnotesize
+
+It's a \emph{mistake} to use typedef for structures and pointers.
+When you see a
+
+	\begin{terminal}
+	vps_t a;
+	\end{terminal}
+
+in the source, what does it mean?
+In contrast, if it says
+
+	\begin{terminal}
+	struct virtual_container *a;
+	\end{terminal}
+
+you can actually tell what ``a'' is.
+
+Lots of people think that typedefs ``help readability''. Not so.
+
+	\begin{flushright}
+	Linux Kernel Coding Style Document
+	\end{flushright}
+
+	\end{block}
+\end{slide}
+
+\section{Enum}
+
+\begin{slide}
+	\begin{block}{Definition}
+
+	Enumerated types provide a symbolic name to represent one state out of a list of states.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Introduction}
+
+	C provides \texttt{enum} to define an enumerated list of keywords that can be used interchangeably with their order in the list.
+
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=12,
+		lastline=17,
+		linenos
+	]{c}{\resDirectory/enum1.c}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Using Enums}
+
+	Values of enum items can be assigned to variables of similar enum type.
+
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=21,
+		lastline=24,
+		linenos
+	]{c}{\resDirectory/enum1.c}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Value of Enum Items}
+
+	Value of a keyword in an enumerated list is its numeric index in list, starting at 0.
+
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=25,
+		lastline=28,
+		linenos
+	]{c}{\resDirectory/enum1.c}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Typedef for Enum}
+
+	We may define a new type for an enum list.
+
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=10,
+		lastline=17,
+		linenos
+	]{c}{\resDirectory/enum2.c}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Using typedef enums}
+
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=19,
+		linenos
+	]{c}{\resDirectory/enum2.c}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{figure}
+	\includegraphics[width=0.7\textwidth]{\texDirectory/img/enum.jpg}
+	\end{figure}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Motivation}
+
+	Enums are extremely useful in helping increas readability of the program.
+	They are crucial in building simple key-value maps.
+	Enums help preserve memory and reduce size of structures.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Example: \texttt{student.h}}
+
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=13,
+		lastline=28,
+		linenos
+	]{c}{\resDirectory/student-enum.h}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Example \texttt{student.c}}
+
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=10,
+		linenos
+	]{c}{\resDirectory/student-enum.c}
+
+	\end{block}
+\end{slide}
+
+\section{Unions}
+
+\begin{slide}
+	\begin{block}{Definition}
+
+	A union is a variable that may hold (at different times) objects of different types and sizes, with the compiler keeping track of size and alignment requirements.
+
+	Unions allow storing different data types in the same memory location.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Union}
+
+	A union may have an arbitrary number of members of any size, but can store only one member at a time.
+
+	Size of a union is as large as size of its largest member.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Syntax}
+
+	\begin{terminal}
+	union @*\textit{tag}*@ {
+		@*\textit{member\_type\_1 member\_name\_1}*@;
+		@*\textit{member\_type\_2 member\_name\_2}*@;
+	} @*\textit{name}*@;
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Storing types}
+
+	Any member type can be assigned to a union variable, yet the programmer must ensure the type retireved is consistent with the type most recently stored.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Example}
+
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=10,
+		lastline=19,
+		linenos
+	]{c}{\resDirectory/union1.c}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Example}
+
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=21,
+		linenos
+	]{c}{\resDirectory/union1.c}
+
+	\begin{terminal}
+	10
+	20.000000
+	hello
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Example}
+
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=21,
+		linenos
+	]{c}{\resDirectory/union2.c}
+
+	\begin{terminal}
+	1819043176
+	1143141483620823940762435584.000000
+	hello
+	\end{terminal}
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{block}{Union vs. Structure}
+
+	Unions can be thought of as structures in which all members have offset zero from the base and the structure is large enough to hold its largest member.
+
+	\end{block}
+\end{slide}
+
+\begin{slide}
+	\begin{figure}
+	\includegraphics[width=0.7\textwidth]{\texDirectory/img/final.jpg}
+	\end{figure}
+\end{slide}
+
+\end{document}
