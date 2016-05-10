@@ -1,0 +1,267 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \topDirectory {.}
+\def \texDirectory {\topDirectory/src/main/tex}
+
+\documentclass[12pt,letterpaper,twoside]{article}
+\usepackage{\texDirectory/template/style/directives}
+\usepackage{\texDirectory/template/style/assignment}
+\input{\texDirectory/template/config}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+\doc{title}{Solution to Practice Final Exam}
+\doc{date-pub}{May 9, 2016 at 5:30 PM}
+\doc{date-due}{May 11, 2016 at 5:30 PM}
+\doc{points}{0}
+
+\prepare{header}
+
+\section*{Question 1}
+
+The following code snippets contain compilation errors.
+Identify the errors and fix them so that the function properly performs the task indicated.
+
+\begin{enumerate}[label=\textbf{(\alph*)}]
+
+\item Function to convert a string to integer:
+\begin{lstlisting}
+/**
+ * Updates a given pointer to an integer with a numeric value
+ * that corresponds to a given string. Returns 0 if conversion
+ * is successful and -1 if not.
+ */
+int str2int(char *str, int *num)
+{
+	char ch;
+	int i = 0;
+	int sign = 1;
+	num = 0;
+	if (str[i] == '-') {
+		sign = -1;
+		i++;
+	}
+	while ((ch = str[i++]) != '\0') {
+		if (!isdigit(ch))
+			return -1;
+		num = num * 10 + ch - '0';
+	}
+	num *= sign;
+	return 0;
+}
+\end{lstlisting}
+
+\item Function to populate an array with random one-digit numbers:
+\begin{lstlisting}
+/**
+ * Populates a given array with random 1-digit numbers.
+ */
+void populate(int *arr, int size)
+{
+	int i;
+	srand(time(NULL));
+	for (i = 0; i < size; i++)
+		arr[i] = rand();
+}
+\end{lstlisting}
+
+\item Function to check if a given string is palindrome:
+\begin{lstlisting}
+/**
+ * Checks whether a given string is palindrome or not.
+ * Returns 1 if palindrome is detected and 0 if not.
+ */
+int is_palindrome(char *str)
+{
+	int i;
+	int len = 0;
+	while (str[len++] != '\n');
+	for (i = 0; i < len / 2; i++)
+		if (str[i] != str[len - i - 2])
+			return 0;
+	return 1;
+}
+\end{lstlisting}
+
+\end{enumerate}
+
+\subsection*{Solution}
+
+\begin{enumerate}
+
+\item
+Every instance of variable \texttt{num} should have been dereferenced.
+\lstset{language=c,tabsize=4}
+\lstinputlisting[firstline=18,lastline=35]{\topDirectory/src/main/c/f01/str2int.c}
+
+\item
+Function \texttt{rand()} returns a number between 0 to \texttt{MAX\_RAND} which is at least 32767.
+\texttt{rand() \% 10} should have been used instead.
+\lstset{language=c,tabsize=4}
+\lstinputlisting[firstline=17,lastline=23]{\topDirectory/src/main/c/f01/populate.c}
+
+
+\item
+\texttt{while} loop should terminate once character \texttt{\textbackslash 0} is encountered.
+\lstset{language=c,tabsize=4}
+\lstinputlisting[firstline=16,lastline=25]{\topDirectory/src/main/c/f01/palindrome.c}
+
+\end{enumerate}
+
+\section*{Question 2}
+
+Bilbo Baggins, a former CS240 student who is now an expert in programming in C, has developed a program that prompts user for a string and prints the reversed version of the string to standard output.
+
+A sample run of the program is given below, where user input is shown in italic.
+
+\begin{terminal}
+$ gcc reverse.c -o reverse
+$ ./reverse
+string: @*\textit{cs240 final exam}*@
+reverse: maxe lanif 042sc
+\end{terminal}
+
+Both \texttt{reverse.c} and \texttt{reverse.h} source codes are provided below.
+
+\lstset{language=c,tabsize=4}
+\lstinputlisting[firstline=10]{\topDirectory/src/main/c/f01/reverse.h}
+\lstinputlisting[firstline=10]{\topDirectory/src/main/c/f01/reverse.c}
+
+The program compiles and executes as expected.
+Based on the given source code, provide \textbf{brief} answers for the following questions.
+
+\begin{enumerate}
+\item
+In \texttt{reverse.c:1}, Bilbo has used the include directive to include \texttt{reverse.h} during program compilation.
+This could have been avoided, simply, by prepending content of \texttt{reverse.h} to \texttt{reverse.c} file.
+Explain some of the advantages of using a header file as in \texttt{reverse} program.
+
+\item
+In \texttt{reverse.h:1,2,10}, preprocessing directives have been used that conditionally define \texttt{REVERSE\_H} as a macro with no value.
+It appears the program still compiles and executes as before, if these lines are removed.
+Explain why Bilbo has included these lines in the header file.
+
+\item
+In \texttt{reverse.h:8}, the \texttt{reverse} function is declared but not defined.
+Explain why removing this line causes a compilation error and how the error can be resolved without including this line.
+
+\item
+Line \texttt{reverse.c:11}, deallocates the heap memory assigned to \texttt{rev} pointer.
+However, there is no explicit \texttt{malloc} call inside the \texttt{main} function to allocate heap memory for \texttt{rev}.
+Explain why \texttt{rev} is freed in line 11 and what happens if this line is removed.
+
+\item
+Line \texttt{reverse.c:19}, introduces a \textit{while} loop with a given condition.
+Surprisingly, the body of the \textit{while} has no statements and the line terminates with a semicolon.
+Explain what is the function of the while loop and why it does not include any statement.
+
+\item
+Line \texttt{reverse.c:20} allocates as many bytes as the value of variable \texttt{i} on the heap memory and assignes its address to variable \texttt{ret}.
+It has been sugggested that this line should be replaced by \texttt{ret = malloc(i * sizeof(char))} as the requested memory block should hold \texttt{i} characters.
+Describe whether line \texttt{reverse.c:20} should be changed according to proposed suggestion.
+
+\item
+Line \texttt{reverse.c:21}, is a call to assert function whose purpose is to abort the program if its given expression evaluates to false.
+Explain why Bilbo is checking the value of \texttt{ret} variable after a call to \texttt{malloc} function in \texttt{reverse.c:20}.
+
+\item
+Explain the objective of line \texttt{reverse.c:24} and what will happen if this line is removed.
+\end{enumerate}
+
+\subsection*{Solution}
+
+\begin{enumerate}
+\item
+A header file allows functions defines in \texttt{reverse.c} to be reused in other programs if the \texttt{reverse.o} object file is linked during compilation.
+
+\item
+The \textit{header guard} will make sure the functions are only included once in a program.
+
+\item
+Declaring the function allows the compiler to accept calling the function from other functions before it has compiled their definition.
+
+\item
+The heap memory is allocated in \texttt{reverse.c:30} where the function returns a pointer to the allocated memory.
+Even if modern operating systems may restore allocated memory once the program terminates, failure to deallocate the assigned memory block is considered as bad practice and may result in memory leak on embedded systems.
+
+\item
+The \texttt{while} loop counts the number of characters in the given string.
+
+\item
+Since \texttt{sizeof(char)} is always one byte, proposed modification does not change functionality of the code.
+
+\item
+The \texttt{malloc} call may fail to allocate a memory block with requested size, in which case it returns \texttt{null}.
+By checking value of \texttt{ret}, the programmer makes sure the program continues only after enough bytes have been allocated on the heap memory.
+
+\item
+Setting the last index of an array of characters to null terminator constructs a meaningful strings separated from consecutive bytes.
+
+\end{enumerate}
+
+\section*{Question 3}
+
+Write a program \texttt{fileio.c} that reads content of a file \texttt{file1.txt} line by line and writes each line being read into a file \texttt{file2.txt}.
+You may assume no line in \texttt{file1.txt} has more than 16 characters.
+
+\subsection*{Solution}
+
+\lstset{language=c,tabsize=4}
+\lstinputlisting[firstline=10]{\topDirectory/src/main/c/f01/fileio.c}
+
+\section*{Question 4}
+
+Fleur Delacour had been asked in her take-home CS240 exam to write a program that will take names, GPA and graduation year of the students of Beauxbatons College and computes average GPA of their class of 2016.
+
+Fleur has decided to define a C structure that encloses information for each student.
+She is planning to write a function that takes student information and returns a student structure.
+This way, she can create an array of student structures and pass it to another function which will compute GPA of any given class.
+Since she is runnning out of time, you are asked to help implement her idea.
+
+\begin{itemize}
+\item Define a structure \texttt{student} that can hold required information for a given student.
+\item Write a function that takes data of a student and returns an initialized student structure.
+\item Write a function that takes an array of student structures and a class year and returns average \textit{GPA} of students graduating in that given year.
+\end{itemize}
+
+\subsection*{Solution}
+
+\begin{enumerate}
+
+\item A student structure is defined based on a student's name, GPA and graduation yaer.
+\lstset{language=c,tabsize=4}
+\lstinputlisting[firstline=15,lastline=19]{\topDirectory/src/main/c/f01/student.h}
+
+\item The following function returns a student structure based on given information for a student.
+\lstset{language=c,tabsize=4}
+\lstinputlisting[firstline=26,lastline=33]{\topDirectory/src/main/c/f01/student.c}
+
+\item The following function takes a number of students and returns the average GPA of students graduating in a given year.
+\lstset{language=c,tabsize=4}
+\lstinputlisting[firstline=39,lastline=51]{\topDirectory/src/main/c/f01/student.c}
+
+\end{enumerate}
+
+\section*{Question 5}
+
+The following code snippet is defined to implement a resizable array.
+
+\lstset{language=c,tabsize=4}
+\lstinputlisting[firstline=20,lastline=24]{\topDirectory/src/main/c/f01/array-list.h}
+
+Write a function with the following signature that adds a new element to the array.
+
+\lstinputlisting[firstline=27,lastline=27]{\topDirectory/src/main/c/f01/array-list.h}
+
+\subsection*{Solution}
+
+\lstinputlisting[firstline=26,lastline=35]{\topDirectory/src/main/c/f01/array-list.c}
+
+\end{document}
