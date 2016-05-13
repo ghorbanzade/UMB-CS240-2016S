@@ -7,7 +7,7 @@
  * He makes no warranty and accepts no liability for this file.
  */
 
-#include "ls09-header.h"
+#include "header.h"
 
 int main(void)
 {
