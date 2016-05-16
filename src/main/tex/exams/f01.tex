@@ -7,6 +7,7 @@
 
 \def \topDirectory {.}
 \def \texDirectory {\topDirectory/src/main/tex}
+\def \resDirectory {\topDirectory/src/main/c/f01}
 
 \documentclass[12pt,letterpaper,twoside]{article}
 \usepackage{\texDirectory/template/style/directives}
@@ -108,8 +109,8 @@ reverse: maxe lanif 042sc
 Both \texttt{reverse.c} and \texttt{reverse.h} source codes are provided below.
 
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=10]{\topDirectory/src/main/c/f01/reverse.h}
-\lstinputlisting[firstline=10]{\topDirectory/src/main/c/f01/reverse.c}
+\lstinputlisting[firstline=10]{\resDirectory/reverse.h}
+\lstinputlisting[firstline=10]{\resDirectory/reverse.c}
 
 The program compiles and executes as expected.
 Based on the given source code, provide \textbf{brief} answers for the following questions.
@@ -177,11 +178,11 @@ Since she is runnning out of time, you are asked to help implement her idea.
 The following code snippet is defined to implement a resizable array.
 
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=20,lastline=24]{\topDirectory/src/main/c/f01/array-list.h}
+\lstinputlisting[firstline=20,lastline=24]{\resDirectory/array-list.h}
 
 Write a function with the following signature that adds a new element to the array.
 
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=27,lastline=27]{\topDirectory/src/main/c/f01/array-list.h}
+\lstinputlisting[firstline=27,lastline=27]{\resDirectory/array-list.h}
 
 \end{document}

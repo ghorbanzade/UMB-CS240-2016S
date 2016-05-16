@@ -6,7 +6,7 @@ SRC_DIR = .
 CFLAGS = -Werror -Wall -std=gnu99 -I$(INC_DIR)
 
 _TARGETS = fast-prime
-LIBS = 
+LIBS =
 FILES = fast-prime
 ARTIFACTS = primes.log
 TARGETS = $(addprefix $(BIN_DIR)/, $(_TARGETS))

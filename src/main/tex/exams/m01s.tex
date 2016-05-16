@@ -7,6 +7,7 @@
 
 \def \topDirectory {.}
 \def \texDirectory {\topDirectory/src/main/tex}
+\def \resDirectory {\topDirectory/src/main/c/m01}
 
 \documentclass[12pt,letterpaper,twoside]{article}
 \usepackage{\texDirectory/template/style/directives}
@@ -74,7 +75,7 @@ number: 125
 To solve this problem, he wrote the following program.
 
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=10]{\topDirectory/src/main/c/m01/prompt-number-q.c}
+\lstinputlisting[firstline=10]{\resDirectory/prompt-number-q.c}
 
 His program produces the following output.
 
@@ -94,7 +95,7 @@ Rewrite the program \texttt{prompt-number.c} such that its output matches the ex
 \subsection*{Solution}
 
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=10]{\topDirectory/src/main/c/m01/prompt-number.c}
+\lstinputlisting[firstline=10]{\resDirectory/prompt-number.c}
 
 \newpage
 
@@ -113,6 +114,6 @@ Following are test cases that clarify the objective.
 \subsection*{Solution}
 
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=21]{\topDirectory/src/main/c/m01/single-number.c}
+\lstinputlisting[firstline=21]{\resDirectory/single-number.c}
 
 \end{document}

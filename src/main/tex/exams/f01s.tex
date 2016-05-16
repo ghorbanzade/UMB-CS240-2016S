@@ -7,6 +7,7 @@
 
 \def \topDirectory {.}
 \def \texDirectory {\topDirectory/src/main/tex}
+\def \resDirectory {\topDirectory/src/main/c/f01}
 
 \documentclass[12pt,letterpaper,twoside]{article}
 \usepackage{\texDirectory/template/style/directives}
@@ -99,19 +100,19 @@ int is_palindrome(char *str)
 \item
 Every instance of variable \texttt{num} should have been dereferenced.
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=18,lastline=35]{\topDirectory/src/main/c/f01/str2int.c}
+\lstinputlisting[firstline=18,lastline=35]{\resDirectory/str2int.c}
 
 \item
 Function \texttt{rand()} returns a number between 0 to \texttt{MAX\_RAND} which is at least 32767.
 \texttt{rand() \% 10} should have been used instead.
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=17,lastline=23]{\topDirectory/src/main/c/f01/populate.c}
+\lstinputlisting[firstline=17,lastline=23]{\resDirectory/populate.c}
 
 
 \item
 \texttt{while} loop should terminate once character \texttt{\textbackslash 0} is encountered.
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=16,lastline=25]{\topDirectory/src/main/c/f01/palindrome.c}
+\lstinputlisting[firstline=16,lastline=25]{\resDirectory/palindrome.c}
 
 \end{enumerate}
 
@@ -131,8 +132,8 @@ reverse: maxe lanif 042sc
 Both \texttt{reverse.c} and \texttt{reverse.h} source codes are provided below.
 
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=10]{\topDirectory/src/main/c/f01/reverse.h}
-\lstinputlisting[firstline=10]{\topDirectory/src/main/c/f01/reverse.c}
+\lstinputlisting[firstline=10]{\resDirectory/reverse.h}
+\lstinputlisting[firstline=10]{\resDirectory/reverse.c}
 
 The program compiles and executes as expected.
 Based on the given source code, provide \textbf{brief} answers for the following questions.
@@ -214,7 +215,7 @@ You may assume no line in \texttt{file1.txt} has more than 16 characters.
 \subsection*{Solution}
 
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=10]{\topDirectory/src/main/c/f01/fileio.c}
+\lstinputlisting[firstline=10]{\resDirectory/fileio.c}
 
 \section*{Question 4}
 
@@ -237,15 +238,15 @@ Since she is runnning out of time, you are asked to help implement her idea.
 
 \item A student structure is defined based on a student's name, GPA and graduation yaer.
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=15,lastline=19]{\topDirectory/src/main/c/f01/student.h}
+\lstinputlisting[firstline=15,lastline=19]{\resDirectory/student.h}
 
 \item The following function returns a student structure based on given information for a student.
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=26,lastline=33]{\topDirectory/src/main/c/f01/student.c}
+\lstinputlisting[firstline=26,lastline=33]{\resDirectory/student.c}
 
 \item The following function takes a number of students and returns the average GPA of students graduating in a given year.
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=39,lastline=51]{\topDirectory/src/main/c/f01/student.c}
+\lstinputlisting[firstline=39,lastline=51]{\resDirectory/student.c}
 
 \end{enumerate}
 
@@ -254,14 +255,14 @@ Since she is runnning out of time, you are asked to help implement her idea.
 The following code snippet is defined to implement a resizable array.
 
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=20,lastline=24]{\topDirectory/src/main/c/f01/array-list.h}
+\lstinputlisting[firstline=20,lastline=24]{\resDirectory/array-list.h}
 
 Write a function with the following signature that adds a new element to the array.
 
-\lstinputlisting[firstline=27,lastline=27]{\topDirectory/src/main/c/f01/array-list.h}
+\lstinputlisting[firstline=27,lastline=27]{\resDirectory/array-list.h}
 
 \subsection*{Solution}
 
-\lstinputlisting[firstline=26,lastline=35]{\topDirectory/src/main/c/f01/array-list.c}
+\lstinputlisting[firstline=26,lastline=35]{\resDirectory/array-list.c}
 
 \end{document}

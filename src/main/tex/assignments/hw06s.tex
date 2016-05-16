@@ -7,6 +7,7 @@
 
 \def \topDirectory {.}
 \def \texDirectory {\topDirectory/src/main/tex}
+\def \resDirectory {\topDirectory/src/main/c/hw06}
 
 \documentclass[12pt,letterpaper,twoside]{article}
 \usepackage{\texDirectory/template/style/directives}
@@ -95,12 +96,12 @@ find . -name '*.o' -delete
 \lstset{language=c,tabsize=4}
 \begin{itemize}
 \item[] File \texttt{fast-prime.c}:
-\lstinputlisting[firstline=10]{\topDirectory/src/main/c/hw06/fast-prime.c}
+\lstinputlisting[firstline=10]{\resDirectory/fast-prime.c}
 \item[] File \texttt{fast-prime.h}:
-\lstinputlisting[firstline=10]{\topDirectory/src/main/c/hw06/fast-prime.h}
+\lstinputlisting[firstline=10]{\resDirectory/fast-prime.h}
 \lstset{language=[gnu]make,tabsize=4}
 \item[] File \texttt{Makefile}:
-\lstinputlisting[firstline=1]{\topDirectory/src/main/c/hw06/Makefile}
+\lstinputlisting[firstline=1]{\resDirectory/Makefile}
 \end{itemize}
 
 \end{document}

@@ -7,6 +7,7 @@
 
 \def \topDirectory {.}
 \def \texDirectory {\topDirectory/src/main/tex}
+\def \resDirectory {\topDirectory/src/main/c/m02}
 
 \documentclass[12pt,letterpaper,twoside]{article}
 \usepackage{\texDirectory/template/style/directives}
@@ -58,6 +59,7 @@ you@itserver6:~/cs240/m01$ gcc -o hello-world hello-world.o
 you@itserver6:~/cs240/m01$ ./hello-world
 Hello World!
 you@itserver6:~/cs240/m01$ rm hello-world.o hello-world
+you@itserver6:~/cs240/m01$
 \end{terminal}
 
 \section*{Question 2}
@@ -78,7 +80,7 @@ $ ./command-line 1 2 3 4 5 6
 To solve this problem, she wrote the following program.
 
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=10]{\topDirectory/src/main/c/m02/command-line-q.c}
+\lstinputlisting[firstline=10]{\resDirectory/command-line-q.c}
 
 \newpage
 
@@ -101,7 +103,7 @@ Rewrite the program \texttt{command-line.c} such that its output matches the exp
 \subsection*{Solution}
 
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=10]{\topDirectory/src/main/c/m02/command-line.c}
+\lstinputlisting[firstline=10]{\resDirectory/command-line.c}
 
 \newpage
 
@@ -112,6 +114,6 @@ Write a function \texttt{int peak\_to\_peak(int array[], int size)} that returns
 \subsection*{Solution}
 
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=22]{\topDirectory/src/main/c/m02/peak-to-peak.c}
+\lstinputlisting[firstline=22]{\resDirectory/peak-to-peak.c}
 
 \end{document}

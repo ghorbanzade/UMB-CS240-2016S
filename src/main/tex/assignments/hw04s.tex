@@ -7,6 +7,7 @@
 
 \def \topDirectory {.}
 \def \texDirectory {\topDirectory/src/main/tex}
+\def \resDirectory {\topDirectory/src/main/c/hw04}
 
 \documentclass[12pt,letterpaper,twoside]{article}
 \usepackage{\texDirectory/template/style/directives}
@@ -31,7 +32,7 @@ The \texttt{main()} function of program is given below and you may not modify it
 In addition, you may not include any header file other than \texttt{fruit-basket.h} in \texttt{fruit-basket.c}.
 
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=15,lastline=20]{\topDirectory/src/main/c/hw04/fruit-basket.c}
+\lstinputlisting[firstline=15,lastline=20]{\resDirectory/fruit-basket.c}
 
 Following is the expected output of a sample run of your program.
 
@@ -54,10 +55,10 @@ fruit 4: pineapple
 \lstset{language=c,tabsize=4}
 \begin{itemize}
 \item[] File \texttt{fruit-basket.c}:
-\lstinputlisting[firstline=10]{\topDirectory/src/main/c/hw04/fruit-basket.c}
+\lstinputlisting[firstline=10]{\resDirectory/fruit-basket.c}
 \newpage
 \item[] File \texttt{fruit-basket.h}:
-\lstinputlisting[firstline=10]{\topDirectory/src/main/c/hw04/fruit-basket.h}
+\lstinputlisting[firstline=10]{\resDirectory/fruit-basket.h}
 \end{itemize}
 
 \section*{Question 2}
@@ -67,7 +68,7 @@ The \texttt{main()} function of program is given below and you may not modify it
 In addition, you may not include any header file other than \texttt{slow-prime.h} in \texttt{slow-prime.c}.
 
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=16,lastline=34]{\topDirectory/src/main/c/hw04/slow-prime.c}
+\lstinputlisting[firstline=16,lastline=34]{\resDirectory/slow-prime.c}
 
 Following is the expected output of a sample run of your program.
 
@@ -89,10 +90,10 @@ $ ./slow-prime 19
 \lstset{language=c,tabsize=4}
 \begin{itemize}
 \item[] File \texttt{slow-prime.c}:
-\lstinputlisting[firstline=10]{\topDirectory/src/main/c/hw04/slow-prime.c}
+\lstinputlisting[firstline=10]{\resDirectory/slow-prime.c}
 \newpage
 \item[] File \texttt{slow-prime.h}:
-\lstinputlisting[firstline=10]{\topDirectory/src/main/c/hw04/slow-prime.h}
+\lstinputlisting[firstline=10]{\resDirectory/slow-prime.h}
 \end{itemize}
 
 \section*{Question 3}
@@ -125,7 +126,7 @@ slow-prime.o
 \lstset{language=[gnu]make,tabsize=4}
 \begin{itemize}
 \item[] File \texttt{Makefile}:
-\lstinputlisting[firstline=1]{\topDirectory/src/main/c/hw04/Makefile}
+\lstinputlisting[firstline=1]{\resDirectory/Makefile}
 \end{itemize}
 
 \newpage
