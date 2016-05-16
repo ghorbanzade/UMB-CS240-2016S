@@ -4,7 +4,6 @@
 This repository contains course material developed for *CS240: Programming in C* course at [University of Massachusetts Boston] as taught by [Pejman Ghorbanzade] in Spring 2016.
 It includes 450 pages of lecture slides, assignments, exams etc.
 A binary PDF of the entire course material can be found [here](https://github.com/ghorbanzade/UMB-CS240-2016S/releases/download/v1.0/course-material.pdf).
-For more information, please see the course [syllabus].
 
 ### License
 All documents are licensed under [Creative Commons Attribution-ShareAlike 4.0 International License].

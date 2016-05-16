@@ -19,6 +19,10 @@ You can build all documents (as well as all C programs) by issuing `make docs` i
 The following packages are needed to successfully build all documents.
 
 ```
+sudo apt-get install ghostscript
+sudo apt-get install latex-beamer
+sudo apt-get install pgf
+sudo apt-get install python-pygments
 sudo apt-get install texlive-latex-base
 sudo apt-get install texlive-latex-extra
 ```
