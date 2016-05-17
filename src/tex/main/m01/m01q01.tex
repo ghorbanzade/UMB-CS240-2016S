@@ -1,0 +1,27 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Question 1}
+
+You are asked to test a \texttt{hello-world.c} program on the Unix system of the CS department.
+The following commands have already been executed.
+
+\begin{terminal}
+you@yourmachine:~$ ssh you@users.cs.umb.edu
+you@users.cs.umb.edu password:
+you@itserver6:~$ pwd
+/home/you
+you@itserver6:~$ ls cs240
+hw01 hw02 hw03
+you@itserver6:~$ ls cs240/hw01
+hello-world.c hello-world.o hello-world
+\end{terminal}
+
+The objective is to remove object file and binary file from \texttt{hw01} directory, create a new directory \texttt{m01} under \texttt{cs240} directory, copy the \texttt{hello-world.c} file there and compile and execute it.
+Finally, you should remove the produced object file and the binary files.
+
+List all unix commands that you need to issue to fulfill this objective.

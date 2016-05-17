@@ -1,0 +1,38 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Solution}
+
+\begin{enumerate}
+\item
+Declaring a function in the header file introduces the function to the compiler, allowing the function to be called in other functions before it is declared.
+More importantly, declaring the function in the header file allows function implementation to be reused by other programs importing the header file.
+
+\item
+Checking value of file pointer is necessary, since the file with the given filename may exist but may be open by another program or the running process may not have permissions to open the file.
+
+\item
+If variables \texttt{a} and \texttt{b} are passed by value, the \texttt{scanf} function receives a copy of their values and has no way of modifying variables declared in the \texttt{main} function.
+
+\item
+Functions \texttt{creal} and \texttt{cimag} are declared in \texttt{<complex.h>} header file.
+
+\item
+\texttt{complex-numbers.c:21} should be changed to the following.
+\begin{lstlisting}[numbers=none]
+cprint(&sum);
+\end{lstlisting}
+
+Function \texttt{cprint()} should be rewritten as follows.
+\begin{lstlisting}[numbers=none]
+void cprint(double complex *num)
+{
+	printf("(%.2f, %.2f)\n", creal(*num), cimag(*num));
+}
+\end{lstlisting}
+
+\end{enumerate}

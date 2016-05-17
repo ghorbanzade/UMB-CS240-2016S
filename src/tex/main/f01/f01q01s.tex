@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Solution}
+
+\begin{enumerate}
+
+\item
+Every instance of variable \texttt{num} should have been dereferenced.
+\lstset{language=c,tabsize=4}
+\lstinputlisting[firstline=18,lastline=35]{\resDirectory/str2int.c}
+
+\item
+Function \texttt{rand()} returns a number between 0 to \texttt{MAX\_RAND} which is at least 32767.
+\texttt{rand() \% 10} should have been used instead.
+\lstset{language=c,tabsize=4}
+\lstinputlisting[firstline=17,lastline=23]{\resDirectory/populate.c}
+
+
+\item
+\texttt{while} loop should terminate once character \texttt{\textbackslash 0} is encountered.
+\lstset{language=c,tabsize=4}
+\lstinputlisting[firstline=16,lastline=25]{\resDirectory/palindrome.c}
+
+\end{enumerate}

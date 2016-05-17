@@ -1,0 +1,46 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Question 3}
+
+The C programming language, as of C99, supports complex number math with the three built-in types \texttt{double \_Complex}, \texttt{float \_Complex}, and \texttt{long double \_Complex}.
+When the header \texttt{<complex.h>} is included, the three complex number types are also accessible as \texttt{double complex}, \texttt{float complex}, \texttt{long double complex}.
+Standard arithmetic operators \texttt{+}, \texttt{-}, \texttt{*}, \texttt{/} can be used with real, complex, and imaginary types in any combination.
+
+The following program shows how complex numbers can be used in C. It loads components of complex numbers from a file and prints their sum on standard output.
+
+\lstset{language=c,tabsize=4}
+\lstinputlisting[firstline=10]{\resDirectory/complex-numbers.h}
+\lstinputlisting[firstline=10]{\resDirectory/complex-numbers.c}
+
+The program compiles and executes as expected.
+Based on the given source code, provide \textbf{brief} answers for the following questions.
+
+\begin{enumerate}
+\item
+In \texttt{complex-numbers.h:10}, function \texttt{cprint} is declared but not defined.
+What is the advantage of declaring a function in a header file?
+Explain why removing this line causes a compilation error and how the error can be resolved without including this line.
+
+\item
+In \texttt{complex-numbers.c:13}, \texttt{fp} is checked to make sure it is not \texttt{null}.
+A CS240 student argues this checking is unnecessary if we make sure the file \texttt{complex-numbers.txt} exists.
+Describe whether you support this argument or not and provide brief explanations for your reasoning.
+
+\item
+In \texttt{complex-numbers.c:17}, variables \texttt{a} and \texttt{b} are passed by reference to function \texttt{scanf}.
+Explain what happens if they are passed by value.
+
+\item
+In \texttt{complex-numbers.c:18}, \texttt{I} is used but it is not explicitly declared either in \texttt{complex-numbers.c} or \texttt{complex-numbers.h}.
+This also applies to functions \texttt{creal} and \texttt{cimag} in \texttt{complex-numbers.c:31}.
+Briefly explain why such practice has not caused compilation error.
+
+\item
+In \texttt{complex-numbers.c:21}, variable \texttt{sum} is passed to \texttt{cprint} by value. Modify this line and the function \texttt{cprint} such that \texttt{num} is passed by reference.
+
+\end{enumerate}

@@ -1,0 +1,22 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Question 1}
+
+Write a program \texttt{array-generate.c} that takes command line arguments $n$, $m_1$ and $m_2$ and gives as output an array of $n$ integers with values between $m_1$ inclusive and $m_2$ exclusive in random order.
+
+Following is an expected sample run of the program:
+
+\begin{terminal}
+$ ls
+array-generate.c array-generate.h
+$ gcc array-generate.c -o array-generate
+$ ./array-generate 10 30 40
+34 35 32 38 32 30 33 35 37 30
+$ ./array-generate 5 0 10
+5 2 8 9 8
+\end{terminal}

@@ -8,6 +8,7 @@
 \def \topDirectory {.}
 \def \resDirectory {\topDirectory/src/c/main/hw04}
 \def \texDirectory {\topDirectory/src/tex}
+\def \mainDirectory {\texDirectory/main/hw04}
 \def \styDirectory {\texDirectory/sty}
 \def \cfgDirectory {\texDirectory/cfg}
 
@@ -27,79 +28,11 @@
 
 \prepare{header}
 
-\section*{Question 1}
-
-Write a program \texttt{fruit-basket.c} that initializes an array of string with names of four different fruits.
-The \texttt{main()} function of program is given below and you may not modify it.
-In addition, you may not include any header file other than \texttt{fruit-basket.h} in \texttt{fruit-basket.c}.
-
-\lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=15,lastline=20]{\resDirectory/fruit-basket.c}
-
-Following is the expected output of a sample run of your program.
-
-\begin{terminal}
-$ ls
-fruit-basket.c fruit-basket.h
-$ gcc -c -o fruit-basket.o fruit-basket.c
-$ gcc -o fruit-basket fruit-basket.o -Wall -std=gnu99 -I.
-$ ./fruit-basket
-fruit 1: banana
-fruit 2: apple
-fruit 3: orange
-fruit 4: pineapple
-\end{terminal}
-
+\input{\mainDirectory/hw04q01}
 \newpage
-
-\section*{Question 2}
-
-Write a program \texttt{slow-prime.c} that takes a positive integer number as a command line argument and prints the smallest prime number bigger than the given number.
-The \texttt{main()} function of program is given below and you may not modify it.
-In addition, you may not include any header file other than \texttt{slow-prime.h} in \texttt{slow-prime.c}.
-
-\lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=16,lastline=34]{\resDirectory/slow-prime.c}
-
-Following is the expected output of a sample run of your program.
-
-\begin{terminal}
-$ ls
-slow-prime.c slow-prime.h
-$ gcc -c -o slow-prime.o slow-prime.c
-$ gcc -o slow-prime slow-prime.o -Werror -Wall -std=gnu99 -I.
-$ ./slow-prime
-error: missing command line argument
-$ ./slow-prime 15sa
-error: 15sa not a number
-$ ./slow-prime 19
-23
-\end{terminal}
-
+\input{\mainDirectory/hw04q02}
 \newpage
-
-\section*{Question 3}
-
-Building source code for questions 1 and 2 of this assignment requires initiating multiple commands.
-To simplify the build procedure and render the process less error-prone, write a \texttt{Makefile} that summarizes the build procedure as follows.
-
-\begin{terminal}
-$ make clean
-rm -rf ./fruit-basket ./slow-prime
-find . -name '*.o' -delete
-$ ls
-fruit-basket.c fruit-basket.h Makefile slow-prime.c
-slow-prime.h
-$ make
-gcc -c -o fruit-basket.o fruit-basket.c
-gcc -o fruit-basket fruit-basket.o -Wall -std=gnu99 -I.
-gcc -c -o slow-prime.o slow-prime.c
-gcc -o slow-prime slow-prime.o -Werror -Wall -std=gnu99 -I.
-$ ls
-fruit-basket fruit-basket.c fruit-basket.h fruit-basket.o
-Makefile     slow-prime     slow-prime.c   slow-prime.h
-slow-prime.o
-\end{terminal}
+\input{\mainDirectory/hw04q03}
 
 \prepare{footer}
 

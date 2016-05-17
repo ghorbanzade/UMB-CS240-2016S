@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Question 3}
+
+Building source code for questions 1 and 2 of this assignment requires initiating multiple commands.
+To simplify the build procedure and render the process less error-prone, write a \texttt{Makefile} that summarizes the build procedure as follows.
+
+\begin{terminal}
+$ make clean
+rm -rf ./fruit-basket ./slow-prime
+find . -name '*.o' -delete
+$ ls
+fruit-basket.c fruit-basket.h Makefile slow-prime.c
+slow-prime.h
+$ make
+gcc -c -o fruit-basket.o fruit-basket.c
+gcc -o fruit-basket fruit-basket.o -Wall -std=gnu99 -I.
+gcc -c -o slow-prime.o slow-prime.c
+gcc -o slow-prime slow-prime.o -Werror -Wall -std=gnu99 -I.
+$ ls
+fruit-basket fruit-basket.c fruit-basket.h fruit-basket.o
+Makefile     slow-prime     slow-prime.c   slow-prime.h
+slow-prime.o
+\end{terminal}

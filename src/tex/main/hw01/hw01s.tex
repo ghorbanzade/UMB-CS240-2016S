@@ -8,6 +8,7 @@
 \def \topDirectory {.}
 \def \resDirectory {\topDirectory/src/c/main/hw01}
 \def \texDirectory {\topDirectory/src/tex}
+\def \mainDirectory {\texDirectory/main/hw01}
 \def \styDirectory {\texDirectory/sty}
 \def \cfgDirectory {\texDirectory/cfg}
 
@@ -27,61 +28,13 @@
 
 \prepare{header}
 
-\section*{Question 1}
-
-Write a program \texttt{hello-world.c} that prints \textit{``Hello World!"} on the console once executed, as shown below.
-
-\begin{terminal}
-$ gcc hello-world.c -o hello-world
-$ ./hello-world
-Hello World!
-\end{terminal}
-
-\subsection*{Solution}
-
-\lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=10]{\resDirectory/hello-world.c}
-
+\input{\mainDirectory/hw01q01}
+\input{\mainDirectory/hw01q01s}
 \newpage
-
-\section*{Question 2}
-
-Write a program \texttt{weather.c} that takes two arbitrary command-line arguments as the name of a city and its weather condition, respecively, and prints a message in the form given in the following examples.
-
-\begin{terminal}
-$ gcc weather.c -o weather
-$ ./weather Boston Sunny
-Boston is sunny today!
-$ ./weather Cambridge cloudy
-Cambridge is cloudy today!
-$ ./weather Quincy rainy
-Quincy is rainy today!
-\end{terminal}
-
-\subsection*{Solution}
-
-\lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=10]{\resDirectory/weather.c}
-
+\input{\mainDirectory/hw01q02}
+\input{\mainDirectory/hw01q02s}
 \newpage
-
-\section*{Question 3}
-
-Write a program \texttt{fahrenheit.c} that prints Fahrenheit equivalents of Celcius temperatures 60, 70, 80, 90 and 100 in the following format.
-
-\begin{terminal}
- C    F
----------
- 60   140
- 70   158
- 80   176
- 90   194
- 100  212
-\end{terminal}
-
-\subsection*{Solution}
-
-\lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=10]{\resDirectory/fahrenheit.c}
+\input{\mainDirectory/hw01q03}
+\input{\mainDirectory/hw01q03s}
 
 \end{document}

@@ -1,0 +1,41 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Question 1}
+
+Write a program \texttt{bmi.c} that takes your weight in pounds and height in inches and calculates your Body Mass Index (BMI) according to Equation \ref{eq1}.
+To evaluate your BMI, program should as well indicate under which group you are classified according to Table \ref{tab1} obtained from the Department of Health and Human Services/National Institution of Health.
+
+\begin{equation}
+BMI = \frac{weightInPounds \times 703}{heightInInches^2}
+\label{eq1}
+\end{equation}
+
+\begin{table}[H]\centering
+\begin{tabular}{|r|l|}
+\hline
+Group & BMI index \\
+\hline
+Underweight & less than 18.5 \\
+Normal & between 18.5 and 24.9 \\
+Overweight & between 25 and 29.9 \\
+Obese & greater than or equal to 30 \\
+\hline
+\end{tabular}
+\caption{BMI classification}\label{tab1}
+\end{table}
+
+Following is the expected output of a sample run of your program.
+
+\begin{terminal}
+$ gcc bmi.c -o bmi
+$ ./bmi
+Your height (in): 72
+Your weight (lb): 145
+Your BMI is 19.66.
+You are classified as normal.
+\end{terminal}

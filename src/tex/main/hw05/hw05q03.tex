@@ -1,0 +1,23 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Question 3 (Optional)}
+
+Write a shell script \texttt{random-sorted-array.sh} that generates three positive random integers (less than 20) and passes them to the \texttt{array-generate} program, developed in Question 1.
+The shell script should then pipe the ouput of \texttt{array-generate} as standard input to \texttt{array-sort} program, developed in Question 2.
+
+The desired output of the shell script is given below.
+
+\begin{terminal}
+$ ls
+array-generate array-sort random-sorted-array.sh
+$ chmod 755 random-sorted-array.sh
+$ ./random-sorted-array.sh
+30 30 32 32 33 34 35 35 37 38
+$ ./random-sorted-array.sh
+7 7 7 8 8 9 10
+\end{terminal}

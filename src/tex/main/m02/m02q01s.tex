@@ -1,0 +1,22 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Solution}
+
+\begin{terminal}
+you@itserver6:~$ cd cs240
+you@itserver6:~/cs240$ mkdir m01
+you@itserver6:~/cs240$ mv hello-world.c m01
+you@itserver6:~/cs240$ cd m01
+you@itserver6:~/cs240/m01$ cat hello-world.c
+you@itserver6:~/cs240/m01$ gcc -c -o hello-world.o hello-world.c
+you@itserver6:~/cs240/m01$ gcc -o hello-world hello-world.o
+you@itserver6:~/cs240/m01$ ./hello-world
+Hello World!
+you@itserver6:~/cs240/m01$ rm hello-world.o hello-world
+you@itserver6:~/cs240/m01$
+\end{terminal}

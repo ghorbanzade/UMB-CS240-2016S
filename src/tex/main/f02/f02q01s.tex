@@ -1,0 +1,27 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Solution}
+
+\begin{enumerate}[label=(\alph*)]
+\item
+Line 7 replaces address of \texttt{Hello} memory block with address of \texttt{World!} memory block.
+Standard output will be \texttt{World! World!}.
+
+\item
+Every iteration of \texttt{while} loop in line 8, shifts value of \texttt{num} variable one bit to the right.
+Standard output will be \texttt{16 8 4 2 1}.
+
+\item
+Recursive calls to function \texttt{func} produces 5 entries in the function call stack.
+Output will be printed from last function call to the first.
+Standard output will be \texttt{5 4 3 2 1}.
+
+\item
+Both functions \texttt{func1} and \texttt{func2} modify the value they are passed to and do not affect variables declared in \texttt{main} function.
+Standard output will be \texttt{World! World!}.
+\end{enumerate}

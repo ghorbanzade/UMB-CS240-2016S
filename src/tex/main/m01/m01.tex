@@ -8,6 +8,7 @@
 \def \topDirectory {.}
 \def \resDirectory {\topDirectory/src/c/main/m01}
 \def \texDirectory {\topDirectory/src/tex}
+\def \mainDirectory {\texDirectory/main/m01}
 \def \styDirectory {\texDirectory/sty}
 \def \cfgDirectory {\texDirectory/cfg}
 
@@ -27,71 +28,10 @@
 
 \prepare{header}
 
-\section*{Question 1}
-
-You are asked to test a \texttt{hello-world.c} program on the Unix system of the CS department.
-The following commands have already been executed.
-
-\begin{terminal}
-you@yourmachine:~$ ssh you@users.cs.umb.edu
-you@users.cs.umb.edu password:
-you@itserver6:~$ pwd
-/home/you
-you@itserver6:~$ ls cs240
-hw01 hw02 hw03
-you@itserver6:~$ ls cs240/hw01
-hello-world.c hello-world.o hello-world
-\end{terminal}
-
-The objective is to remove object file and binary file from \texttt{hw01} directory, create a new directory \texttt{m01} under \texttt{cs240} directory, copy the \texttt{hello-world.c} file there and compile and execute it.
-Finally, you should remove the produced object file and the binary files.
-
-List all unix commands that you need to issue to fulfill this objective.
-
+\input{\mainDirectory/m01q01}
 \newpage
-
-\section*{Question 2}
-
-Edgar Linton, a CS240 student, was asked to write a program that promps user for an integer and prints it on the screen.
-A sample run of the program was expected to be as given below.
-
-\begin{terminal}
-$ gcc prompt-number.c -o prompt-number
-$ ./prompt-number
-enter number: 125
-number: 125
-\end{terminal}
-
-To solve this problem, he wrote the following program.
-
-\lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=10]{\resDirectory/prompt-number-q.c}
-
-His program produces the following output.
-
-\begin{terminal}
-$ gcc prompt-number.c -o prompt-number
-$ ./prompt-number
-enter number: 125
-number: 971397989
-\end{terminal}
-
+\input{\mainDirectory/m01q02}
 \newpage
-
-Clearly, something is wrong with Edgar's code.
-This is why he is asking for your help to debug his program and fix all its bugs.
-Rewrite the program \texttt{prompt-number.c} such that its output matches the expected output provided previously.
-
-\section*{Question 3}
-
-Write a function \texttt{int single\_number(int array[], int size)} that accepts a non-empty array of integers \texttt{array} with size \texttt{size} whose elements appear twice expect for a single element.
-Your function should return the element that appears only once.
-Following are test cases that clarify the objective.
-
-\begin{terminal}
-[1, -1, 4, 5, 4, 1, -1] -> 5
-[1, 2, 3, 3, 2] -> 1
-[1] -> 1
-\end{terminal}
+\input{\mainDirectory/m01q03}
 
 \end{document}

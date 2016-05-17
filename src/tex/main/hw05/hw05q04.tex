@@ -1,0 +1,28 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Question 4}
+
+Building source code for questions 1 and 2 of this assignment requires initiating multiple commands.
+To simplify the build procedure and render the process less error-prone, write a \texttt{Makefile} that summarizes the build procedure as follows.
+
+\begin{terminal}
+$ make clean
+rm -rf ./array-generate ./array-sort
+find . -name '*.o' -delete
+$ ls
+array-generate.c array-generate.h array-sort.c array-sort.h
+array-utils.c array-utils.h random-sorted-array.sh
+$ make
+gcc -c -o array-generate.o array-generate.c
+gcc -c -o array-utils.o array-utils.c
+gcc -o array-generate array-generate.o array-utils.o -Werror -Wall -std=gnu99 -I.
+gcc -c -o array-sort.o array-sort.c
+gcc -o array-sort array-sort.o array-utils.o -Werror -Wall -std=gnu99 -I.
+$ ./random-sorted-array.sh
+5 12 16 17 17 19 20
+\end{terminal}

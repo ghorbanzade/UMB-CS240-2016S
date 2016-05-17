@@ -8,6 +8,7 @@
 \def \topDirectory {.}
 \def \resDirectory {\topDirectory/src/c/main/hw05}
 \def \texDirectory {\topDirectory/src/tex}
+\def \mainDirectory {\texDirectory/main/hw05}
 \def \styDirectory {\texDirectory/sty}
 \def \cfgDirectory {\texDirectory/cfg}
 
@@ -28,109 +29,14 @@
 
 \prepare{header}
 
-\section*{Question 1}
-
-Write a program \texttt{array-generate.c} that takes command line arguments $n$, $m_1$ and $m_2$ and gives as output an array of $n$ integers with values between $m_1$ inclusive and $m_2$ exclusive in random order.
-
-Following is an expected sample run of the program:
-
-\begin{terminal}
-$ ls
-array-generate.c array-generate.h
-$ gcc array-generate.c -o array-generate
-$ ./array-generate 10 30 40
-34 35 32 38 32 30 33 35 37 30
-$ ./array-generate 5 0 10
-5 2 8 9 8
-\end{terminal}
-
-\subsection*{Solution}
-
-\lstset{language=c,tabsize=4}
-\begin{enumerate}
-\item File \texttt{array-utils.c}:
-\lstinputlisting[firstline=10]{\resDirectory/array-generate.c}
-\item File \texttt{array-utils.h}:
-\lstinputlisting[firstline=10]{\resDirectory/array-generate.h}
-\item File \texttt{array-generate.c}:
-\lstinputlisting[firstline=10]{\resDirectory/array-generate.c}
-\item File \texttt{array-generate.h}:
-\lstinputlisting[firstline=10]{\resDirectory/array-generate.h}
-\end{enumerate}
-
-\section*{Question 2}
-
-Write a program \texttt{array-sort.c} that takes an arbitrary number of integers as command line arguments and prints the array in ascending order randomly choosing of the \texttt{bubble-sort}, \texttt{insertion-sort} or \texttt{selection-sort} algorithms.
-
-\begin{terminal}
-$ ls
-array-sort.c array-sort.h array-utils.c array-utils.h
-$ gcc -c -o array-utils.o array-utils.c
-$ gcc -c -o array-sort.o array-sort.c
-$ gcc -o array-sort array-sort.o array-utils.o -Werror -Wall -std=gnu99 -I.
-$ ./array-sort 34 35 32 38 32 30 33 35 37 30
-30 30 32 32 33 34 35 35 37 38
-\end{terminal}
-
-\subsection*{Solution}
-
-\lstset{language=c,tabsize=4}
-\begin{enumerate}
-\item File \texttt{array-sort.c}:
-\lstinputlisting[firstline=10]{\resDirectory/array-sort.c}
-\item File \texttt{array-sort.h}:
-\lstinputlisting[firstline=10]{\resDirectory/array-sort.h}
-\end{enumerate}
-
-\section*{Question 3 (Optional)}
-
-Write a shell script \texttt{random-sorted-array.sh} that generates three positive random integers (less than 20) and passes them to the \texttt{array-generate} program, developed in Question 1.
-The shell script should then pipe the ouput of \texttt{array-generate} as standard input to \texttt{array-sort} program, developed in Question 2.
-
-The desired output of the shell script is given below.
-
-\begin{terminal}
-$ ls
-array-generate array-sort random-sorted-array.sh
-$ chmod 755 random-sorted-array.sh
-$ ./random-sorted-array.sh
-30 30 32 32 33 34 35 35 37 38
-$ ./random-sorted-array.sh
-7 7 7 8 8 9 10
-\end{terminal}
-
-\subsection*{Solution}
-
-\lstset{language=bash,tabsize=4}
-\lstinputlisting[firstline=1]{
-	\resDirectory/random-sorted-array.sh
-}
-
-\section*{Question 4}
-
-Building source code for questions 1 and 2 of this assignment requires initiating multiple commands.
-To simplify the build procedure and render the process less error-prone, write a \texttt{Makefile} that summarizes the build procedure as follows.
-
-\begin{terminal}
-$ make clean
-rm -rf ./array-generate ./array-sort
-find . -name '*.o' -delete
-$ ls
-array-generate.c array-generate.h array-sort.c array-sort.h
-array-utils.c array-utils.h random-sorted-array.sh
-$ make
-gcc -c -o array-generate.o array-generate.c
-gcc -c -o array-utils.o array-utils.c
-gcc -o array-generate array-generate.o array-utils.o -Werror -Wall -std=gnu99 -I.
-gcc -c -o array-sort.o array-sort.c
-gcc -o array-sort array-sort.o array-utils.o -Werror -Wall -std=gnu99 -I.
-$ ./random-sorted-array.sh
-5 12 16 17 17 19 20
-\end{terminal}
-
-\subsection*{Solution}
-
-\lstset{language=[gnu]make,tabsize=4}
-\lstinputlisting[firstline=1]{\resDirectory/Makefile}
+\input{\mainDirectory/hw05q01}
+\input{\mainDirectory/hw05q01s}
+\input{\mainDirectory/hw05q02}
+\input{\mainDirectory/hw05q02s}
+\newpage
+\input{\mainDirectory/hw05q03}
+\input{\mainDirectory/hw05q03s}
+\input{\mainDirectory/hw05q04}
+\input{\mainDirectory/hw05q04s}
 
 \end{document}

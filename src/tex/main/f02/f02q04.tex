@@ -1,0 +1,39 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Question 4}
+
+Since fall of You-Know-Who, Parvati Patil has been working as payroll clerk at Ministry of Magic.
+She is responsible for preparing and reporting of payroll checks.
+To prevent fraud and curruption, the Ministry has prohibited any use of magic in department of Human Resources.
+Parvati is therefore required to calculate all payrolls as Muggles do.
+Given the number of employees working at the Ministry, she has been thinking to write a software that automates payroll calculations for all employees.
+
+Depending on their status, employees have different pay rates in the Ministry as given in Table \ref{tablequestion5}.
+As is shown, part time and interns are paid by hour whereas full time employees are paid regardless of the number of hours they have worked.
+
+You are asked to help in design of the payroll system for the Ministry.
+Each employee has a name, an ID, the number of hours he has worked in a month and a status which is either full time, part time or intern.
+
+\begin{enumerate}
+\item Define a structure \texttt{employee} to enclose required information for a given employee.
+\item Write a function that takes data of an employee and returns an initialized employee structure.
+\item Write a function that takes an employee structure and calculates the monthly pay for that employee.
+\item Write a function that takes an array of employee structures and returns the total amount to be paid to those employees.
+\end{enumerate}
+
+\begin{table}[H] \centering
+\begin{tabular}{r c}
+\textbf{Status} & \textbf{Rate}\\
+\hline
+Full Time & 800 Galleons / Month\\
+Part Time & 4 Galleons / Hour\\
+Intern & 2 Galleons / Hour
+\end{tabular}
+\caption{Pay rates for employees of Ministry of Magic}
+\label{tablequestion5}
+\end{table}

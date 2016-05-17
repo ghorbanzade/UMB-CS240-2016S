@@ -1,0 +1,37 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Solution}
+
+\begin{enumerate}
+\item
+A header file allows functions defines in \texttt{reverse.c} to be reused in other programs if the \texttt{reverse.o} object file is linked during compilation.
+
+\item
+The \textit{header guard} will make sure the functions are only included once in a program.
+
+\item
+Declaring the function allows the compiler to accept calling the function from other functions before it has compiled their definition.
+
+\item
+The heap memory is allocated in \texttt{reverse.c:30} where the function returns a pointer to the allocated memory.
+Even if modern operating systems may restore allocated memory once the program terminates, failure to deallocate the assigned memory block is considered as bad practice and may result in memory leak on embedded systems.
+
+\item
+The \texttt{while} loop counts the number of characters in the given string.
+
+\item
+Since \texttt{sizeof(char)} is always one byte, proposed modification does not change functionality of the code.
+
+\item
+The \texttt{malloc} call may fail to allocate a memory block with requested size, in which case it returns \texttt{null}.
+By checking value of \texttt{ret}, the programmer makes sure the program continues only after enough bytes have been allocated on the heap memory.
+
+\item
+Setting the last index of an array of characters to null terminator constructs a meaningful strings separated from consecutive bytes.
+
+\end{enumerate}

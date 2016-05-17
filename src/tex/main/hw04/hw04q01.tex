@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CS240: Programming in C
+% Copyright 2015 Pejman Ghorbanzade <mail@ghorbanzade.com>
+% Creative Commons Attribution-ShareAlike 4.0 International License
+% https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Question 1}
+
+Write a program \texttt{fruit-basket.c} that initializes an array of string with names of four different fruits.
+The \texttt{main()} function of program is given below and you may not modify it.
+In addition, you may not include any header file other than \texttt{fruit-basket.h} in \texttt{fruit-basket.c}.
+
+\lstset{language=c,tabsize=4}
+\lstinputlisting[firstline=15,lastline=20]{\resDirectory/fruit-basket.c}
+
+Following is the expected output of a sample run of your program.
+
+\begin{terminal}
+$ ls
+fruit-basket.c fruit-basket.h
+$ gcc -c -o fruit-basket.o fruit-basket.c
+$ gcc -o fruit-basket fruit-basket.o -Wall -std=gnu99 -I.
+$ ./fruit-basket
+fruit 1: banana
+fruit 2: apple
+fruit 3: orange
+fruit 4: pineapple
+\end{terminal}
