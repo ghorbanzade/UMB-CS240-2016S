@@ -5,16 +5,20 @@
 % https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\def \topDirectory {../..}
-\def \texDirectory {\topDirectory/src/main/tex}
+\def \topDirectory {.}
+\def \resDirectory {\topDirectory/src/c/main/ls03}
+\def \texDirectory {\topDirectory/src/tex}
+\def \styDirectory {\texDirectory/sty}
+\def \cfgDirectory {\texDirectory/cfg}
+\def \imgDirectory {\texDirectory/img}
 
 \documentclass[compress]{beamer}
 %\mode<presentation>
 %\usetheme{default}
 
-\usepackage{\texDirectory/template/style/directives}
-\input{\texDirectory/template/config}
-\usepackage{\texDirectory/template/style/beamerthemePejman}
+\usepackage{\styDirectory/directives}
+\input{\cfgDirectory/config}
+\usepackage{\styDirectory/beamerthemePejman}
 \doc{number}{3}
 %\setbeamertemplate{footline}[text line]{}
 
@@ -32,7 +36,7 @@
 	\end{block}
 	\column{0.6\textwidth}
 	\begin{figure}
-	\includegraphics[width=0.8\textwidth]{\texDirectory/img/pioneers.jpg}
+	\includegraphics[width=0.8\textwidth]{\imgDirectory/pioneers.jpg}
 	\end{figure}
 	\end{columns}
 \end{slide}
@@ -54,7 +58,7 @@
 	\begin{block}{Popularity of C}
 
 	\begin{figure}
-	\includegraphics[width=0.8\textwidth]{\texDirectory/img/pypl.png}
+	\includegraphics[width=0.8\textwidth]{\imgDirectory/pypl.png}
 	\end{figure}
 
 	\end{block}
@@ -63,14 +67,11 @@
 \begin{slide}
 	\begin{block}{Hello World Program}
 
-	\begin{minted}[fontsize=\small,linenos]{c}
-	#include <stdio.h>
-
-	int main(void)
-	{
-	    printf("Hello World!\n");
-	}
-	\end{minted}
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=10,
+		linenos
+	]{c}{\resDirectory/hello-world.c}
 
 	\end{block}
 \end{slide}
@@ -112,41 +113,23 @@
 \end{slide}
 
 \begin{slide}
-	\begin{block}{Hello World Program}
-
-	\begin{minted}[fontsize=\small,linenos]{c}
-	/*
-	 * This program prints "Hello World"
-	 * on the screen.
-	 */
-
-	#include <stdio.h>
-
-	int main(void)
-	{
-	    printf("Hello World!\n");
-	}
-	\end{minted}
-
-	\end{block}
-\end{slide}
-
-\begin{slide}
 	\begin{block}{Comments}
 
 	Any character between \alert{\texttt{/*}} and \alert{\texttt{*/}} is ignored by the compiler.
 
-	\begin{minted}[fontsize=\small]{c}
-	/*
-	 * This is a multi-line comment.
-	 */
-	\end{minted}
+	\inputminted[
+		fontsize=\small,
+		firstline=13,
+		lastline=15
+	]{c}{\resDirectory/comment.c}
 
 	Any character after \alert{\texttt{//}} in a line is considered a comment and is ignored by the compiler.
 
-	\begin{minted}[fontsize=\small]{c}
-	printf("Hello World!"); // prints "Hello World"
-	\end{minted}
+	\inputminted[
+		fontsize=\small,
+		firstline=18,
+		lastline=18
+	]{c}{\resDirectory/comment.c}
 
 	\end{block}
 \end{slide}
@@ -156,11 +139,11 @@
 
 	source lines of code preceded by a hash sign (\#) are directives for C preprocessor.
 
-	\begin{minted}[fontsize=\small]{c}
-	#include <stdio.h> // includes stdio.h library
-	#define MAX_LENGTH 20 // replaces all instances of
-	                      // MAX_LENGTH with 20
-	\end{minted}
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=10,
+		lastline=11
+	]{c}{\resDirectory/comment.c}
 
 	\alert{\texttt{\#include}} directive appends a specified header file to the current file.
 
@@ -182,12 +165,11 @@
 	Each C program must have a function named \texttt{main}.
 	A C program terminates when all statements inside its \texttt{main} function are executed.
 
-	\begin{minted}[fontsize=\small,linenos,firstnumber=8]{c}
-	int main(void)
-	{
-	    printf("Hello World!\n");
-	}
-	\end{minted}
+	\inputminted[
+		fontsize=\small,
+		firstline=12,
+		linenos
+	]{c}{\resDirectory/hello-world.c}
 
 	\end{block}
 \end{slide}
@@ -198,9 +180,11 @@
 	A statement is a command that instructs the computer to take a specific set of actions.
 	All statements must end with a semicolon.
 
-	\begin{minted}[fontsize=\small,linenos,firstnumber=10]{c}
-	    printf("Hello World!\n");
-	\end{minted}
+	\inputminted[
+		fontsize=\small,
+		firstline=14,
+		lastline=14
+	]{c}{\resDirectory/hello-world.c}
 
 	\end{block}
 \end{slide}
@@ -211,17 +195,12 @@
 	\texttt{printf} function formats a string with given arguments and sends the formatted string to standard output.
 	\texttt{printf} function is part of \texttt{stdio} library and is defined in \texttt{printf.c} file.
 
-	\begin{minted}[fontsize=\small]{c}
-	int printf(const char *format, ...)
-	{
-	   va_list arg;
-	   int done;
-	   va_start(arg, format);
-	   done = vfprintf(stdout, format, arg);
-	   va_end(arg);
-	   return done;
-	}
-	\end{minted}
+	\inputminted[
+		fontsize=\small,
+		firstline=13,
+		lastline=21,
+		linenos
+	]{c}{\resDirectory/printf.c}
 
 	\end{block}
 \end{slide}
@@ -230,11 +209,10 @@
 	\begin{block}{Put Your Knowledge Into Practice}
 
 	\begin{figure}
-	\includegraphics[width=0.8\textwidth]{\texDirectory/img/random.png}
+	\includegraphics[width=0.8\textwidth]{\imgDirectory/random.png}
 	\end{figure}
 
 	\end{block}
 \end{slide}
-
 
 \end{document}

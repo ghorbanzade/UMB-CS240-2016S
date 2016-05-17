@@ -5,17 +5,20 @@
 % https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\def \topDirectory {../..}
-\def \texDirectory {\topDirectory/src/main/tex}
-\def \resDirectory {\topDirectory/src/main/c/ls16}
+\def \topDirectory {.}
+\def \resDirectory {\topDirectory/src/c/main/ls16}
+\def \texDirectory {\topDirectory/src/tex}
+\def \styDirectory {\texDirectory/sty}
+\def \cfgDirectory {\texDirectory/cfg}
+\def \imgDirectory {\texDirectory/img}
 
 \documentclass[compress]{beamer}
 %\mode<presentation>
 %\usetheme{default}
 
-\usepackage{\texDirectory/template/style/directives}
-\input{\texDirectory/template/config}
-\usepackage{\texDirectory/template/style/beamerthemePejman}
+\usepackage{\styDirectory/directives}
+\input{\cfgDirectory/config}
+\usepackage{\styDirectory/beamerthemePejman}
 \doc{number}{16}
 %\setbeamertemplate{footline}[text line]{}
 
@@ -130,7 +133,7 @@
 
 \begin{slide}
 	\begin{figure}
-	\includegraphics[width=0.7\textwidth]{\texDirectory/img/daltons.png}
+	\includegraphics[width=0.7\textwidth]{\imgDirectory/daltons.png}
 	\end{figure}
 \end{slide}
 
@@ -244,7 +247,7 @@ He never came home.
 	\end{quotation}
 	\column{0.5\textwidth}
 	\begin{figure}
-	\includegraphics[width=\textwidth]{\texDirectory/img/obama.jpg}
+	\includegraphics[width=\textwidth]{\imgDirectory/obama.jpg}
 	\end{figure}
 	\end{columns}
 \end{slide}

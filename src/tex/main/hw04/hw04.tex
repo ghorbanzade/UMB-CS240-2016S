@@ -6,13 +6,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def \topDirectory {.}
-\def \texDirectory {\topDirectory/src/main/tex}
-\def \resDirectory {\topDirectory/src/main/c/hw04}
+\def \resDirectory {\topDirectory/src/c/main/hw04}
+\def \texDirectory {\topDirectory/src/tex}
+\def \styDirectory {\texDirectory/sty}
+\def \cfgDirectory {\texDirectory/cfg}
 
 \documentclass[12pt,letterpaper,twoside]{article}
-\usepackage{\texDirectory/template/style/directives}
-\usepackage{\texDirectory/template/style/assignment}
-\input{\texDirectory/template/config}
+\usepackage{\styDirectory/directives}
+\usepackage{\styDirectory/assignment}
+\input{\cfgDirectory/config}
 
 \usepackage{amsmath}
 

@@ -12,7 +12,7 @@ addons:
     - python-pygments
     - ghostscript
 script:
-  - make docs
+  - make
 notifications:
   email:
     recipients:

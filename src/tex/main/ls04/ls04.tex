@@ -5,16 +5,20 @@
 % https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\def \topDirectory {../..}
-\def \texDirectory {\topDirectory/src/main/tex}
+\def \topDirectory {.}
+\def \resDirectory {\topDirectory/src/c/main/ls04}
+\def \texDirectory {\topDirectory/src/tex}
+\def \styDirectory {\texDirectory/sty}
+\def \cfgDirectory {\texDirectory/cfg}
+\def \imgDirectory {\texDirectory/img}
 
 \documentclass[compress]{beamer}
 %\mode<presentation>
 %\usetheme{default}
 
-\usepackage{\texDirectory/template/style/directives}
-\input{\texDirectory/template/config}
-\usepackage{\texDirectory/template/style/beamerthemePejman}
+\usepackage{\styDirectory/directives}
+\input{\cfgDirectory/config}
+\usepackage{\styDirectory/beamerthemePejman}
 \doc{number}{4}
 %\setbeamertemplate{footline}[text line]{}
 
@@ -229,14 +233,12 @@
 
 	Declared data type should be consistent with the value assigned.
 
-	\begin{minted}[fontsize=\small]{c}
-	char letter = 'Q';
-	short num_students = 64;
-	int income = 124350;
-	long population = 2238643747;
-	float height = 19.75;
-	double avogadro = 6.022e23;
-	\end{minted}
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=14,
+		lastline=19,
+		linenos
+	]{c}{\resDirectory/hello-cmd1.c}
 
 	\end{block}
 \end{slide}
@@ -254,7 +256,7 @@
 
 \begin{slide}
 	\begin{figure}
-	\includegraphics[width=0.8\textwidth]{\texDirectory/img/boolean.jpg}
+	\includegraphics[width=0.8\textwidth]{\imgDirectory/boolean.jpg}
 	\end{figure}
 \end{slide}
 
@@ -279,14 +281,11 @@
 \begin{slide}
 	\begin{block}{Implementation}
 
-	\begin{minted}[fontsize=\small,linenos]{c}
-	#include <stdio.h>
-
-	int main(int argc, char *argv[])
-	{
-	    printf("Hello %s!\n", argv[1]);
-	}
-	\end{minted}
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=10,
+		linenos
+	]{c}{\resDirectory/hello-cmd1.c}
 
 	\end{block}
 \end{slide}
@@ -324,18 +323,11 @@
 \begin{slide}
 	\begin{block}{Proposed Solution}
 
-	\begin{minted}[fontsize=\small,linenos]{c}
-	#include <stdio.h>
-
-	int main(int argc, char *argv[])
-	{
-	     if (argc >= 2) {
-	          printf("Hello %s!\n", argv[1]);
-	     } else {
-	          printf("Hello!\n");
-	     }
-	}
-	\end{minted}
+	\inputminted[
+		fontsize=\scriptsize,
+		firstline=10,
+		linenos
+	]{c}{\resDirectory/hello-cmd2.c}
 
 	\end{block}
 \end{slide}
@@ -353,7 +345,7 @@
 
 \begin{slide}
 	\begin{figure}
-	\includegraphics[width=0.6\textwidth]{\texDirectory/img/sudo.png}
+	\includegraphics[width=0.6\textwidth]{\imgDirectory/sudo.png}
 	\end{figure}
 \end{slide}
 

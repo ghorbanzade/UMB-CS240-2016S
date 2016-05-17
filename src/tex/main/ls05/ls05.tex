@@ -5,16 +5,20 @@
 % https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/LICENSE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\def \topDirectory {../..}
-\def \texDirectory {\topDirectory/src/main/tex}
+\def \topDirectory {.}
+\def \resDirectory {\topDirectory/src/c/main/ls05}
+\def \texDirectory {\topDirectory/src/tex}
+\def \styDirectory {\texDirectory/sty}
+\def \cfgDirectory {\texDirectory/cfg}
+\def \imgDirectory {\texDirectory/img}
 
 \documentclass[compress]{beamer}
 %\mode<presentation>
 %\usetheme{default}
 
-\usepackage{\texDirectory/template/style/directives}
-\input{\texDirectory/template/config}
-\usepackage{\texDirectory/template/style/beamerthemePejman}
+\usepackage{\styDirectory/directives}
+\input{\cfgDirectory/config}
+\usepackage{\styDirectory/beamerthemePejman}
 \doc{number}{5}
 %\setbeamertemplate{footline}[text line]{}
 
@@ -478,7 +482,7 @@ if (b++ == a)
 
 \begin{slide}
 	\begin{figure}
-	\includegraphics[width=0.5\textwidth]{\texDirectory/img/wonka.jpg}
+	\includegraphics[width=0.5\textwidth]{\imgDirectory/wonka.jpg}
 	\end{figure}
 \end{slide}
 
