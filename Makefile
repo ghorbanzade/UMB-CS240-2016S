@@ -58,7 +58,7 @@ docs: dirs $(DOC_DST)
 $(DOC_DST): $(DOC_SRC)
 	@echo -n "  Building $(@F)... "
 	@pdflatex -halt-on-error -output-directory $(DOC_DIR) \
-		-shell-escape $(@:$(DOC_DIR)/%.pdf=$(TEX_DIR)/%.tex)
+		-shell-escape $(@:$(DOC_DIR)/%.pdf=$(TEX_DIR)/%.tex) > /dev/null
 	@pdflatex -halt-on-error -output-directory $(DOC_DIR) \
 		-shell-escape $(@:$(DOC_DIR)/%.pdf=$(TEX_DIR)/%.tex) > /dev/null
 	@rm -rf $(DOC_DIR)/$(@F:.pdf=).aux
@@ -68,6 +68,7 @@ $(DOC_DST): $(DOC_SRC)
 	@rm -rf $(DOC_DIR)/$(@F:.pdf=).snm
 	@rm -rf $(DOC_DIR)/$(@F:.pdf=).toc
 	@rm -rf $(DOC_DIR)/$(@F:.pdf=).vrb
+	@rm -rf _minted-$(patsubst %.pdf,%, $(@F:.pdf=))
 	@echo "OK"
 
 publish: all
