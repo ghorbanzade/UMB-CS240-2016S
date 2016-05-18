@@ -19,7 +19,7 @@ int function2(float a, float b)
 	return (a < b) ? 1 : 0;
 }
 
-int compare(float num1, float num2, int (*func)(float, float))
+void compare(float num1, float num2, int (*func)(float, float))
 {
 	printf("%d\n", (*func)(num1, num2));
 }

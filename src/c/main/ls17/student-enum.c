@@ -14,14 +14,14 @@ int main(void)
 	struct student std;
 	std.name = "John Smith";
 	std.gpa = 3.45;
-	std.level = FRESHMAN;
+	std.year = FRESHMAN;
 	show_info(&std);
 }
 
-int show_info(struct student *std)
+void show_info(struct student *std)
 {
 	char *years[] = {"freshman", "sophomore", "junior", "senior"};
 	printf("student name: %s\n", std->name);
 	printf("student gpa:  %f\n", std->gpa);
-	printf("student year: %s\n", years[std->level]);
+	printf("student year: %s\n", years[std->year]);
 }

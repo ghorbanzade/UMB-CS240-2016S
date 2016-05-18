@@ -2,13 +2,13 @@ CC = gcc
 TOP_DIR = ../../../..
 BIN_DIR = $(TOP_DIR)/bin
 EXE_DIR = $(BIN_DIR)/exe
-DST_DIR = $(EXE_DIR)/hw04
+DST_DIR = $(EXE_DIR)/hw01
 INC_DIR = .
 SRC_DIR = .
 
 CFLAGS = -Werror -Wall -std=gnu99 -I$(INC_DIR)
 
-_TARGETS = fruit-basket slow-prime
+_TARGETS = fahrenheit hello-world weather
 
 TARGETS = $(foreach TARGET, $(_TARGETS), $(DST_DIR)/$(TARGET))
 
@@ -16,11 +16,15 @@ TARGETS = $(foreach TARGET, $(_TARGETS), $(DST_DIR)/$(TARGET))
 
 all: $(TARGETS)
 
-$(DST_DIR)/fruit-basket: $(SRC_DIR)/fruit-basket.c
+$(DST_DIR)/fahrenheit: $(SRC_DIR)/fahrenheit.c
 	$(CC) -c -o $@ $< $(CFALGS)
 	$(CC) -o $@ $^ $(CFLAGS)
 
-$(DST_DIR)/slow-prime: $(SRC_DIR)/slow-prime.c
+$(DST_DIR)/hello-world: $(SRC_DIR)/hello-world.c
+	$(CC) -c -o $@ $< $(CFALGS)
+	$(CC) -o $@ $^ $(CFLAGS)
+
+$(DST_DIR)/weather: $(SRC_DIR)/weather.c
 	$(CC) -c -o $@ $< $(CFALGS)
 	$(CC) -o $@ $^ $(CFLAGS)
 

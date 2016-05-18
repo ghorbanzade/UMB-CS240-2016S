@@ -12,7 +12,6 @@
 
 int main(void)
 {
-	int i;
 	int size = 10;
 	int *array = calloc(size, sizeof(int));
 	if (array == NULL) {

@@ -18,7 +18,7 @@ int main(void)
 	show(&std);
 }
 
-int show(Student *std)
+void show(Student *std)
 {
 	printf("student id:   %d\n", std->id);
 	printf("student name: %s\n", std->name);

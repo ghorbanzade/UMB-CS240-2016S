@@ -20,7 +20,33 @@ number: 125
 To solve this problem, he wrote the following program.
 
 \lstset{language=c,tabsize=4}
-\lstinputlisting[firstline=10]{\resDirectory/prompt-number-q.c}
+\begin{lstlisting}
+// Edgar Linton
+// <edgar.linton001@umb.edu>
+
+#include <stdio.h>
+#define MAX_LENGTH 32
+
+int main(void)
+{
+	int num = getNum();
+	printf("%d\n", num);
+}
+
+int getNum(void)
+{
+	int res;
+	char ch;
+	int i = 0;
+	char array[MAX_LENGTH];
+	while ((ch = getchar()) != '\n')
+		array[i] = ch;
+	i = 0;
+	while (array[i] != '\0')
+		res = res * 10 + array[i++] - '0';
+	return res;
+}
+\end{lstlisting}
 
 His program produces the following output.
 

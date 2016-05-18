@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include <string.h>
 
+int str2num(char str[]);
+
 int main(int argc, char *argv[])
 {
 	int i;

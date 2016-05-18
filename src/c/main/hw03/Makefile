@@ -2,13 +2,13 @@ CC = gcc
 TOP_DIR = ../../../..
 BIN_DIR = $(TOP_DIR)/bin
 EXE_DIR = $(BIN_DIR)/exe
-DST_DIR = $(EXE_DIR)/hw04
+DST_DIR = $(EXE_DIR)/hw03
 INC_DIR = .
 SRC_DIR = .
 
 CFLAGS = -Werror -Wall -std=gnu99 -I$(INC_DIR)
 
-_TARGETS = fruit-basket slow-prime
+_TARGETS = bmi prime reverse
 
 TARGETS = $(foreach TARGET, $(_TARGETS), $(DST_DIR)/$(TARGET))
 
@@ -16,11 +16,15 @@ TARGETS = $(foreach TARGET, $(_TARGETS), $(DST_DIR)/$(TARGET))
 
 all: $(TARGETS)
 
-$(DST_DIR)/fruit-basket: $(SRC_DIR)/fruit-basket.c
+$(DST_DIR)/bmi: $(SRC_DIR)/bmi.c
 	$(CC) -c -o $@ $< $(CFALGS)
 	$(CC) -o $@ $^ $(CFLAGS)
 
-$(DST_DIR)/slow-prime: $(SRC_DIR)/slow-prime.c
+$(DST_DIR)/prime: $(SRC_DIR)/prime.c
+	$(CC) -c -o $@ $< $(CFALGS)
+	$(CC) -o $@ $^ $(CFLAGS)
+
+$(DST_DIR)/reverse: $(SRC_DIR)/reverse.c
 	$(CC) -c -o $@ $< $(CFALGS)
 	$(CC) -o $@ $^ $(CFLAGS)
 

@@ -31,10 +31,6 @@ int func(char *str)
  */
 int main(int argc, char *argv[])
 {
-	int i;
-	int j;
-	int size;
-	int **matrix;
 	if (argc < 2) {
 		printf("error: missing command line arguments\n");
 		printf("usage: %s [string]\n", argv[0]);

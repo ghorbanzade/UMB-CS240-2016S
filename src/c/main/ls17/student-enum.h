@@ -25,6 +25,6 @@ struct student {
 	enum level year;
 };
 
-int show_info(struct student *std);
+void show_info(struct student *std);
 
 #endif // ENUM_H

@@ -1,41 +1,24 @@
 CC = gcc
-TOP_DIR = .
-SRC_DIR = $(TOP_DIR)
-BIN_DIR = $(TOP_DIR)
+TOP_DIR = ../../../..
+BIN_DIR = $(TOP_DIR)/bin
+EXE_DIR = $(BIN_DIR)/exe
+DST_DIR = $(EXE_DIR)/ls18
+INC_DIR = .
+SRC_DIR = .
 
-CFLAGS = -Werror -Wall -std=gnu99 -I$(SRC_DIR)
+CFLAGS = -Werror -Wall -std=gnu99 -I$(INC_DIR)
 
-BINS = array-list linked-list
-FILES1 = array-list
-FILES2 = linked-list
+_TARGETS = array-list linked-list
 
-TARGETS = $(foreach TARGET, $(BINS), $(BIN_DIR)/$(TARGET))
-DEPS1 = $(foreach FILE, $(FILES1), $(SRC_DIR)/$(FILE).h)
-OBJS1 = $(foreach FILE, $(FILES1), $(BIN_DIR)/$(FILE).o)
-DEPS2 = $(foreach FILE, $(FILES2), $(SRC_DIR)/$(FILE).h)
-OBJS2 = $(foreach FILE, $(FILES2), $(BIN_DIR)/$(FILE).o)
+TARGETS = $(foreach TARGET, $(_TARGETS), $(DST_DIR)/$(TARGET))
 
-.PHONY: all tidy clean
+.PHONY: all clean
 
-all: $(BIN_DIR) $(TARGETS)
+all: $(TARGETS)
 
-$(BIN_DIR)/array-list: $(OBJS1)
+$(DST_DIR)/%: $(SRC_DIR)/%.c
+	$(CC) -c -o $@ $< $(CFALGS)
 	$(CC) -o $@ $^ $(CFLAGS)
 
-$(BIN_DIR)/linked-list: $(OBJS2)
-	$(CC) -o $@ $^ $(CFLAGS)
-
-$(BIN_DIR)/%.o: $(SRC_DIR)/%.c $(DEPS1)
-	$(CC) -c -o $@ $< $(CFLAGS)
-
-$(BIN_DIR)/%.o: $(SRC_DIR)/%.c $(DEPS2)
-	$(CC) -c -o $@ $< $(CFLAGS)
-
-$(BIN_DIR):
-	mkdir -p $(BIN_DIR)
-
-tidy:
-	rm -rf $(BIN_DIR)/*.o
-
-clean: tidy
-	rm -rf $(BINS)
+clean:
+	rm -rf $(TARGETS)

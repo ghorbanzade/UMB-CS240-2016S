@@ -36,8 +36,8 @@ int str2int(char *str, int *num)
 
 int main(void)
 {
-	int num, res;
+	int num;
 	char *str = "-s423";
-	res = str2int(str, &num);
+	str2int(str, &num);
 	printf("%d\n", num);
 }

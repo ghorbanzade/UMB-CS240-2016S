@@ -15,10 +15,10 @@
  */
 int main(int argc, char *argv[])
 {
-	int i;
 	int ret = EXIT_FAILURE;
 	struct brother brothers[BROTHER_NUM];
 	char *names[] = {"Joe", "Jack", "William", "Averell"};
+
 	if (argc <= BROTHER_NUM) {
 		printf("error: missing command line arguments\n");
 		goto ERROR;

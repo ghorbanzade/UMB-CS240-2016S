@@ -25,7 +25,7 @@ void arraylist_init(struct arraylist *list)
  */
 void arraylist_add(struct arraylist *list, int value)
 {
-	size_t new_size;
+
 	if (list->size <= list->nmemb * sizeof(int)) {
 		list->size *= 2;
 		list->elements = realloc(list->elements, list->size);

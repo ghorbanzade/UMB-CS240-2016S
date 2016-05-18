@@ -10,6 +10,7 @@
 #ifndef ARRAY_UTILS_H
 #define ARRAY_UTILS_H
 
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

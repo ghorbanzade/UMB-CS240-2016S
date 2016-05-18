@@ -64,7 +64,7 @@ void selection_sort(int *arr, int size)
 
 /**
  *
- */ 
+ */
 void sort(int *arr, int size, void (*func)(int*, int))
 {
 	(*func)(arr, size);
@@ -93,7 +93,6 @@ void choose_sort_algorithm(void (**func)(int *, int))
  */
 int main(int argc, char *argv[])
 {
-	int i;
 	void (*func)(int*, int);
 	int *arr = malloc((argc - 1) * sizeof(int));
 	if (cmd2num(argc - 1, arr, argc, argv))

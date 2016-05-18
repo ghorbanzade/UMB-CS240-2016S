@@ -28,7 +28,7 @@ void fill_basket(char *basket[], const int size)
 	char *fruits[] = {"banana", "apple", "orange", "pineapple"};
 	for (i = 0; i < size; i++) {
 		basket[i] = malloc(sizeof(fruits[i]));
-		strncpy(basket[i], fruits[i], sizeof(fruits[i]));
+		strncpy(basket[i], fruits[i], (int) sizeof(fruits[i]));
 	}
 }
 

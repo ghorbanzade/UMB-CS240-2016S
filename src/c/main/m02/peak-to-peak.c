@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include <string.h>
 
+int peak_to_peak(int array[], int size);
+
 int main(int argc, char *argv[])
 {
 	int diff;

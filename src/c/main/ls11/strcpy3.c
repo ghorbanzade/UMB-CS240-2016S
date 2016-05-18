@@ -11,7 +11,7 @@
 
 void our_strcpy(char *s, char *t)
 {
-	while (*s++ = *t++);
+	while ((*s++ = *t++));
 }
 
 int main(void)

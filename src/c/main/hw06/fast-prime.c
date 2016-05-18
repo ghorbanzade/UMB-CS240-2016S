@@ -73,7 +73,6 @@ int prime_check(int num)
 	int *primes = NULL;
 	int primes_size;
 	int ret = -1;
-	int i;
 	if (num < 2)
 		goto ERROR;
 	if (read_primes(&primes, &primes_size)) {
@@ -152,7 +151,6 @@ int check_on_set(int num, int *primes, int size)
  */
 int check_beyond(int num, int **primes, int *size)
 {
-	int i = 0;
 	int ret = -1;
 	int cur = (*primes)[*size - 1];
 	int asize = get_alloc_size(*size);

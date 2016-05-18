@@ -25,7 +25,7 @@ void arraylist_init(ArrayList *list)
  */
 void arraylist_add(ArrayList *list, int value)
 {
-	size_t new_size;
+
 	if (list->size <= list->nmemb * sizeof(int)) {
 		list->size *= 2;
 		list->elements = realloc(list->elements, list->size);

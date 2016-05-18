@@ -16,7 +16,7 @@ int main(void)
 	FILE *fp;
 	char buff[MAXLEN];
 	fp = fopen("sample.txt", "r");
-	while (len = fread(buff, sizeof(char), MAXLEN, fp)) {
+	while ((len = fread(buff, sizeof(char), MAXLEN, fp))) {
 		buff[len] = '\0';
 		printf("%s", buff);
 	}

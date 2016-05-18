@@ -10,6 +10,7 @@
 #ifndef DALTONS_H
 #define DALTONS_H
 
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #define BROTHER_NUM 4

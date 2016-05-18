@@ -21,6 +21,6 @@ typedef struct student {
 	char name[MAXLEN];
 } Student;
 
-int show(Student *std);
+void show(Student *std);
 
 #endif // TYPEDEF_H

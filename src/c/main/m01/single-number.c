@@ -9,6 +9,8 @@
 
 #include <stdio.h>
 
+int single_number(int array[], int size);
+
 int main(void)
 {
 	int out;

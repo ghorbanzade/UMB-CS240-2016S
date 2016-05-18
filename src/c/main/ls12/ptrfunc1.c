@@ -19,7 +19,7 @@ void function2()
 	printf("second function\n");
 }
 
-int wrapper(void (*func)(void))
+void wrapper(void (*func)(void))
 {
 	(*func)();
 }

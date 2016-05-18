@@ -18,10 +18,16 @@ ls13/ls13 ls14/ls14 ls15/ls15 ls16/ls16 ls17/ls17 ls18/ls18
 DOC_SRC = $(foreach NUM, $(DOCS), $(TEX_DIR)/$(NUM).tex)
 DOC_DST = $(foreach NUM, $(DOC_SRC), $(DOC_DIR)/$(NUM:$(TEX_DIR)/%.tex=%.pdf))
 
-COD_SRC = $(sort $(wildcard $(COD_DIR)/*))
+CODE = \
+hw01 hw02 hw03 hw04 hw05 hw06 \
+m01 m02 f01 f02 \
+ls03 ls04 ls06 \
+ls07 ls08 ls09 ls10 ls11 ls12 \
+ls13 ls14 ls15 ls16 ls17 ls18
+COD_SRC = $(foreach NUM, $(CODE), $(COD_DIR)/$(NUM))
 COD_DST = $(foreach NUM, $(COD_SRC), $(ZIP_DIR)/$(notdir $(NUM)).zip)
 
-.PHONY: dirs code docs clean
+.PHONY: dirs code docs publish clean
 
 all: dirs code docs
 
@@ -36,22 +42,23 @@ code: dirs compile
 compile: dirs $(COD_DST)
 
 $(COD_DST): $(COD_SRC)
-	@echo " $(@F:.zip=)... "
-	@$(MAKE) --no-print-directory -C $(<D)/$(@F:.zip=)
+	@echo -n "  Compiling $(@F:.zip=)... "
+	@mkdir -p $(EXE_DIR)/$(@F:.zip=)
+	@$(MAKE) --no-print-directory -C $(<D)/$(@F:.zip=) > /dev/null
 	@zip -rjq $(ZIP_DIR)/$(@F) $(<D)/$(@F:.zip=)
-	@echo "Done."
+	@echo "OK"
 
 docs: dirs $(DOC_DST)
 	@echo -n "  Binding documents... "
 	@gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite \
 		-sOutputFile=$(BIN_DIR)/cs240.pdf \
 		$(foreach NUM, $(DOC_DST), $(DOC_DIR)/$(notdir $(NUM)))
-	@echo "Done."
+	@echo "OK"
 
 $(DOC_DST): $(DOC_SRC)
-	@echo -n "  $(@F)... "
+	@echo -n "  Building $(@F)... "
 	@pdflatex -halt-on-error -output-directory $(DOC_DIR) \
-		-shell-escape $(@:$(DOC_DIR)/%.pdf=$(TEX_DIR)/%.tex) > /dev/null
+		-shell-escape $(@:$(DOC_DIR)/%.pdf=$(TEX_DIR)/%.tex)
 	@pdflatex -halt-on-error -output-directory $(DOC_DIR) \
 		-shell-escape $(@:$(DOC_DIR)/%.pdf=$(TEX_DIR)/%.tex) > /dev/null
 	@rm -rf $(DOC_DIR)/$(@F:.pdf=).aux
@@ -61,12 +68,12 @@ $(DOC_DST): $(DOC_SRC)
 	@rm -rf $(DOC_DIR)/$(@F:.pdf=).snm
 	@rm -rf $(DOC_DIR)/$(@F:.pdf=).toc
 	@rm -rf $(DOC_DIR)/$(@F:.pdf=).vrb
-	@echo "Done."
+	@echo "OK"
 
 publish: all
 	@echo -n "  Uploading to Remote... " && \
 	./upload-files.sh
-	@echo "Done."
+	@echo "OK"
 
 clean:
 	@echo -n "  Removing binaries... "

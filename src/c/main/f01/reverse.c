@@ -11,7 +11,7 @@
 
 int main(void)
 {
-	char *str;
+	char *str = NULL;
 	char *rev;
 	printf("string: ");
 	scanf("%s", str);

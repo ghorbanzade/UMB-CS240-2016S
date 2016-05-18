@@ -47,8 +47,8 @@ void print(int **matrix, int size)
  */
 int main(int argc, char *argv[])
 {
-	int i;
-	int j;
+
+
 	int size;
 	int **matrix;
 	if (argc < 2) {
