@@ -100,7 +100,7 @@
 	\vspace*{0.5em}
 	% Horizontal Line
 	\begin{tikzpicture}
-		\draw[line width=0.5mm, myDarkTeal] (0, 0) -- (\textwidth, 0);
+	\draw[line width=0.5mm, myDarkTeal] (0, 0) -- (\textwidth, 0);
 	\end{tikzpicture}
 	\par
 	\vspace*{1em}
@@ -141,6 +141,46 @@
 	\vspace*{5mm}
 
 	\end{minipage}
+	\end{frame}
+	\endgroup
+}
+
+%% Section Starter Slide
+\AtBeginSection[]{
+	\begingroup
+	\begin{frame}[plain]
+
+	% Course Name
+	\ifx\courseName\@empty
+	\else {
+		\courseName
+		\par
+	}
+	\vspace*{0.5em}
+	\fi
+	% Lecture Number
+	\ifx\docNumber\@empty
+	\else {
+		Lecture \docNumber
+		\par
+	}
+	\vspace*{0.5em}
+	\fi
+	% Horizontal Line
+	\begin{tikzpicture}
+	\draw[line width=0.5mm, myDarkTeal] (0, 0) -- (\textwidth, 0);
+	\end{tikzpicture}
+	\par
+	\vspace*{1em}
+	% Section Name
+	\ifx\secName\@empty
+	\else {
+		\secname
+		\par
+	}
+	\vspace*{0.5em}
+	\fi
+
 	\end{frame}
 	\endgroup
 }
