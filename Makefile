@@ -51,7 +51,7 @@ $(COD_DST): $(COD_SRC)
 docs: dirs $(DOC_DST)
 	@echo -n "  Binding documents... "
 	@gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite \
-		-sOutputFile=$(BIN_DIR)/cs240.pdf \
+		-sOutputFile=$(DOC_DIR)/cs240.pdf \
 		$(foreach NUM, $(DOC_DST), $(DOC_DIR)/$(notdir $(NUM)))
 	@echo "OK"
 
