@@ -1,10 +1,11 @@
 #!/bin/bash
 
-SRC_DIR="bin/doc"
-DST_DIR="bin/tmp"
+DIR_PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SRC_DIR="${DIR_PROJECT_ROOT}/bin/doc"
+DST_DIR="${DIR_PROJECT_ROOT}/bin/tmp"
 COURSE_NAME="CS240-2016S"
 COURSE_DIR="${DST_DIR}/${COURSE_NAME}"
-STAGING_FILE="bin/${COURSE_NAME}.tar.gz"
+STAGING_FILE="${DIR_PROJEC_ROOT}/bin/${COURSE_NAME}.tar.gz"
 
 upload_to_remote () {
   if [ -z ${DEPLOY_TARGET} ]; then
@@ -51,7 +52,7 @@ stage_files () {
   return ${ret}
 }
 
-stage_files cfg/remote-files.list
+stage_files "${DIR_PROJECT_ROOT}/cfg/remote-files.list"
 if [ $? -ne 0 ]; then
   echo "aborting: failed to prepare seed"
   exit 1
