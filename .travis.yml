@@ -1,18 +1,14 @@
-sudo: required
-dist: trusty
-language: c
-compiler: gcc
-addons:
-  apt:
-    packages:
-    - texlive-latex-base
-    - texlive-latex-extra
-    - latex-beamer
-    - pgf
-    - python-pygments
-    - ghostscript
-script:
-  - make
+language: generic
+services:
+  - docker
+before_install:
+  - docker build -t ghorbanzade/umb-cs240-2016s -f cfg/Dockerfile --target builder .
+install: true
+after_success:
+  - if [[ "$TRAVIS_BRANCH" == "master" ]]; then
+      echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin;
+      docker push ghorbanzade/umb-cs240-2016s;
+    fi
 notifications:
   email:
     recipients:
