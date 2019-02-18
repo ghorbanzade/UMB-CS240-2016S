@@ -53,6 +53,7 @@ docs: dirs $(DOC_DST)
 	@gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite \
 		-sOutputFile=$(DOC_DIR)/cs240.pdf \
 		$(foreach NUM, $(DOC_DST), $(DOC_DIR)/$(notdir $(NUM)))
+	@cp Syllabus.md $(DOC_DIR)
 	@echo "OK"
 
 $(DOC_DST): $(DOC_SRC)
@@ -73,7 +74,7 @@ $(DOC_DST): $(DOC_SRC)
 
 publish: all
 	@echo -n "  Uploading to Remote... " && \
-	./upload-files.sh
+	./cfg/upload-files.sh
 	@echo "OK"
 
 clean:
