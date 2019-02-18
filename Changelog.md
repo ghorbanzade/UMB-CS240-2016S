@@ -1,14 +1,21 @@
 # Change Log
 
-## Version 1.2
-
-Release Date:
-
-[GitHub Diff](https://github.com/ghorbanzade/umb-cs240-2016s/compare/v1.1...v1.2)
-
 * Client-side view of course website is available at `gh-pages` branch.
 * Successful build to master branch automatically deploys all generated
   documents to target website
+
+## Version 1.2
+
+Release Date: February 18, 2019
+
+[GitHub Diff](https://github.com/ghorbanzade/umb-cs240-2016s/compare/v1.1...v1.1.1)
+
+* Added support for building teaching materials via Docker.
+  Since this repository is **not** under active development, the development
+  environment is getting outdated.
+  Providing Docker build support helps ensure continuous successful build
+  of the materials.
+* Updated author contact information and fixed outdated links.
 * Added `Changelog.md`.
 
 ## Version 1.1
