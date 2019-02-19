@@ -2,7 +2,7 @@ language: generic
 services:
   - docker
 before_install:
-  - docker build -t ghorbanzade/umb-cs240-2016s -f cfg/Dockerfile --target builder .
+  - docker build -t ghorbanzade/umb-cs240-2016s -f cfg/Dockerfile .
 install: true
 after_success:
   - if [[ "$TRAVIS_BRANCH" == "master" ]]; then
