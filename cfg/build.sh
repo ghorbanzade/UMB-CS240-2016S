@@ -1,5 +1,20 @@
 #!/usr/bin/env bash
 
+# configure bash environment
+set -o errexit -o pipefail -o noclobber -o nounset
+
+# show usage
+show_usage () {
+    cat << EOF
+usage: $(basename "$0") [ build ] [ stage] [ deploy ]
+  -h, --help            shows this message
+
+  build                 builds course materials
+  stage                 prepares build artifacts
+  deploy                deploys build artifacts to production server
+EOF
+}
+
 DIR_CONFIG="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DIR_PROJECT_ROOT="$(dirname "${DIR_CONFIG}")"
 DIR_BUILD="${DIR_PROJECT_ROOT}/bin"
@@ -78,17 +93,46 @@ upload_to_remote () {
     ssh "${DEPLOY_TARGET}" "./ghorcom/deploy.sh ${course_name}"
 }
 
-if ! build_files; then
+# check command line arguments
+
+ARG_HELP=1
+ARG_BUILD=0
+ARG_STAGE=0
+ARG_DEPLOY=0
+
+for arg in "$@"; do
+    case $arg in
+        "build")
+            ARG_BUILD=1
+            ARG_HELP=0
+            ;;
+        "deploy")
+            ARG_DEPLOY=1
+            ARG_HELP=0
+            ;;
+        "stage")
+            ARG_STAGE=1
+            ARG_HELP=0
+            ;;
+    esac
+done
+
+if [[ ${ARG_HELP} -eq 1 ]]; then
+    show_usage
+    exit 0
+fi
+
+if [[ ${ARG_BUILD} -eq 1 ]] && ! build_files; then
     echo "aborting: failing to build course materials"
     exit 1
 fi
 
-if ! stage_files; then
+if [[ ${ARG_STAGE} -eq 1 ]] && ! stage_files; then
     echo "aborting: failed to prepare artifacts"
     exit 1
 fi
 
-if ! upload_to_remote; then
+if [[ ${ARG_DEPLOY} -eq 1 ]] && ! upload_to_remote; then
     echo "aborting: failed to upload artifacts to remote repository"
     exit 1
 fi
