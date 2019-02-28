@@ -1,0 +1,6 @@
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+steps:
+- script: bash cfg/build.sh build
+- script: bash cfg/build.sh stage
