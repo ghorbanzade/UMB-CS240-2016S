@@ -34,11 +34,15 @@ build_files () {
         return 1
     fi
 
-    docker build -t "${docker_image}" -f "${DIR_CONFIG}/Dockerfile" "${DIR_PROJECT_ROOT}"
-    docker create --name "${docker_container}" "${docker_image}":latest
+    docker build -t "${docker_image}" -f "${DIR_CONFIG}/Dockerfile" \
+        "${DIR_PROJECT_ROOT}"
+    docker build -t "${docker_image}:builder" -f "${DIR_CONFIG}/Dockerfile" \
+        --target=builder "${DIR_PROJECT_ROOT}"
+    docker create --name "${docker_container}" "${docker_image}:builder"
     docker cp "${docker_container}":/opt/bin "${DIR_BUILD}"
     docker stop "${docker_container}"
     docker rm "${docker_container}"
+    docker rmi "${docker_image}:builder"
     docker image prune --force --filter label=stage=intermediate
 }
 

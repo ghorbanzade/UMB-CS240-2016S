@@ -21,7 +21,14 @@ USER pejman
 
 RUN make -C /opt
 
+# ---- stager ---
+
+FROM alpine:3.8 as stager
+RUN apk add --no-cache bash
+COPY --from=builder /opt /opt
+RUN bash /opt/cfg/build.sh stage
+
 # ---- production ---
 
 FROM alpine:3.8
-COPY --from=builder /opt/bin /opt/bin
+COPY --from=stager /opt/bin/tmp /opt/bin
