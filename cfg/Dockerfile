@@ -12,9 +12,7 @@ RUN apt-get update \
 
 RUN groupadd -r pejman && useradd -u 8002 --no-log-init -r -g pejman pejman
 
-COPY src /opt/src
-COPY Syllabus.md /opt/Syllabus.md
-COPY Makefile /opt/Makefile
+COPY . /opt
 
 RUN chown -R pejman:pejman /opt
 USER pejman
