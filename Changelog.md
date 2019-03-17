@@ -8,7 +8,7 @@
 
 Release Date: February 18, 2019
 
-[GitHub Diff](https://github.com/ghorbanzade/umb-cs240-2016s/compare/v1.1...v1.1.1)
+[GitHub Diff](https://github.com/ghorbanzade/umb-cs240-2016s/compare/v1.1...v1.2)
 
 * Added support for building teaching materials via Docker.
   Since this repository is **not** under active development, the development

@@ -17,13 +17,13 @@ high-level programming language.
 
 ## Topics
 
-Data types, Operators and Expressions  
-Program Control Flow  
-Functions and Program Structures  
-Pointers and Arrays  
-Dynamic Memory Allocation  
-Dynamic Data Structures  
-File Handling
+* Data types, Operators and Expressions
+* Program Control Flow
+* Functions and Program Structures
+* Pointers and Arrays
+* Dynamic Memory Allocation
+* Dynamic Data Structures
+* File Handling
 
 ## Prerequisites
 
@@ -33,8 +33,8 @@ CS210 (Intermediate Computing with Data Structures) at the same time.
 
 ## Textbook
 
-Brian Kernighan and Dennis Ritchie, The C Programming Language,
-2nd Edition, Prentice Hall
+> Brian Kernighan and Dennis Ritchie, The C Programming Language,
+> 2nd Edition, Prentice Hall
 
 ## Instructor
 
@@ -91,8 +91,8 @@ Mail Address: ``alexander.burke001 [at] umb [dot] edu``
 
 ## Supplemental Instruction Sessions
 
-- Mondays, 10:45 AM to 12:45 PM, W-1-0048
-- Fridays, 2:00 PM to 4:00 PM, W-1-0048
+* Mondays, 10:45 AM to 12:45 PM, W-1-0048
+* Fridays, 2:00 PM to 4:00 PM, W-1-0048
 
 ## Attendance Policy
 
@@ -112,26 +112,27 @@ submission increasing linearly from 20% to 100% of the homework score.
 
 Unless a good reason and its supporting evidence are given - e.g. due to
 illness or emergency events - no makeup is acceptable for students missing
-an assignment or an exam.
+a homework assignment or an exam.
 
 ## Accomodations
 
-Section 504 of the Americans with Disabilities Act of 1990 offers guidelines
-for curriculum modifications and adaptations for students with documented
-disabilities.
-If applicable, students may obtain adaptation recommendations from the
-[Ross Center for Disability Services], M-1-401, (617-287-7430).
-The student must present these recommendations and discuss them with each
-professor within a reasonable period, preferably by the end of Drop/Add period.
+Section 504 of the Americans with Disabilities Act of 1990 offers
+guidelines for curriculum modifications and adaptations for students
+with documented disabilities. If applicable, students may obtain
+adaptation recommendations from the [Ross Center for Disability Services][3],
+M-1-401, (617-287-7430). The student must present these recommendations
+and discuss them with each professor within a reasonable period,
+preferably by the end of Drop/Add period.
 
 ## Student Conduct
 
 Students are required to adhere to the University Policy on Academic
 Standards and Cheating, to the University Statement on Plagiarism and
-the Documentation of Written Work, and to the [Code of Student Conduct]
-as delineated in the catalog of Undergraduate Programs, pp. 44-45, and 48-52.
+the Documentation of Written Work, and to the [Code of Student Conduct][4]
+as delineated in the catalog of Undergraduate Programs, pp. 44-45, and
+48-52.
 
-[Ross Center for Disability Services]: http://www.umb.edu/academics/vpass/disability
-[Code of Student Conduct]: http://www.umb.edu/life_on_campus/policies/community/code
 [course website]: https://pejman.ghorbanzade.com/teaching/CS240-2016S
 [course repository]: https://github.com/ghorbanzade/UMB-CS240-2016S
+[3]: https://umb.edu/academics/vpass/disability
+[4]: https://umb.edu/life_on_campus/policies/community/code
