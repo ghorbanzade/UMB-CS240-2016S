@@ -1,8 +1,15 @@
 # Change Log
 
-* Client-side view of course website is available at `gh-pages` branch.
-* Successful build to master branch automatically deploys all generated
-  documents to target website
+## Version 1.3
+
+Release Date: March 17, 2019
+
+[GitHub Diff](https://github.com/ghorbanzade/umb-cs240-2016s/compare/v1.2...v1.3)
+
+* Updated project license to MIT and CC-BY-SA-4.0
+* Improved output makefile-based build system on some non-POSIX platforms
+* Final production docker image now includes staged artifacts
+* Added documentation to Readme and Syllabus files
 
 ## Version 1.2
 

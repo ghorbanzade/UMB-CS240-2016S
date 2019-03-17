@@ -54,6 +54,6 @@ For questions or further information please contact [Pejman Ghorbanzade].
 
 [1]: https://github.com/ghorbanzade/UMB-CS110-2015S
 [2]: https://github.com/ghorbanzade/UMB-CS114-2015F
-[3]: https://github.com/ghorbanzade/UMB-CS240-2016S/releases/download/v1.1/umb-cs240-2016s.pdf
+[3]: https://github.com/ghorbanzade/UMB-CS240-2016S/releases/download/v1.3/umb-cs240-2016s.pdf
 [4]: https://creativecommons.org/licenses/by-sa/4.0/
 [5]: https://github.com/ghorbanzade/UMB-CS240-2016S/blob/master/License.md
