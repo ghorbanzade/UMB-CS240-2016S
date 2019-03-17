@@ -42,14 +42,14 @@ code: dirs compile
 compile: dirs $(COD_DST)
 
 $(COD_DST): $(COD_SRC)
-	@echo -n "  Compiling $(@F:.zip=)... "
+	@printf "  Compiling $(@F:.zip=)... "
 	@mkdir -p $(EXE_DIR)/$(@F:.zip=)
 	@$(MAKE) --no-print-directory -C $(<D)/$(@F:.zip=) > /dev/null
 	@zip -rjq $(ZIP_DIR)/$(@F) $(<D)/$(@F:.zip=)
 	@echo "OK"
 
 docs: dirs $(DOC_DST)
-	@echo -n "  Binding documents... "
+	@printf "  Binding documents... "
 	@gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite \
 		-sOutputFile=$(DOC_DIR)/cs240.pdf \
 		$(foreach NUM, $(DOC_DST), $(DOC_DIR)/$(notdir $(NUM)))
@@ -57,7 +57,7 @@ docs: dirs $(DOC_DST)
 	@echo "OK"
 
 $(DOC_DST): $(DOC_SRC)
-	@echo -n "  Building $(@F)... "
+	@printf "  Building $(@F)... "
 	@pdflatex -halt-on-error -output-directory $(DOC_DIR) \
 		-shell-escape $(@:$(DOC_DIR)/%.pdf=$(TEX_DIR)/%.tex) > /dev/null
 	@pdflatex -halt-on-error -output-directory $(DOC_DIR) \
@@ -73,11 +73,11 @@ $(DOC_DST): $(DOC_SRC)
 	@echo "OK"
 
 publish: all
-	@echo -n "  Uploading to Remote... " && \
+	@printf "  Uploading to Remote... " && \
 	./cfg/upload-files.sh
 	@echo "OK"
 
 clean:
-	@echo -n "  Removing binaries... "
+	@printf "  Removing binaries... "
 	@rm -rf $(BIN_DIR)
 	@echo "OK"
